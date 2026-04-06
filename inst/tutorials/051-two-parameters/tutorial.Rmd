@@ -28,7 +28,7 @@ knitr::opts_chunk$set(echo = FALSE)
 options(tutorial.exercise.timelimit = 600, tutorial.storage = "local")
 
 # Because we want the uncertainty about the true mean to be
-# large enough to show up in out plot in an interesting way, we pretend that we
+# large enough to show up in our plot in an interesting way, we pretend that we
 # only have 50 observations.
 
 set.seed(10)
@@ -56,7 +56,7 @@ This tutorial supports [*Preceptor’s Primer for Bayesian Data Science: Using t
 
 The world confronts us. Make decisions we must.
 
-Imagine that you're in charge of ordering uniforms for next year's Marine Corps bootcamp recruits. There are many factors to consider: the cost of different designs, the number of male and female recruits, the distributions of heights and weights, and so on. There are many decisions to make. 
+Imagine that you are in charge of ordering uniforms for next year's Marine Corps bootcamp recruits. There are many factors to consider: the cost of different designs, the number of male and female recruits, the distributions of heights and weights, and so on. There are many decisions to make. 
 
 ### Exercise 1
 
@@ -81,7 +81,7 @@ Create a Github repo called `two-parameters`. Make sure to click the "Add a READ
 
 Connect the repo to a project on your computer using `File -> New Folder from Git ...`. Make sure to select the "Open in a new window" box. 
 
-You need two Positon windows: this one for running the tutorial and the one you just created for writing your code and interacting with the Console.
+You need two Positron windows: this one for running the tutorial and the one you just created for writing your code and interacting with the Console.
 
 Select `File -> New File -> Quarto Document ...`. Provide a title -- `"Two-Parameters"` -- and an author (you). Render the document and save it as `analysis.qmd`.
 
@@ -295,7 +295,7 @@ nhanes |>
 
 ### Exercise 3
 
-Let's imagine a brand new variable which **does not exists** in the data. This variable should be binary, meaning that it only takes on one of two values. It should also, at least in theory, be manipulable. In other words, if the value of the variable is "3," or whatever, then it generates one potential outcome and if it is "9," or whatever, it generates another potential outcome.
+Let's imagine a brand new variable which **does not exist** in the data. This variable should be binary, meaning that it only takes on one of two values. It should also, at least in theory, be manipulable. In other words, if the value of the variable is "3," or whatever, then it generates one potential outcome and if it is "9," or whatever, it generates another potential outcome.
 
 Describe this imaginary variable and how might we manipulate its value.
 
@@ -334,8 +334,8 @@ question_text(
 The same data set can be used to create, separately, lots and lots of different models, both causal and predictive. We can just use different outcome variables and/or specify different treatment variables. This is a *conceptual* framework we apply to the data. It is never inherent in the data itself.
 
 ### Exercise 5
-
-In a few sentences, specify the two different values for the imaginary treatment variable `vitamin`, for a single unit, guess at the potential outcomes which would result, and then determine the causal effect for that unit given those guesses.
+<!-- AR: I was somewhat confused by the wording of this question. -->
+In a few sentences, specify the two different values for the imaginary treatment variable `vitamin`. Then, for a single unit, invent values for the potential outcomes which could result, and then calculate the causal effect for that unit given those values.
 
 ```{r wisdom-5}
 question_text(
@@ -375,7 +375,7 @@ question_text(
 
 With a predictive model, each individual unit has only one observed outcome. There are not two potential outcomes because none of the covariates are treated as treatment variables. Instead, all covariates are assumed to be "fixed."
 
-Predictive models have no "treatments" -—- only covariates.
+Predictive models have no "treatments" --- only covariates.
 
 ### Exercise 7
 
@@ -400,7 +400,7 @@ Any causal connection means exploring the *within row* difference between two po
 
 ### Exercise 8
 
-Write a very simple predictive question concerning`height`.
+Write a very simple predictive question concerning `height`.
 
 ```{r wisdom-8}
 question_text(
@@ -497,7 +497,7 @@ nhanes |>
 
 ### Exercise 12
 
-Most data sets have some NA values, we have to get rid of these so that we can use the data. Continue the pipe to `select(height, sex)`. Finally, drop the NA's using `drop_na()`.
+Most data sets have some NA values. We have to get rid of these so that we can use the data. Continue the pipe to `select(height, sex)`. Finally, drop the NA's using `drop_na()`.
 
 ```{r wisdom-12, exercise = TRUE}
 
@@ -529,7 +529,7 @@ We have to clean the data so we can focus on the specific numbers to answer our 
 
 ### Exercise 13
 
-Copy the previous code, continue the pipe with `slice_sample()`, setting `n` equal `50`. Add `set.seed(10)` in a separate line before creating the object.
+Copy the previous code, continue the pipe with `slice_sample()`, setting `n` equal to `50`. Add `set.seed(10)` in a separate line before creating the object.
 
 ```{r wisdom-13, exercise = TRUE}
 
@@ -593,7 +593,7 @@ question_text(
 
 ### 
 
-Now that you have an object `x`, a subset of `nhanes` that has been cleaned and narrowed down to meet the requirement of our question.
+Now you have an object `x`, a subset of `nhanes` that has been cleaned and narrowed down to meet the requirements of our question.
 
 ### Exercise 15
 
@@ -601,7 +601,7 @@ Describe the key components of Preceptor Tables in general, without worrying abo
 
 ```{r wisdom-15}
 question_text(NULL,
-	message = "The rows of the Preceptor Table are the units. The outcome is at least one of the columns. If the problem is causal, there will be at least two (potential) outcome columns. The other columns are covariates. If the problem is causal, at least one of the covariates will considered a treatment.",
+	message = "The rows of the Preceptor Table are the units. The outcome is at least one of the columns. If the problem is causal, there will be at least two (potential) outcome columns. The other columns are covariates. If the problem is causal, at least one of the covariates will be considered a treatment.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -808,8 +808,8 @@ Read our answer. It will not be the same as yours. You can, if you want, change 
 *The arc of the moral universe is long, but it bends toward justice.* - Theodore Parker
 
 ### Exercise 1
-
-In your own words, name the five key components of Justice when working on a data science problem.
+<!-- AR: answer does not mention 5 components -->
+In your own words, name the key components of Justice when working on a data science problem.
 
 ```{r justice-1}
 question_text(NULL,
@@ -877,10 +877,10 @@ question_text(NULL,
 
 ### 
 
-The Population Table is almost always much bigger than the combination of the Preceptor Table and the data because, if we can really assume that both the Preceptor Table and the data are part of the same population, than that population must cover a broad universe of time and units since the Preceptor Table and the data are, themselves, often far apart from each other.
+The Population Table is almost always much bigger than the combination of the Preceptor Table and the data because, if we can really assume that both the Preceptor Table and the data are part of the same population, then that population must cover a broad universe of time and units since the Preceptor Table and the data are, themselves, often far apart from each other.
 
 ### Exercise 5
-
+<!-- AR: What Population Table? -->
 Specify the unit/time combinations which define each row in this Population Table.
 
 ```{r justice-5}
@@ -914,8 +914,8 @@ question_text(NULL,
 ```
 
 ### 
-
-The longer the time period between by the Preceptor Table and the data, the more suspect the assumption of stability becomes. 
+<!-- AR: What is the distinction between the data and the population here? Do we see a table for the population? -->
+The longer the time period between the Preceptor Table and the data, the more suspect the assumption of stability becomes. 
 
 ### Exercise 7
 
@@ -948,6 +948,7 @@ question_text(NULL,
 ```
 
 ### 
+<!-- AR: What should the relationship be? What are "the other rows"? -->
 
 Ideally, we would like both the Preceptor Table *and* our data to be random samples from the population. Sadly, this is almost never the case.
 
@@ -972,6 +973,7 @@ The reason that representativeness is important is because, when it is violated,
 
 ### Exercise 10
 
+<!-- AR: Getting a little confused about population vs. Population table. Should population be lower-cased or capitalized, does it depend on whether we're referring to the table? -->
 We use information about the population to make inferences about the Preceptor Table. Provide one reason, involving the relationship between the Population and the Preceptor Table, for why the assumption of representativeness might not be true in this case.
 
 ```{r justice-10}
@@ -1252,6 +1254,7 @@ We don't add **easystats** to the QMD because we are only using it for an intera
 
 ### Exercise 7
 
+<!-- AR: I didn't get a fit_height object at this point. This function does work when run with height_fit (created below) as arg.  -->
 In the Console, run `check_predictions(extract_fit_engine(fit_height))`. CP/CR.
 
 ```{r courage-7}
@@ -1496,7 +1499,7 @@ Write a sentence interpreting the 162 estimate for `(Intercept)`.
 
 ```{r temperance-2}
 question_text(NULL,
-	message = "The expected value of the height of a female USMC recruit is 162 centimeters because, for male recruits, `sexMale` is zero.",
+	message = "The expected value of the height of a female USMC recruit is 162 centimeters because, for female recruits, `sexMale` is zero.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -1591,9 +1594,10 @@ question_text(NULL,
 
 Data science projects begin with a decision which we face. To make that decision wisely, we would like to have good estimates of many unknown numbers. Yet, in order to make progress, we need to drill down to one specific question. This leads to the creation of a data generating mechanism, which can now be used to answer lots of questions, thus allowing us to explore the original decision more broadly.
 
+<!-- AR: Would be really nice to have example answers so we can check our work. -->
 ### Exercise 7
 
-In the Console, run `predictions()` on `fit_height`.
+In the Console, run `predictions()` on `height_fit`.
 
 CP/CR.
 
@@ -1618,7 +1622,7 @@ Because `sexMale` only has two possible values, there are only two predictions m
 
 ### Exercise 8
 
-In the Console, run `avg_predictions()` on `fit_height`.
+In the Console, run `avg_predictions()` on `height_fit`.
 
 CP/CR.
 
@@ -1641,7 +1645,7 @@ avg_predictions(fit_height)
 
 ### Exercise 9
 
-In the Console, run `avg_predictions()` on `fit_height` with `by = "sex"`. 
+In the Console, run `avg_predictions()` on `height_fit` with `by = "sex"`. 
 
 CP/CR.
 
@@ -1664,7 +1668,7 @@ avg_predictions(fit_height, by = "sex")
 
 ### Exercise 10
 
-In the Console, run `plot_predictions()` on `fit_height` with `condition = "sex"`. 
+In the Console, run `plot_predictions()` on `height_fit` with `condition = "sex"`. 
 
 CP/CR.
 
