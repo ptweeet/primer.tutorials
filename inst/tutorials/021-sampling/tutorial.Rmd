@@ -2397,14 +2397,14 @@ avg_predictions(fit_color, type = "prob")
 
 ### Exercise 9
 
-Run `plot_predictions()` on `fit_color` with `type = "prob"` and `condition = "group"`. 
+Run `plot_predictions()` on `fit_color` with `type = "prob"` and `condition = "color"`.
 
 ```{r temperance-9, exercise = TRUE}
 
 ```
 
 ```{r temperance-9-test, include = FALSE}
-plot_predictions(fit_color, type = "prob", condition = "group")
+plot_predictions(fit_color, type = "prob", condition = "color")
 ```
 
 ### 
@@ -2416,7 +2416,7 @@ This plot shows the model’s estimate for the probability that a scooped bead i
 Run this code to get the underlying predicted probabilities as a tibble instead of a plot. The argument `draw = FALSE` tells R not to make a graph, but to return the raw prediction values you can use or inspect.
 
 ```
-plot_predictions(fit_color, type = "prob", condition = "group", draw = FALSE)
+plot_predictions(fit_color, type = "prob", condition = "color", draw = FALSE)
 ```       
 
 ```{r temperance-10, exercise = TRUE}
