@@ -1,4 +1,4 @@
----
+ ---
 title: Rubin Causal Model
 author: David Kane and Ivy Spratt
 tutorial:
@@ -246,6 +246,7 @@ We hope that all this new terminology is not overwhelming. The "[Rubin Causal Mo
 
 Describe in your own words what the assumption of validity, if it is true, allows us to do. Use the verb "stack" and the phrase "Population Table" in your answer.
 
+<!-- AR: How would the Preceptor Table be populated with data? Shouldn't height data only be available in from the data? -->
 ```{r preceptor-table-1-7}
 question_text(NULL,
 	message = "If the assumption of validity holds, we can 'stack' the rows from the data and from the Preceptor Table into the same table. This structure forms the start of the Population Table, although it will generally have many more rows.",
@@ -371,6 +372,8 @@ question_text(NULL,
 
 ### 
 
+<!--AR: What's a good example of a ... sourced row? -->
+
 In causal usage, we will often leave out the `ID`, `Source` and `Time` columns from the Population Table, but they are always there, at least implicitly.
 
 ### Exercise 3
@@ -423,7 +426,8 @@ question_text(NULL,
 
 ### 
 
-It is OK if your description is somewhat different from ours. Bordering dates like 2010 and 2040 are certainly arbitrary. However, given that we are interested in the heights of one specific family, it would be weird if the date range was too broad. None of the brothers were even born before 1900, for example. Whatever words you use, in your mind you should be picturing something like this.
+It is OK if your description is somewhat different from ours. Bordering dates like 2010 and 2040 are certainly arbitrary. However, given that we are interested in the heights of students at the New College right now, it would be weird if the date range was too broad. Whatever words you use, in your mind you should be picturing something like this.
+<!-- AR: I'm a little confused about having 2040 data in here. -->
 
 ```{r}
 tibble(subject = c("...", "...", "Data", "Data","...", "...", "...",  "...", 
@@ -551,6 +555,7 @@ question_text(NULL,
 
 ### Exercise 7
 
+<!-- AR: Maybe move to the Causal Models section?  -->
 In your own words, define the assumption of "unconfoundedness" when employed in the context of data science.
 
 ```{r predictive-model-7}
@@ -572,7 +577,7 @@ Thus, it is not something we have to be concerned with in the New College proble
 
 Consider this question:
 
-What is the average attitude toward immigration of Boston commuters?
+What is the average attitude toward immigration of Boston commuters, who were either waiting on a platform with or without Spanish-speakers?
 
 To answer this, we have made this Preceptor Table:
 
@@ -760,6 +765,7 @@ All of the variables calculated in the Preceptor and Population Tables are examp
 
 Come up with a scenario for this problem in which the assumption of stability might not hold.
 
+<!-- AR: Not sure how exposure to spanish speakers over time would vary based on respondent's sex. Instead could reliability of public transit, or crowdedness be a factor? -->
 ```{r causal-model-7}
 question_text(NULL,
 	message = "If the treatment started to have greater effects on women than men over time, it would hinder the stability.",
@@ -790,6 +796,7 @@ question_text(NULL,
 
 Come up with a scenario for this problem in which the assumption of unconfoundedness might not hold.
 
+<!-- AR: This answer is not specific to this problem. Could people naturally exposed to Spanish-speakers on their commute be more likely to speak spanish? If the exposed population had more spanish-speakers (Someone who encounters spanish speakers on their commute may be more likely to speak spanish), then spanish-speaking (and not mere exposure to spanish-speakers) could also underly the difference observed between treatment groups.
 ```{r causal-model-9}
 question_text(NULL,
 	message = "If the doctor prescribing the medication only did it being mindful of the potential outcome, it would confound the data.",
