@@ -161,7 +161,7 @@ Describe the *outcomes* in the Preceptor Table which would allow us to answer ou
 
 ```{r preceptor-table-1-3}
 question_text(NULL,
-	message = "The 'outcomes' refers to height, which is a column.",
+	message = "Outcomes refers to height, which is a column.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -187,7 +187,7 @@ question_text(NULL,
 
 ### Exercise 5
 
-If we had different questions, however, then we would need a different Preceptor Table. What if we wanted to calculate the average height of  for male and female students at New College of Florida? We would need a different variable.
+If we had different questions, however, then we would need a different Preceptor Table. What if we wanted to calculate the average height for male and female students at New College of Florida? We would need a different variable.
 
 Describe what a covariate is in your own words. Then, describe the covariate needed for the new question.
 
@@ -363,7 +363,7 @@ How are these rows usually indicated in the 'Source' column?
 
 ```{r population-table-1-2}
 question_text(NULL,
-	message = "There are typically three sources for the rows in the Population Table are the data, the Preceptor Table, and the other units in the population from which the data and the Preceptor Table were drawn. These rows are usually indicated with 'Data', 'Preceptor Table', and '...', respectively.",
+	message = "There are typically three sources for the rows in the Population Table: the data, the Preceptor Table, and the other units in the population from which the data and the Preceptor Table were drawn. These rows are usually indicated with 'Data', 'Preceptor Table', and '...', respectively.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -382,7 +382,7 @@ What combination of variables *uniquely* defines each row in the Population Tabl
 
 ```{r population-table-1-3}
 question_text(NULL,
-	message = "Each row in the Population Table is uniquely defined by a ID/Time combination.",
+	message = "Each row in the Population Table is uniquely defined by an ID/Time combination.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -612,7 +612,7 @@ Describe the *units* in this Preceptor Table which would allow us to answer our 
 
 ```{r causal-model-1}
 question_text(NULL,
-	message = "The 'units' refer to the rows, which is each individual Boston commuter.",
+	message = "The 'units' refer to the rows, which are individual Boston commuters.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -625,7 +625,7 @@ Describe the *outcomes* in the Preceptor Table which would allow us to answer ou
 
 ```{r causal-model-2}
 question_text(NULL,
-	message = "The 'outcomes' refers to the attitude towards immigration.",
+	message = "The outcomes are attitude towards immigration.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -668,7 +668,7 @@ To calculate the causal effect of having Spanish-speakers nearby, we need to com
 
 ###
 
-We will use the symbol $Y$ to represent potential outcomes, the variable we are interested in understanding and modeling. $Y$ is called the *response* or *outcome* variable. It is the variable we want to "explain." In our case this would be the attitude score. If we are trying to understand a causal effect, we need two symbols so that the value with treatment and the value with control can be represented separately: $Y_t(u)$ and $Y_c$.
+We will use the symbol $Y$ to represent potential outcomes, the variable we are interested in understanding and modeling. $Y$ is called the *response* or *outcome* variable. It is the variable we want to "explain." In our case this would be the attitude score. If we are trying to understand a causal effect, we need two symbols so that the value with treatment and the value with control can be represented separately: $Y_t(u)$ and $Y_c(u)$.
 
 Let's look at a Preceptor Table with more subjects using our new notation:
 
@@ -717,7 +717,7 @@ Come up with a scenario for this problem in which the assumption of validity mig
 
 ```{r causal-model-6}
 question_text(NULL,
-	message = "If different questions or wording of the questions were used, it could result to different outcomes across time.",
+	message = "If different questions or wording of the questions were used, it could result in different outcomes across time.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -1051,7 +1051,7 @@ Come up with a scenario for the free trial problem in which the assumption of un
 
 ```{r review-10}
 question_text(NULL,
-	message = "if the company only offered the free trial to the users who had more engagement on the site, knowing that it would be more likely to have them become paying customers, it would make the data confounded.",
+	message = "If the company only offered the free trial to the users who had more engagement on the site, knowing that it would be more likely to have them become paying customers, it would make the data confounded.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -1112,7 +1112,7 @@ By definition, $Y_t(u)$ - $Y_c(u)$ = $\tau$, using simple algebra, it is clear t
 
 ### Exercise 2
 
-Describe in one sentence/equation how you would estimate Tahmids's $Y_t(u)$. (Do not use actual numbers, use "tau" in your explanation).
+Describe in one sentence/equation how you would estimate Tahmid's $Y_t(u)$. (Do not use actual numbers, use "tau" in your explanation).
 
 ```{r simple-models-2}
 question_text(NULL,
@@ -1310,6 +1310,7 @@ What is Cassidy's outcome under treatment if we assume $\tau$ to be the $ATE$ we
 <!-- SD: As stated above, make this less reliant on the last answer, as just one mistake can screw over the entire table. -->
 
 <!-- AC: I'm not sure if I can do math correctly, but shouldn't the answer be 7.6 (6 + 1.6)? -->
+<!-- AR: +1 AC's comment. Shouldn't it be 7.6 (6 + 1.6) instead of 9.4 (11 - 1.6), because Cassidy is a part of the control group. I was a little confused by this question because the treatment outcome is already listed in the table above. -->
 
 ```{r simple-models-11}
 question_text(NULL,
