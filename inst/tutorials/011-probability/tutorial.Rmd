@@ -403,7 +403,6 @@ Stability looks across time periods. Representativeness looks within time period
 
 ### Exercise 22
 
-<!-- Does this mean that the covariates of the two treatment groups should look the same? Are there any ways to assess for confoudedness other than looking at how treatment is assigned? -->
 
 In your own words, define the assumption of "unconfoundedness" when employed in the context of data science.
 
@@ -422,7 +421,6 @@ This assumption is only relevant for causal models. We describe a model as "conf
 
 ### Exercise 23
 
-<!-- In my response, I focused on the role of courage in making conclusions from the analysis and being transparent about limitations and questions from others. The answer here seems like it applies to earlier stages in the analysis: developing the data generating mechanism, using math and exploring the data set. Does courage also apply to later steps? I think I need some help fully understanding this... but maybe (as said in the tutorial, I just need to be patient). Am I confusing temperance with courage? -->
 
 In your own words, describe the components of the virtue of Courage for analyzing data.
 
@@ -529,7 +527,6 @@ Remember that a treatment is just another covariate which, for the purposes of t
 
 What moment in time does the Preceptor Table refer to?
 
-<!-- Why does the Preceptor Table refer to only a single time point? Aren't there data from different times - like the outcome in this example occurs in the future. -->
 
 ```{r example-2-5}
 question_text(NULL,
@@ -557,7 +554,6 @@ question_text(NULL,
 
 Describe in words the Preceptor Table for this problem.
 
-<!-- Just to clarify, does the Preceptor Table only include relevant covariates? Does this need to be fully determined before? Is it a judgement call or done empirically? -->
 
 ```{r example-2-7}
 question_text(NULL,
@@ -591,7 +587,6 @@ Because we control the Preceptor Table and, to a lesser extent, the original que
 
 Provide one reason why the assumption of stability might not be true in this case.
 
-<!-- Can this be assessed via covariates that might indicate smartness? Which variables would not be the same in this example? -->
 
 ```{r example-2-9}
 question_text(NULL,
@@ -610,7 +605,6 @@ A change in time or the distribution of the data does not, in and of itself, dem
 
 We do not use the data, directly, to estimate missing values in the Preceptor Table. Instead, we use the data to learn about the overall population. Provide one reason, involving the relationship between the data and the population, for why the assumption of representativeness might not be true in this case. 
 
-<!-- Would attending college be an important covariate / outcome to include? -->
 
 ```{r example-2-10}
 question_text(NULL,
