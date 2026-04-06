@@ -18,11 +18,15 @@ Use Claud Code to make dramatic improvements in this tutorial.
 
 * Figure out other errors. template_tutorial.Rmd is ground truth. Submit PRs fixing them.
 
-* Read template_tutorial.Rmd. 
+* Read template_tutorial.Rmd.  
 
 * Create a Claude.md file that mentions stuff, like the Primer and the purpose of the template_tutorial.Rmd?
 
+This is an R package. 
 
+Its main content is several tutorials, designed for use with the learnr R package. 
+
+Read the templte_tutorial.Rmd file for an overview of what we are trying to accomplish.
 
 
 ### Later projects
