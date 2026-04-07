@@ -45,7 +45,7 @@ This tutorial supports [*Preceptor’s Primer for Bayesian Data Science: Using t
 
 The world confronts us. Make decisions we must.
 
-Imagine that you are you are a campaign manager for a Republican congressional candidate in Georgia. Your goal is to elect your candidate. Your candidate is conservative about immigration. You know that there more conservative a voter is about immigration, the more likely she is to vote for your boss. How should you spend your campaign funds to increase your odds of winning the election? There are many decisions to make.
+Imagine that you are a campaign manager for a Republican congressional candidate in Georgia. Your goal is to elect your candidate. Your candidate is conservative about immigration. You know that the more conservative a voter is about immigration, the more likely she is to vote for your boss. How should you spend your campaign funds to increase your odds of winning the election? There are many decisions to make.
 
 ### Exercise 1
 
@@ -70,7 +70,7 @@ Create a Github repo called `immigration`. Make sure to click the "Add a README 
 
 Connect the repo to a project on your computer using `File -> New Folder from Git ...`. Make sure to select the "Open in a new window" box. 
 
-You need two Positon windows: this one for running the tutorial and the one you just created for writing your code and interacting with the Console.
+You need two Positron windows: this one for running the tutorial and the one you just created for writing your code and interacting with the Console.
 
 Select `File -> New File -> Quarto Document ...`. Provide a title -- `"Immigration"` -- and an author (you). Render the document and save it as `immigration.qmd`.
 
@@ -261,7 +261,7 @@ ggplot(trains, aes(x = att_end)) +
 
 ### Exercise 10
 
-Let's imagine a brand new variable which **does not exists** in the data. This variable should be binary, meaning that it only takes on one of two values. It should also, at least in theory, be manipulable. In other words, if the value of the variable is "3," or whatever, then it generates one potential outcome and if it is "9," or whatever, it generates another potential outcome.
+Let's imagine a brand new variable which **does not exist** in the data. This variable should be binary, meaning that it only takes on one of two values. It should also, at least in theory, be manipulable. In other words, if the value of the variable is "3," or whatever, then it generates one potential outcome and if it is "9," or whatever, it generates another potential outcome.
 
 Describe this imaginary variable and how might we manipulate its value.
 
@@ -315,7 +315,7 @@ question_text(NULL,
 
 A causal effect is defined as the *difference* between two potential outcomes. Keep two things in mind.
 
-First, *difference* does not necessarily mean *subtraction*. Many potential outcome are not numbers. For example, it makes no sense to subtract a potential outcome, like who you would vote for if you saw a Facebook ad, from another potential outcome, like who you vote for if you did not see the ad.
+First, *difference* does not necessarily mean *subtraction*. Many potential outcomes are not numbers. For example, it makes no sense to subtract a potential outcome, like who you would vote for if you saw a Facebook ad, from another potential outcome, like who you vote for if you did not see the ad.
 
 Second, even in the case of numeric outcomes, you can’t simply say the effect is 10 without specifying the order of subtraction, although there is, perhaps, a default sense in which the causal effect is defined as potential outcome under treatment minus potential outcome under control.
 
@@ -336,9 +336,10 @@ question_text(NULL,
 
 With a predictive model, each individual unit has only one observed outcome. There are not two potential outcomes because none of the covariates are treated as treatment variables. Instead, all covariates are assumed to be "fixed."
 
-Predictive models have no "treatments" -—- only covariates.
+Predictive models have no "treatments" --- only covariates.
 
 ### Exercise 14
+<!-- AR: Sex doesn't seem very intuitive to me as a key covariate towards immigration attitudes. Also, this exercise felt like just rephrasing the question. -->
 
 Specify two different groups of people who have different values for `sex` and which might have different average values for the `att_end`.  
 
@@ -421,7 +422,7 @@ Describe the key components of Preceptor Tables in general, without worrying abo
 
 ```{r wisdom-3}
 question_text(NULL,
-	message = "The rows of the Preceptor Table are the units. The outcome is at least one of the columns. If the problem is causal, there will be at least two (potential) outcome columns. The other columns are covariates. If the problem is causal, at least one of the covariates will considered a treatment.",
+	message = "The rows of the Preceptor Table are the units. The outcome is at least one of the columns. If the problem is causal, there will be at least two (potential) outcome columns. The other columns are covariates. If the problem is causal, at least one of the covariates will be considered a treatment.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -467,6 +468,7 @@ question_text(NULL,
 ### 
 
 The outcome variable that we really care about is often not the outcome variable which our data includes. This compromise --- working with what we *have* rather than what we really *want* --- is a part of most data science work in the real world.
+<!-- AR: So should the outcome really be something like "attitude towards immigration" -->
 
 ### Exercise 6
 
@@ -696,7 +698,7 @@ question_text(NULL,
 
 ### 
 
-The Population Table is almost always much bigger than the combination of the Preceptor Table and the data because, if we can really assume that both the Preceptor Table and the data are part of the same population, than that population must cover a broad universe of time and units since the Preceptor Table and the data are, themselves, often far apart from each other.
+The Population Table is almost always much bigger than the combination of the Preceptor Table and the data because, if we can really assume that both the Preceptor Table and the data are part of the same population, then that population must cover a broad universe of time and units since the Preceptor Table and the data are, themselves, often far apart from each other.
 
 ### Exercise 5
 
@@ -769,7 +771,7 @@ question_text(NULL,
 A change in time or the distribution of the data does not, in and of itself, demonstrate a violation of stability. Stability is about the parameters: $\beta_0$, $\beta_1$ and so on. Stability means these parameters are the same in the data as they are in the population as they are in the Preceptor Table.
 
 ### Exercise 8
-
+<!-- AR:  what is the population in this example? Is it something like Boston Commuters -> US population -> Registered Georgia Voters?
 We use our data to make inferences about the overall population. We use information about the population to make inferences about the Preceptor Table: `Data -> Population -> Preceptor Table`. In your own words, define the assumption of "representativeness" when employed in the context of data science.
 
 ```{r justice-8}
@@ -1131,7 +1133,7 @@ In data science, **we deal with words, math, and code, but the most important of
 
 ### Exercise 8
 
-We need `fit_att` to exit in Console World. Copy/paste this code into the Console and execute it.
+We need `fit_att` to exist in Console World. Copy/paste this code into the Console and execute it.
 
 ````
 fit_att <- linear_reg(engine = "lm") |> 
