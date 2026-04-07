@@ -166,7 +166,7 @@ The general form of the **simple regression** model is:
 
 $$ Y = \beta_0  + \beta_1 X + \epsilon_i$$
 
-The model is **simple** not only because there is only one variable in the right side of the equation, but also because $X$ is not an exponential variable and thus the relationship between $X$ and $Y$ is constant, or linear. Thus, we can also call it **linear regression**.
+The model is **simple** not only because there is only one variable on the right side of the equation, but also because $X$ is not an exponential variable and thus the relationship between $X$ and $Y$ is constant, or linear. Thus, we can also call it **linear regression**.
 
 ### Exercise 3
 
@@ -186,7 +186,7 @@ library(primer.data)
 
 ### 
 
-$\beta_0$ and $\beta_1$ are the coefficients, when we interpret coefficients, it is important to know the difference between *across unit* and *within unit comparisons*. The former refers to comparing two different units but not looking at causal relationship while the latter looks at that one unit under treatment versus when under control.
+$\beta_0$ and $\beta_1$ are the coefficients. When we interpret coefficients, it is important to know the difference between *across unit* and *within unit comparisons*. The former refers to comparing two different units without looking at a causal relationship, while the latter looks at that one unit under treatment versus control.
 
 ### Exercise 4
 
@@ -226,7 +226,7 @@ library(broom)
 
 ### 
 
-In terms of the Preceptor Tables, *within unit comparison* is looking at one **row** of data, we are comparing **one unit**, or (in this case) one person, to itself under two conditions (control versus treatment). Meanwhile, *across unit comparison* is looking at multiple rows of data, with a focus on differences across columns, without making any causal claims.
+In terms of the Preceptor Tables, *within unit comparison* is looking at one **row** of data; we are comparing **one unit**, or (in this case) one person, to itself under two conditions (control versus treatment). Meanwhile, *across unit comparison* is looking at multiple rows of data, with a focus on differences across columns, without making any causal claims.
 
 ### Exercise 6
 
@@ -252,7 +252,7 @@ The model we are using only takes one variable, `age`, on the right hand side to
 
 The data frame `x` is a modified version of `trains` that we’ll use for modeling going forward. When you see `data = x`, remember it contains the relevant columns from `trains` that we need for our analysis.
 
-Pipe `linear_reg()` to `fit()`, with the formula `income ~ age` and `data = x` as arguments. Run this code
+Pipe `linear_reg()` to `fit()`, with the formula `income ~ age` and `data = x` as arguments. Run this code.
 
 ```{r scaling-7, exercise = TRUE}
 
@@ -270,7 +270,7 @@ linear_reg() |>
 
 ### 
 
-Since the model is linear, we assume that the relationship between `income` and `age` is stable. However, this is not true in reality, the effect when our age increases from 5 to 6 versus from 17 to 18, or 40 to 41 is not the same.
+Since the model is linear, we assume that the relationship between `income` and `age` is stable. However, this is not true in reality. The effect when age increases from 5 to 6 versus from 17 to 18, or 40 to 41, is not the same.
 
 ### Exercise 8
 
@@ -314,7 +314,7 @@ question_text(NULL,
 
 ### 
 
-The intercept, $\beta_0$, represents the expected outcome when all predictors are zero. In many cases--—like age—--this isn’t meaningful, but it’s still required for the math of the model. Always check if the intercept makes sense for your context.
+The intercept, $\beta_0$, represents the expected outcome when all predictors are zero. In many cases --- like age --- this isn’t meaningful, but it’s still required for the math of the model. Always check if the intercept makes sense for your context.
 
 ### Exercise 10
 
@@ -336,11 +336,11 @@ trains |>
 
 ### 
 
-By doing this, we are subtracting the mean of a variable `age` in the data set from each of its values. The new distribution will be centered around zero meaning that it will have a mean of zero, but it will retain the same spread (standard deviation) and shape as the original distribution.
+By doing this, we are subtracting the mean of a variable `age` in the data set from each of its values. The new distribution will be centered around zero, meaning that it will have a mean of zero, but it will retain the same spread (standard deviation) and shape as the original distribution.
 
 ### Exercise 11
 
-Pipe `linear_reg()` to `fit()`, with the formula `income ~ c_age` and `data = x` as arguments. Run this code
+Pipe `linear_reg()` to `fit()`, with the formula `income ~ c_age` and `data = x` as arguments. Run this code.
 
 ```{r scaling-11, exercise = TRUE}
 
@@ -362,7 +362,7 @@ Using this centered version of age does not change the predictions or residuals 
 
 ### Exercise 12
 
-Now, pipe your previous code directly into tidy(conf.int = TRUE) to see the regression summary with confidence intervals. Type the full pipe below and hit "Run Code."
+Now, pipe your previous code directly into `tidy(conf.int = TRUE)` to see the regression summary with confidence intervals. Type the full pipe below and hit "Run Code."
 
 ```{r scaling-12, exercise = TRUE}
 
@@ -679,7 +679,7 @@ You should generally only take the log of variables for which all the values are
 
 ### Exercise 4
 
-Next, we will look at the distribution of `rv13` in the our data. Behind the scene, we have created the graph for you. Type `rv_p` and hit "Run Code"
+Next, we will look at the distribution of `rv13` in the our data. Behind the scenes, we have created the graph for you. Type `rv_p` and hit "Run Code".
 
 ```{r log-transformations-4, exercise = TRUE}
 
@@ -699,7 +699,7 @@ Using the raw data, the distribution is heavily skewed. However, we do not know 
 
 ### Exercise 5
 
-Now let's see how the distribution looks like after transforming `rv13` into the log version. Type `log_rv_p` and hit "Run Code".
+Now let's see how the distribution looks after transforming `rv13` into the log version. Type `log_rv_p` and hit "Run Code".
 
 ```{r log-transformations-5, exercise = TRUE}
 
@@ -814,7 +814,7 @@ nhanes |>
 
 ### 
 
-Is `age` the best predictor of `height`? In the data set their are other potential variables such as `race` and `sex`, which one should we select, and which one should we discard? We will see in the later sections.
+Is `age` the best predictor of `height`? In the data set there are other potential variables such as `race` and `sex`, which one should we select, and which one should we discard? We will see in the later sections.
 
 ### Exercise 10
 
@@ -864,11 +864,11 @@ linear_reg() |>
 
 ### 
 
-This model assumes the relationship between `age` and `height` is always constant, meaning that `height` always increases as `age` increases. That is not a very good model, obviously, we will see the reason why.
+This model assumes the relationship between `age` and `height` is always constant, meaning that `height` always increases as `age` increases. That is not a very good model, obviously. We will see the reason why.
 
 ### Exercise 12
 
-How accurate our model is can be determined by whether it represents the pattern of our data. Hit "Run Code". 
+The accuracy of our model can be determined by whether it represents the pattern of our data. Hit "Run Code".
 
 ```{r log-transformations-12, exercise = TRUE}
 no_na_nhanes |>
@@ -906,7 +906,7 @@ no_na_nhanes |>
 From the graph, we see that before the age of 20, the data points gather and form a steep line, indicating that during this time period, people grow up really fast as their ages increase. However, after 20, there is little increase or even no increase in `height` as `age` increases. The red line created by the model does not capture this pattern. 
 
 ### Exercise 13
-`
+
 Pipe `linear_reg()` to `fit()`, with the formula `height ~ age + I(age^2)` and `data = no_na_nhanes` as arguments.
 
 ```{r log-transformations-13, exercise = TRUE}
@@ -987,7 +987,7 @@ nhanes_3 <- linear_reg() |>
 
 ### 
 
-Using the `ifelse()` command, we check every value of `age` in the data set, an original value is used if it is smaller than 18, every value greater than that threshold will be recorded as 18. The model does not understand the fact that people will (generally) not grow after the age of 18 so we need to manipulate this by "letting" it know that age-related changes in height are relevant only up to age 18.
+Using the `ifelse()` command, we check every value of `age` in the data set, an original value is used if it is smaller than 18, every value greater than that threshold will be recorded as 18. The model does not understand the fact that people will (generally) not grow after the age of 18, so we need to manipulate this by "letting" it know that age-related changes in height are relevant only up to age 18.
 
 ### Exercise 16
 
@@ -1027,7 +1027,7 @@ no_na_nhanes |>
 
 ### 
 
-The new line correctly captures the pattern in our data, note that models only do what we tell them to do. We are the captains of our souls and using the knowledge we have to transform variables as needed.
+The new line correctly captures the pattern in our data. Note that models only do what we tell them to do. We are the captains of our souls and using the knowledge we have to transform variables as needed.
 
 ## Selecting variables
 ### 
@@ -1217,7 +1217,7 @@ question_text(NULL,
 
 ### 
 
-The 95% CI of this variables excludes zero, suggesting that it is a worthy variable to include in our model. 
+The 95% CI of this variable excludes zero, suggesting that it is a worthy variable to include in our model. 
 
 ### Exercise 9
 
@@ -1667,7 +1667,7 @@ x |>
 
 ### 
 
-Adding predictions as a new column with `mutate()` lets you compare the predicted values to the actual values in your data--—this is the foundation for model evaluation and visualization.
+Adding predictions as a new column with `mutate()` lets you compare the predicted values to the actual values in your data --- this is the foundation for model evaluation and visualization.
 
 ### Exercise 11
 
@@ -2111,7 +2111,7 @@ A quadratic fit lets the model capture bends or curves in the data, not just str
 
 ### Exercise 4
 
-The previous model with a quadratic term was a better fit than a simple line. But why stop at $x^2$? Why not add $x^3$, $x^4$, and even up to $x^9$ as predictors? When we do this, the fit looks much better —-- at least on the surface. Right? 
+The previous model with a quadratic term was a better fit than a simple line. But why stop at $x^2$? Why not add $x^3$, $x^4$, and even up to $x^9$ as predictors? When we do this, the fit looks much better --- at least on the surface. Right?
 
 Run the code below and look over the resulting plot.
 
@@ -2135,7 +2135,7 @@ ovrftng |>
 
 ###
 
-Clearly, adding higher-degree terms (like $x^3$ to $x^9$) will make the model fit the current data almost perfectly. But just fitting the original data isn't the goal—--what matters is how well the model predicts new data. Too many terms can actually hurt future predictions, a problem called overfitting.
+Clearly, adding higher-degree terms (like $x^3$ to $x^9$) will make the model fit the current data almost perfectly. But just fitting the original data isn't the goal --- what matters is how well the model predicts new data. Too many terms can actually hurt future predictions, a problem called overfitting.
 
 ## Comparing models in practice
 ### 
@@ -2163,7 +2163,7 @@ performance(fit_liberal)
 
 ### 
 
-`The `performance()` function from ***easystats** summarizes how well your model fits the data. It reports key measures like AIC (Akaike Information Criterion), BIC (Bayesian Information Criterion), R² (explained variance), and RMSE (root mean squared error). These metrics help you compare models and decide which one provides the best fit or the most accurate predictions.
+The `performance()` function from **easystats** summarizes how well your model fits the data. It reports key measures like AIC (Akaike Information Criterion), BIC (Bayesian Information Criterion), R² (explained variance), and RMSE (root mean squared error). These metrics help you compare models and decide which one provides the best fit or the most accurate predictions.
 
 ### Exercise 2
 
