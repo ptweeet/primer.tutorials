@@ -43,8 +43,8 @@ fit_nes <- multinom_reg(engine = "nnet") |>
   fit(pres_vote ~ sex, data = nes_92)
 
 # Notice that tidy(fit_nes) produces estimates of 4 parameters, which, when
-# plugged into standard logistic formulas, would give us the probablities for
-# Clinton and Perod for men and women. The probability for Bush is then
+# plugged into standard logistic formulas, would give us the probabilities for
+# Clinton and Perot for men and women. The probability for Bush is then
 # calculated via subtraction.
 
 # I could not get simple plot_predictions() to work. Can you? I think it is
@@ -112,7 +112,7 @@ Create a Github repo called `four-parameters-categorical`. Make sure to click th
 
 Connect the repo to a project on your computer using `File -> New Folder from Git ...`. Make sure to select the "Open in a new window" box. 
 
-You need two Positon windows: this one for running the tutorial and the one you just created for writing your code and interacting with the Console.
+You need two Positron windows: this one for running the tutorial and the one you just created for writing your code and interacting with the Console.
 
 Select `File -> New File -> Quarto Document ...`. Provide a title -- `"Four Parameters Categorical"` -- and an author (you). Render the document and save it as `analysis.qmd`.
 
@@ -190,7 +190,7 @@ question_text(NULL,
 
 ###
 
-We will be using the data set about US people's voting result from [American National Election Studies](https://electionstudies.org/) survey. **The primer.data** package includes a version of the main data set with a selection of variables. The full ANES data is much richer than this relatively simple tibble.
+We will be using the dataset about US people's voting results from the [American National Election Studies](https://electionstudies.org/) survey. **The primer.data** package includes a version of the main data set with a selection of variables. The full ANES data is much richer than this relatively simple tibble.
 
 ### Exercise 5
 
@@ -249,7 +249,7 @@ question_text(NULL,
 
 ### 
 
-`pres_vote` is the name of the party to which the voted candidates belong. Such explorations are often restricted to just the two “major party” candidates, the nominees of the Democratic and the Republican parties, Bill Clinton and George HW Bush. But, in 1992, Ross Perot was a very successful “third party” candidate, winning almost 19% of the vote. We transferred each party to its candidate's name. 
+`pres_vote` is the name of the party to which the voted candidates belong. Such explorations are often restricted to just the two “major party” candidates, the nominees of the Democratic and the Republican parties, Bill Clinton and George HW Bush. But, in 1992, Ross Perot was a very successful “third party” candidate, winning almost 19% of the vote. We replaced each party name with its candidate's name.
 
 ```{r}
 nes_92 |> 
@@ -264,7 +264,7 @@ nes_92 |>
 
 ### Exercise 3
 
-Let's imagine a brand new variable which **does not exists** in the data. This variable should be binary, meaning that it only takes on one of two values. It should also, at least in theory, by manipulable. In other words, if the value of the variable is "X," or whatever, then it generates one potential outcome and if it is "Y," or whatever, it generates another potential outcome.
+Let's imagine a brand new variable which **does not exist** in the data. This variable should be binary, meaning that it only takes on one of two values. It should also, at least in theory, by manipulable. In other words, if the value of the variable is "X," or whatever, then it generates one potential outcome and if it is "Y," or whatever, it generates another potential outcome.
 
 Describe this imaginary variable and how might we manipulate its value.
 
@@ -296,7 +296,7 @@ Given our (imaginary) treatment variable `phone_call`, how many potential outcom
 
 ```{r wisdom-4}
 question_text(NULL,
-	message = "There are 2 potential outcomes because the treatment variable `phone_call` takes on 2 posible values: receive phone call versus no phone call.",
+	message = "There are 2 potential outcomes because the treatment variable `phone_call` takes on 2 possible values: receive phone call versus no phone call.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -361,13 +361,13 @@ question_text(NULL,
 
 ### 
 
-With a predictive model, there is only one outcome for each individual unit. There are not two potential outcomes because we are not considering any of the covariates to be a treatment variable. We assuming that the values of all covariates are "fixed." 
+With a predictive model, there is only one outcome for each individual unit. There are not two potential outcomes because we are not considering any of the covariates to be a treatment variable. We assume that the values of all covariates are "fixed."
 
 Predictive models have no "treatments" -—- only covariates.
 
 ### Exercise 7
 
-Specify two different groups of individuals which have specific value for `sex` and which might have different average values for the `pres_vote`.  
+Specify two different groups of individuals which have a specific value for `sex` and which might have different average values for the `pres_vote`.
 
 ```{r wisdom-7}
 question_text(NULL,
@@ -471,7 +471,7 @@ What is the outcome for this problem?
 
 ```{r wisdom-12}
 question_text(NULL,
-	message = "The outcome for this problem is the presidential voting result of each individual voter. This is not the same thing as the answer to the question we have beeen asked. But, if we can build a model which explains/understands/predicts voting result for an individual, we can use that model to answer our questions.",
+	message = "The outcome for this problem is the presidential voting result of each individual voter. This is not the same thing as the answer to the question we have been asked. But, if we can build a model which explains/understands/predicts voting result for an individual, we can use that model to answer our questions.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -597,7 +597,7 @@ question_text(NULL,
 
 ### 
 
-We have to choose a variable that we can change to be the treatment. If we do not have such variable that we can manipulate, then we would have to create a predictive model instead. For example, if we were focused on individuals' voting, one conclusion maybe: the probability of voting for Clinton of women is expected to be higher than that of men. Correlation does not mean causation, we cannot assume that sex directly makes people prefer Clinton. In order to find a causation relationship, we would need to manipulate the treatment so that we can measure its effect on the outcome.
+We have to choose a variable that we can change to be the treatment. If we do not have such variable that we can manipulate, then we would have to create a predictive model instead. For example, if we were focused on individuals' voting, one conclusion might be: the probability of voting for Clinton among women is expected to be higher than that of men. Correlation does not mean causation, we cannot assume that sex directly makes people prefer Clinton. In order to find a causation relationship, we would need to manipulate the treatment so that we can measure its effect on the outcome.
 
 ### Exercise 19
 
@@ -605,7 +605,7 @@ Describe in words the Preceptor Table for this problem.
 
 ```{r wisdom-19}
 question_text(NULL,
-	message = "The Preceptor Table has one row for each voter, one output column for which party was voted and one covariate, sex.",
+	message = "The Preceptor Table has one row for each voter, one outcome column for which candidate was voted for, and one covariate, sex.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -725,7 +725,7 @@ Provide one reason why the assumption of validity might not hold for the outcome
 
 ```{r justice-3}
 question_text(NULL,
-	message = "People may claim that they voted for one candidate when they really voted for another. This causes the column `pres_vote` in the data we have do not match up with the `pres_vote` column in the Preceptor Table.",
+	message = "People may claim that they voted for one candidate when they really voted for another. This causes the column `pres_vote` in the data we have to not match up with the `pres_vote` column in the Preceptor Table.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -755,7 +755,7 @@ question_text(NULL,
 
 ### 
 
-The Population Table is almost always much bigger than the combination of the Preceptor Table and the data because, if we can really assume that both the Preceptor Table and the data are part of the same population, than that population must cover a broad universe of time and units since the Preceptor Table and the data are, themselves, often far apart from each other.
+The Population Table is almost always much bigger than the combination of the Preceptor Table and the data because, if we can really assume that both the Preceptor Table and the data are part of the same population, then that population must cover a broad universe of time and units since the Preceptor Table and the data are, themselves, often far apart from each other.
 
 ### Exercise 5
 
@@ -834,7 +834,7 @@ question_text(NULL,
 
 ### 
 
-Some voters cast their ballots weeks before Election Day. Some NES participants were surveyed right after the election. Some were survey later. We sweep all these complications under the mythical moment in time which we assert is the same for both the data and the Preceptor Table.
+Some voters cast their ballots weeks before Election Day. Some NES participants were surveyed right after the election. Some were surveyed later. We sweep all these complications under the mythical moment in time which we assert is the same for both the data and the Preceptor Table.
 
 A change in time or the distribution of the data does not, in and of itself, demonstrate a violation of stability. Stability is about the parameters: $\beta_0$, $\beta_1$ and so on. Stability means these parameters are the same in the data as they are in the population as they are in the Preceptor Table.
 
@@ -937,7 +937,7 @@ The probability family is determined by the outcome variable `pres_vote`.
 
 Since $Y$ is a categorical value (with 2+ possible values), the probability family is Multinomial.
 
-$$Y \sim \text{Mutinomial}(\rho_{bush}, \rho_{clinton}, \rho_{perot})$$
+$$Y \sim \text{Multinomial}(\rho_{bush}, \rho_{clinton}, \rho_{perot})$$
 
 where $$ \rho_{bush} + \rho_{clinton} + \rho_{perot} = 1 $$
 
@@ -1093,7 +1093,7 @@ multinom_reg(engine = "nnet") |>
 
 ### 
 
-Recall that a categorical variable (whether character or factor) like `sex` is turned into a $0/1$ "dummy" variable which is then re-named something like $sex{Male}$. After all, we can't have words --- like "Male" or "Female" --- in a mathematical formula, hence the need for dummy variables.
+Recall that a categorical variable (whether character or factor) like `sex` is turned into a $0/1$ "dummy" variable which is then re-named something like $sex_{Male}$. After all, we can't have words --- like "Male" or "Female" --- in a mathematical formula, hence the need for dummy variables.
 
 ### Exercise 4
 
@@ -1144,7 +1144,7 @@ In data science, **we deal with words, math, and code, but the most important of
 
 ### Exercise 6
 
-We need `fit_nes` to exit in Console World. Copy/paste this code into the Console and execute it.
+We need `fit_nes` to exist in Console World. Copy/paste this code into the Console and execute it.
 
 ````
 nes_92 <- nes |> 
@@ -1313,7 +1313,7 @@ Because of the change in your `.gitignore` (assuming that you saved it), the cac
 
 ### Exercise 11
 
-In the Console, run `tidy()` on `fit_nes` with the argument `conf.int` set equal to `TRUE`. The returns 95% intervals for all the parameters in our model.
+In the Console, run `tidy()` on `fit_nes` with the argument `conf.int` set equal to `TRUE`. This returns 95% intervals for all the parameters in our model.
 
 ```{r courage-11, exercise = TRUE}
 
@@ -1385,7 +1385,7 @@ question_text(NULL,
 
 ### 
 
-Read our answer. It will not be the same as yours. You can, if you want, change your answer to incorporate some of our ideas. Do not copy/paste our answer exactly. Add your two sentences, edited or otherwise, to summary paragrah portion of your QMD. `Cmd/Ctrl + Shift + K`, and then commit/push.
+Read our answer. It will not be the same as yours. You can, if you want, change your answer to incorporate some of our ideas. Do not copy/paste our answer exactly. Add your two sentences, edited or otherwise, to the summary paragraph portion of your QMD. `Cmd/Ctrl + Shift + K`, and then commit/push.
 
 ## Temperance
 ### 
@@ -1567,7 +1567,7 @@ The plot displays the predicted probabilities of voting for each presidential ca
 
 ### Exercise 9
 
-Run `plot_predictions` on `fit_nes` with `by` set to `"sex`, `type` set to `"prob"`, and `draw` set to `FALSE`.               
+Run `plot_predictions` on `fit_nes` with `by` set to `"sex"`, `type` set to `"prob"`, and `draw` set to `FALSE`.               
 
 ```{r temperance-9, exercise = TRUE}
 
@@ -1589,7 +1589,7 @@ plot_predictions(fit_nes,
 
 ### 
 
-This code returns the estimated probabilities of voting for each candidate, for male and female. 
+This code returns the estimated probabilities of voting for each candidate, for males and females.
 
 The intercept coefficient from the fitted model (0.4553900) represents the log-odds, whereas the predicted probabilities from plot_predictions() represent the chances of a voter choosing Clinton based on sex, transformed from those log-odds.
 

@@ -268,7 +268,7 @@ Provide one reason why the assumption of validity might not hold for the outcome
 
 ```{r example-1-14}
 question_text(NULL,
-	message = "Consider the fact that the high school grades column in the data includes grades from freshman to senior year, while the Preceptor Table only includes grades from freshman to junior year. The data that we have in the high school grades column from our Preceptor Table and the data may not correspond as well as we would like them to.",
+	message = "The high school grades column in the data covers all four years of high school — the class of 2015 has already graduated. But the high school grades column in the Preceptor Table can only include grades through junior year, since the current students have not yet finished high school. These two columns are measuring different things — cumulative four-year GPA versus cumulative three-year GPA — and so may not correspond to the same concept.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -280,6 +280,8 @@ question_text(NULL,
 In order to consider the Preceptor Table and the data to be drawn from the same population, the columns from one must have a *valid correspondence* with the columns in the other. Validity, if true (or at least reasonable), allows us to construct the Population Table, which is the first step in Justice.
 
 Because we control the Preceptor Table and, to a lesser extent, the original question, we can adjust those variables to be “closer” to the data that we actually have. This is another example of the iterative nature of data science. If the data is not close enough to the question, then we check with our boss/colleague/customer to see if we can modify the question in order to make the match between the data and the Preceptor Table close enough for validity to hold.
+
+Despite these potential problems, we will assume that validity holds since it, mostly (?), does.
 
 ### Exercise 15
 
