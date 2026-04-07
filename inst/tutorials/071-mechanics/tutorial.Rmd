@@ -1686,6 +1686,7 @@ question_text(NULL,
 
 Evaluating your model’s predictions against real outcomes is essential for checking model accuracy and for improving your models over time.
 
+<!-- AR: Is it possible to make the answers executable r code blocks, so users can easily validate answers? Do for all plotting exercises below. -->
 ### Exercise 12
 
 Ask AI to help you create a plot using the `x` data. Add a column named `pred_liberal` with predicted values for `att_end` from your `fit_liberal` model. Be sure to use: `predict(fit_liberal, new_data = x)$.pred` inside `mutate()`. Plot `pred_liberal` on the x-axis and the actual `att_end` on the y-axis with `ggplot()`. Use `geom_jitter()` (with width and alpha for overlap), and use `annotate()` to add large red open circles at (8, 8) and (10, 10) to highlight perfect predictions. Make sure your graph includes clear axis labels and a title.
@@ -1837,6 +1838,8 @@ $$Residual = y_i - \hat{y_i} $$
 $y_i$ is the actual value of the dependent variable, which is `att_end` and $\hat{y_i}$ is the predicted value of `att_end` generated from the model.
 
 ### Exercise 16
+
+<!-- AR: instructions for resid_lib do not match formula above. Which is correct? Same issue in Exercise 18 -->
 
 Add another column `resid_lib` equal to `pred_lib - att_end` to the current tibble using the `mutate()` command. 
 
@@ -2219,6 +2222,7 @@ You can also add a confidence interval for the performance metrics by setting th
 
 Run `compare_performance()` again with `ci = 0.99` to get 99% confidence intervals for the model metrics.
 
+<!-- AR: Do not see confidence intervals. Getting the following warning after running this code block: Warning: model3 are not supported models and have been dropped.-->
 
 ```{r comparing-models-in-practice-4, exercise = TRUE}
 
@@ -2253,6 +2257,8 @@ compare_models(fit_att_start, fit_liberal)
 ```
 
 ### 
+
+<!-- AR: I was  confused at how to interpret the outputs of this function. What outputs should I focus on and how do I interpret them. -->
 
 The `compare_models()` function runs a statistical test to assess whether the difference in model fit is significant. If the p-value is small (usually less than 0.05), you have evidence that one model is significantly better than the other. Always use both summary metrics and formal statistical tests to guide your model choice.
 
