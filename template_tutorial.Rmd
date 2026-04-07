@@ -686,59 +686,7 @@ question_text(NULL,
 
 The Preceptor Table for this problem looks something like this:
 
-<!-- DK: Change to advice about using make_p_tibble(). -->
-
-<!-- XX: Here are two examples which might help you to create your own. In general, your question will only specify the outcome and one or two covariates, so the Preceptor Table is actually fairly small. Making a good Preceptor Table is one of the more difficult aspects of a tutorial. -->
-
-<!-- First, for a predictive model: -->
-
-<!-- ```{r} -->
-<!-- tibble(ID = c("1", "2", "...", "10", "11", "...", "103,754,865"), -->
-<!--        vote = c("Democrat", "Third Party", "...", "Republican", "Democrat", "...", "Republican"), -->
-<!--        sex = c("M", "F", "...", "F", "F", "...", "M")) |> -->
-
-<!--   gt() |> -->
-<!--   tab_header(title = "Preceptor Table") |>  -->
-<!--   cols_label(ID = md("ID"), -->
-<!--              vote = md("Vote"), -->
-<!--              sex = md("Sex")) |> -->
-<!--   tab_style(cell_borders(sides = "right"), -->
-<!--             location = cells_body(columns = c(ID))) |> -->
-<!--   tab_style(style = cell_text(align = "left", v_align = "middle", size = "large"),  -->
-<!--             locations = cells_column_labels(columns = c(ID))) |> -->
-<!--   cols_align(align = "center", columns = everything()) |> -->
-<!--   cols_align(align = "left", columns = c(ID)) |> -->
-<!--   fmt_markdown(columns = everything()) |> -->
-<!--   tab_spanner(label = "Outcome", columns = c(vote)) |> -->
-<!--   tab_spanner(label = "Covariate", columns = c(sex)) -->
-<!-- ``` -->
-
-<!-- Second, for a causal model: -->
-
-<!-- ```{r} -->
-<!-- tibble(ID = c("1", "2", "...", "10", "11", "...", "N"), -->
-<!--        voting_after_treated = c("1", "1", "...", "1", "0", "...", "1"), -->
-<!--        voting_after_control = c("1", "0", "...", "1", "1", "...", "0"), -->
-<!--        treatment = c("Yes", "No", "...", "Yes", "Yes", "...", "No"), -->
-<!--        engagement = c("1", "3", "...", "6", "2", "...", "2")) |> -->
-
-<!--   gt() |> -->
-<!--   tab_header(title = "Preceptor Table") |>  -->
-<!--   cols_label(ID = md("ID"), -->
-<!--              voting_after_treated = md("Voting After Treatment"), -->
-<!--              voting_after_control = md("Voting After Control"), -->
-<!--              treatment = md("Treatment"), -->
-<!--              engagement = md("Engagement")) |> -->
-<!--   tab_style(cell_borders(sides = "right"), -->
-<!--             location = cells_body(columns = c(ID))) |> -->
-<!--   tab_style(style = cell_text(align = "left", v_align = "middle", size = "large"),  -->
-<!--             locations = cells_column_labels(columns = c(ID))) |> -->
-<!--   cols_align(align = "center", columns = everything()) |> -->
-<!--   cols_align(align = "left", columns = c(ID)) |> -->
-<!--   fmt_markdown(columns = everything()) |> -->
-<!--   tab_spanner(label = "Covariates", columns = c(treatment, engagement)) |> -->
-<!--   tab_spanner(label = "Outcomes", columns = c(voting_after_control, voting_after_treated)) -->
-<!-- ``` -->
+<!-- Use primer.tutorials::make_p_tibble() to create the tables that you need. -->
 
 Like all aspects of a data science problem, the Preceptor Table evolves as we continue our work. 
 
