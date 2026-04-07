@@ -1,8 +1,37 @@
+### Alex
+
+Use Claud Code to make dramatic improvements in this tutorial.
+
+* Don't just listen to me! Ask AI about my advice.
+
+* Test often.
+
+* Commit often. (Ask AI!) But keep things organized.
+
+* Submit PRs which make logical sense. Do not need to submit for each tutorial 
+    if that turns out to be easy. PRs include much more code change now then
+    they did three years ago.
+
+* Fix validity in one or two tutorial. Submit PRs. Have a conversation with Claude.
+
+* Fix it everywhere else.
+
+* Figure out other errors. template_tutorial.Rmd is ground truth. Submit PRs fixing them.
+
+* Read template_tutorial.Rmd.  
+
+* Create a Claude.md file that mentions stuff, like the Primer and the purpose of the template_tutorial.Rmd?
+
+This is an R package. 
+
+Its main content is several tutorials, designed for use with the learnr R package. 
+
+Read the templte_tutorial.Rmd file for an overview of what we are trying to accomplish.
+
+
+### Later projects
+
 All footnotes are 1.
-
-
-
-
 
 Must be possible for a footnote to just not be there, presumably by setting the value to NULL.
 

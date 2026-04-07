@@ -1503,7 +1503,9 @@ question_text(NULL,
 ```
 
 ```{r temperance-8-test, include = FALSE}
-plot_predictions(fit_biden, type = "prob", condition = "group")
+predictions(fit_biden, type = "prob", newdata = poll_data) |>
+  ggplot(aes(x = group, y = estimate)) +
+  geom_col()
 ```
 
 ### 
