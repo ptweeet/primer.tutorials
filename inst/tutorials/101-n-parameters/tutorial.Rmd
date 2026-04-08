@@ -720,7 +720,7 @@ Provide one reason why the assumption of validity might not hold for the outcome
 
 ```{r justice-3}
 question_text(NULL,
-	message = "One reason validity might not hold is that the `primary_06` column in our data only tells us whether a person actually voted in the 2006 primary, not whether they would have voted under every possible treatment. This means the outcome column in the data is not always the same as the potential outcome columns in the Preceptor Table. Similarly, the `age` column might not be perfectly valid if, for example, it records age at a different time than the election, or if the value is incorrectly reported. Both outcome and covariate columns must closely correspond between the data and the Preceptor Table for validity to hold.",
+	message = "The `treatment` column in our data records which specific social-pressure mailer — designed for 2006 Michigan voters — was sent to each person. But the `treatment` column in the Preceptor Table represents social-pressure interventions as they might be applied in a future campaign. The specific design and framing of those mailers may differ substantially from those in the experiment, so the treatment columns in the data and the Preceptor Table may not be measuring the same thing.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
