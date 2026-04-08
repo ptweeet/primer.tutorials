@@ -808,8 +808,8 @@ Read our answer. It will not be the same as yours. You can, if you want, change 
 *The arc of the moral universe is long, but it bends toward justice.* - Theodore Parker
 
 ### Exercise 1
-<!-- AR: answer does not mention 5 components -->
-In your own words, name the key components of Justice when working on a data science problem.
+
+In your own words, name the five key components of Justice when working on a data science problem.
 
 ```{r justice-1}
 question_text(NULL,
@@ -847,7 +847,7 @@ Provide one reason why the assumption of validity might not hold for the outcome
 
 ```{r justice-3}
 question_text(NULL,
-	message = "Is the way people measure height in the survey similar to the way it is being measured now -- e.g. Are measurements taken with shoes on or shoes off --. Such issues can cause the `height` column in NHANES in 2010 and the column `height` in the Preceptor Table not refer to the same thing.",
+	message = "Height can be measured with or without shoes, and it is not clear that NHANES surveyors in 2010 used the same protocol that would be used today. If measurements in the data were taken with shoes on but the `height` column in the Preceptor Table refers to height without shoes, these two columns would not be measuring the same thing.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
