@@ -687,7 +687,7 @@ Read our answer. It will not be the same as yours. You can, if you want, change 
 
 ### Exercise 1
 
-In your own words, name the four key components of Justice for working on a data science problem.
+In your own words, name the five key components of Justice for working on a data science problem.
 
 ```{r justice-1}
 question_text(NULL,
@@ -1694,7 +1694,7 @@ Write a few sentences which explain why the estimates for the quantities of inte
 
 ```{r temperance-13}
 question_text(NULL,
-	message = "As we would tell our boss, it would not be shocking to find out that the voting preference was less or more than our estimate. This is because a lot of the assumptions we make during the process of building a model, the processes in Wisdom, are subject to error. Perhaps our data did not match the future as well as we had hoped. In such cases, increase the confidence interval since the assumptions of your model are always false.",
+	message = "The estimates might be wrong for several reasons. First, validity may not hold — survey respondents sometimes misreport who they voted for, meaning the `pres_vote` column in the data may not match the true vote column in the Preceptor Table. Second, the relationship between sex and presidential vote preference in 1992 may not be stable across different elections. For these reasons, we should treat the confidence interval as wider than our model suggests.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
