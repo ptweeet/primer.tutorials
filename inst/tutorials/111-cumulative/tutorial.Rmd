@@ -958,11 +958,11 @@ Read our answer. It will not be the same as yours. You can, if you want, change 
 
 ### Exercise 1
 
-In your own words, name the four key components of Justice for working on a data science problem.
+In your own words, name the five key components of Justice when working on a data science problem.
 
 ```{r justice-1}
 question_text(NULL,
-	message = "Justice concerns four topics: the Population Table, stability, representativeness, and unconfoundedness.",
+	message = "Justice concerns the Population Table and the four key assumptions which underlie it: validity, stability, representativeness, and unconfoundedness.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
