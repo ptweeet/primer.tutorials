@@ -892,44 +892,6 @@ This graph is useful but we still need to create an actual model with this data 
 
 ### Exercise 25
 
-In your own words, define "validity" as we use the term.
-
-```{r wisdom-25}
-question_text(NULL,
-	message = "Validity is the consistency, or lack thereof, in the columns of the data set and the corresponding columns in the Preceptor Table.",
-	answer(NULL, correct = TRUE),
-	allow_retry = FALSE,
-	incorrect = NULL,
-	rows = 6)
-```
-
-### 
-
-Validity is always about the *columns* in the Preceptor Table and the data. Just because columns from these two different tables have the same *name* does not mean that they are the same *thing*.
-
-### Exercise 26
-
-Provide one reason why the assumption of validity might not hold for the outcome variable `approval` or for one of the covariates. Use the words "column" or "columns" in your answer.
-
-```{r wisdom-26}
-question_text(NULL,
-	message = "Both the colums in the data we have and the Preceptor Table have a variable called approval, but the Preceptor Table is the true approval of the president where as the data only has the self reported approval of the president. People could lie about their approval of the president.",
-	answer(NULL, correct = TRUE),
-	allow_retry = FALSE,
-	incorrect = NULL,
-	rows = 6)
-```
-
-### 
-
-In order to consider the Preceptor Table and the data to be drawn from the same population, the columns from one must have a *valid correspondence* with the columns in the other. Validity, if true (or at least reasonable), allows us to construct the Population Table, which is the first step in Justice.
-
-Because we control the Preceptor Table and, to a lesser extent, the original question, we can adjust those variables to be “closer” to the data that we actually have. This is another example of the iterative nature of data science. If the data is not close enough to the question, then we check with our boss/colleague/customer to see if we can modify the question in order to make the match between the data and the Preceptor Table close enough for validity to hold.
-
-Despite these potential problems, we will assume that validity holds since it, mostly (?), does.
-
-### Exercise 27
-
 Over the course of this tutorial, we will be creating a summary paragraph. The purpose of this exercise is to write the first two sentences of that paragraph.
 
 The first sentence is a general statement about the overall topic, mentioning both the general class of the outcome variable and of at least one of the covariates. It is **not** connected to the initial "Imagine that you are XX" which set the stage for this project. That sentence can be rhetorical. It can be trite, or even a platitude. The purpose of the sentence is to let the reader know, gently, about our topic.
@@ -938,7 +900,7 @@ The second sentence does two things. First, it introduces the data source. Secon
 
 Type your two sentences below.
 
-```{r wisdom-27}
+```{r wisdom-25}
 question_text(NULL,
 	message = "Public opinion about political leaders often depends on where people fall on the ideological spectrum. Using data from the 2020 Cooperative Election Study, one of the largest political surveys in the U.S., we explore how presidential approval varies across different ideological groups.",
 	answer(NULL, correct = TRUE),
@@ -958,26 +920,64 @@ Read our answer. It will not be the same as yours. You can, if you want, change 
 
 ### Exercise 1
 
-In your own words, name the four key components of Justice for working on a data science problem.
+In your own words, name the five key components of Justice when working on a data science problem.
 
 ```{r justice-1}
 question_text(NULL,
-	message = "Justice concerns four topics: the Population Table, stability, representativeness, and unconfoundedness.",
+	message = "Justice concerns the Population Table and the four key assumptions which underlie it: validity, stability, representativeness, and unconfoundedness.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
 	rows = 6)
 ```
 
-### 
+###
 
 Justice is about concerns that you (or your critics) might have, reasons why the model you create might not work as well as you hope.
 
 ### Exercise 2
 
-In your own words, define a Population Table.
+In your own words, define "validity" as we use the term.
 
 ```{r justice-2}
+question_text(NULL,
+	message = "Validity is the consistency, or lack thereof, in the columns of the data set and the corresponding columns in the Preceptor Table.",
+	answer(NULL, correct = TRUE),
+	allow_retry = FALSE,
+	incorrect = NULL,
+	rows = 6)
+```
+
+###
+
+Validity is always about the *columns* in the Preceptor Table and the data. Just because columns from these two different tables have the same *name* does not mean that they are the same *thing*.
+
+### Exercise 3
+
+Provide one reason why the assumption of validity might not hold for the outcome variable `approval` or for one of the covariates. Use the words "column" or "columns" in your answer.
+
+```{r justice-3}
+question_text(NULL,
+	message = "The `approval` column in our data records how survey respondents reported their approval of the president. But the `approval` column in the Preceptor Table represents respondents' true, underlying approval — not necessarily what they would report on a survey. Survey respondents may not accurately report their true opinions, so the two columns may not be measuring the same thing.",
+	answer(NULL, correct = TRUE),
+	allow_retry = FALSE,
+	incorrect = NULL,
+	rows = 6)
+```
+
+###
+
+In order to consider the Preceptor Table and the data to be drawn from the same population, the columns from one must have a *valid correspondence* with the columns in the other. Validity, if true (or at least reasonable), allows us to construct the Population Table, which is the first step in Justice.
+
+Because we control the Preceptor Table and, to a lesser extent, the original question, we can adjust those variables to be "closer" to the data that we actually have. This is another example of the iterative nature of data science. If the data is not close enough to the question, then we check with our boss/colleague/customer to see if we can modify the question in order to make the match between the data and the Preceptor Table close enough for validity to hold.
+
+Despite these potential problems, we will assume that validity holds since it, mostly (?), does.
+
+### Exercise 4
+
+In your own words, define a Population Table.
+
+```{r justice-4}
 question_text(NULL,
 	message = "The Population Table includes a row for each unit/time combination in the underlying population from which both the Preceptor Table and the data are drawn.",
 	answer(NULL, correct = TRUE),
@@ -1006,11 +1006,11 @@ population_table |>
 
  ```
 
-### Exercise 3
+### Exercise 5
 
 In your own words, define the assumption of "stability" when employed in the context of data science.
 
-```{r justice-3}
+```{r justice-5}
 question_text(NULL,
 	message = "Stability means that the relationship between the columns in the Population Table is the same for three categories of rows: the data, the Preceptor Table, and the larger population from which both are drawn.",
 	answer(NULL, correct = TRUE),
@@ -1023,11 +1023,11 @@ question_text(NULL,
 
 Stability is all about *time*. Is the relationship among the columns in the Population Table stable over time? In particular, is the relationship --- which is another way of saying "mathematical formula" --- at the time the data was gathered the same as the relationship at the (generally later) time references by the Preceptor Table.
 
-### Exercise 4
+### Exercise 6
 
 Provide one reason why the assumption of stability might not be true in this case.
 
-```{r justice-4}
+```{r justice-6}
 question_text(NULL,
 	message = "We are concerned about the year 2020 and the data we have has information for 2020, so their is no danger to stability. The time the data was gathered is the same as the time refered to in the Preceptor Table.",
 	answer(NULL, correct = TRUE),
@@ -1040,11 +1040,11 @@ question_text(NULL,
 
 A change in time or the distribution of the data does not, in and of itself, demonstrate a violation of stability. Stability is about the parameters: $\beta_0$, $\beta_1$ and so on. Stability means these parameters are the same in the data as they are in the population as they are in the Preceptor Table.
 
-### Exercise 5
+### Exercise 7
 
 We use our data to make inferences about the overall population. We use information about the population to make inferences about the Preceptor Table: `Data -> Population -> Preceptor Table`. In your own words, define the assumption of "representativeness" when employed in the context of data science.
 
-```{r justice-5}
+```{r justice-7}
 question_text(NULL,
 	message = "Representativeness, or the lack thereof, concerns two relationships among the rows in the Population Table. The first is between the data and the other rows. The second is between the other rows and the Preceptor Table.",
 	answer(NULL, correct = TRUE),
@@ -1057,11 +1057,11 @@ question_text(NULL,
 
 Ideally, we would like both the Preceptor Table *and* our data to be random samples from the population. Sadly, this is almost never the case.
 
-### Exercise 6
+### Exercise 8
 
 We do not use the data, directly, to estimate missing values in the Preceptor Table. Instead, we use the data to learn about the overall population. Provide one reason, involving the relationship between the data and the population, for why the assumption of representativeness might not be true in this case.
 
-```{r justice-6}
+```{r justice-8}
 question_text(NULL,
 	message = "A large portion of the CES respondents are YouGov panelists. This group might not representative of the whole population because they might be more politically active and care more about politics than other people do.",
 	answer(NULL, correct = TRUE),
@@ -1074,11 +1074,11 @@ question_text(NULL,
 
 The reason that representativeness is important is because, when it is violated, the estimates for the model parameters might be biased.
 
-### Exercise 7
+### Exercise 9
 
 We use information about the population to make inferences about the Preceptor Table. Provide one reason, involving the relationship between the population and the Preceptor Table, for why the assumption of representativeness might not be true in this case.
 
-```{r justice-7}
+```{r justice-9}
 question_text(NULL,
 	message = "Because the Preceptor Table includes the entire population, there is no problem with representativeness in using the population to draw inferences about the Precetor Table. They are one and the same.",
 	answer(NULL, correct = TRUE),
@@ -1091,11 +1091,11 @@ question_text(NULL,
 
 Stability looks across time periods. Representativeness looks within time periods, for the most part. 
 
-### Exercise 8
+### Exercise 10
 
 In your own words, define the assumption of "unconfoundedness" when employed in the context of data science.
 
-```{r justice-8}
+```{r justice-10}
 question_text(NULL,
 	message = "Unconfoundedness means that the treatment assignment is independent of the potential outcomes, when we condition on pre-treatment covariates.",
 	answer(NULL, correct = TRUE),
@@ -1108,7 +1108,7 @@ question_text(NULL,
 
 This assumption is only relevant for causal models. We describe a model as "confounded" if this is not true. The easiest way to ensure unconfoundedness is to assign treatment randomly.
 
-### Exercise 9
+### Exercise 11
 
 Write one sentence which highlights a potential weakness in your model. This will almost always be derived from possible problems with the assumptions discussed above. We will add this sentence to our summary paragraph. So far, our version of the summary paragraph looks like this:
 
@@ -1116,7 +1116,7 @@ Write one sentence which highlights a potential weakness in your model. This wil
 
 Of course, your version will be somewhat different.
 
-```{r justice-9}
+```{r justice-11}
 question_text(NULL,
 	message = "Public opinion about political leaders often depends on where people fall on the ideological spectrum. Using data from the 2020 Cooperative Election Study, one of the largest political surveys in the U.S., we explore how presidential approval varies across different ideological groups. One concern is that survey respondents might be systematically different from other Americans.",
 	answer(NULL, correct = TRUE),

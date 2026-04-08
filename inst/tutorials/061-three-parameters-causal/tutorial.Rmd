@@ -668,7 +668,7 @@ Provide one reason why the assumption of validity might not hold for the outcome
 
 ```{r justice-3}
 question_text(NULL,
-	message = "The attitude toward immigration recorded in the data corresponds to a response to a survey question. In the Preceptor Table, on the other hand, we are not interested in how someone might respond to a survey. After all, people do not always tell the truth in surveys. Instead, we want to know their true, underlying attitude toward immigration.",
+	message = "The `att_end` column in the data records how commuters responded to a survey question about immigration attitudes. But the `att_end` column in the Preceptor Table represents their true, underlying attitudes — not necessarily what they would report on a survey. People do not always answer surveys honestly, so these two columns may not be measuring the same thing.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,

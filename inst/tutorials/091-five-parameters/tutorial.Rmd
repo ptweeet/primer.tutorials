@@ -672,11 +672,11 @@ Validity is always about the *columns* in the Preceptor Table and the data. Just
 
 ### Exercise 3
 
-Provide one reason why the assumption of stability might not be true in this case.
+Provide one reason why the assumption of validity might not hold for the outcome variable or for one of the covariates. Use the words "column" or "columns" in your answer.
 
 ```{r justice-3}
 question_text(NULL,
-	message = "Running for election as a woman was a very different proposition in 1950 than it is today, so the relationship between sex and years lived after the election may have changed.",
+	message = "The outcome column in our data records the actual number of years each historical candidate lived after their election — a value we can only know for candidates who have already died. But the outcome column in the Preceptor Table represents the longevity of present-day candidates, who benefit from modern medicine. These two columns may not be measuring the same underlying concept.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -692,6 +692,23 @@ Because we control the Preceptor Table and, to a lesser extent, the original que
 Despite these potential problems, we will assume that validity holds since it, mostly (?), does.
 
 ### Exercise 4
+
+Provide one reason why the assumption of stability might not be true in this case.
+
+```{r justice-4-stability}
+question_text(NULL,
+	message = "Running for election as a woman was a very different proposition in 1950 than it is today, so the relationship between sex and years lived after the election may have changed.",
+	answer(NULL, correct = TRUE),
+	allow_retry = FALSE,
+	incorrect = NULL,
+	rows = 6)
+```
+
+###
+
+The longer the time period covered by the Preceptor Table and the data, the more suspect the assumption of stability becomes.
+
+### Exercise 5
 
 In your own words, define a Population Table.
 
