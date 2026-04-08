@@ -546,7 +546,7 @@ question_text(NULL,
 
 The Preceptor Table does not include all the covariates which you will eventually include in your model. It only includes, along with the outcome(s), covariates which are mentioned in your question.
 
-<!-- XX: Insert at least two questions which explore the data. Provide knowledge drops which highlight important aspects. Don't forget to `tutorial.helpers::check_current_tutorial()` when you are done so that all the subsequent exercises are renumbered correctly. -->
+<!-- XX: Insert at least two addition exercises which explore the data. These will almost always involve the outcome variable for ine questin and the treatment (or key covariate) for the other. Provide knowledge drops which highlight important aspects. Don't forget to `tutorial.helpers::check_current_tutorial()` when you are done so that all the subsequent exercises are renumbered correctly. -->
 
 ### Exercise 3
 
@@ -645,7 +645,7 @@ What moment in time does the Preceptor Table refer to?
 
 ```{r wisdom-8}
 question_text(NULL,
-	message = "XX",
+	message = "XX: One brief phrase or sentence describing the moment.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -656,7 +656,7 @@ question_text(NULL,
 
 A Preceptor Table can never really refer to an exact instant in time since nothing is instantaneous in this fallen world.
 
-In almost all practical problems, the data was gathered at a time other than that to which the Preceptor Table refers.
+<!-- XX: Put a sentence with a more sophisticated discussion of timing, referencing the data for this problem. -->
 
 ```{r}
 # XX: Make a nice looking plot which shows the outcome variable on the y-axis
