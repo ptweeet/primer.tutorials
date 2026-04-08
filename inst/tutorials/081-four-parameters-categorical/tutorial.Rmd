@@ -1204,7 +1204,7 @@ Because `check_predictions()` does no work with multinomial models created with 
 
 
 ### Exercise 8
-
+<!-- AR: I found it quite difficult to know what formula to use or how to best prompt AI to get the LaTeX -->
 Ask AI to create $\LaTeX$ code for this model, including our variable names and estimates for all the coefficients. Because this is a fitted model, the dependent variable will have a "hat" and the formula will not include an error term. 
 
 Add the code to your QMD. `Cmd/Ctrl + Shift + K`.
@@ -1248,7 +1248,7 @@ $$
 ````
 
 
-First, we have replaced the parameters with our best estimates. Second, the left-hand side variable is $\widehat{\text{XX}}$ instead of $\text{XX}$ because this formula generates our estimated `XX`. A hat indicates an estimated value. 
+First, we have replaced the parameters with our best estimates. Second, the left-hand side variables are $\hat{\rho}_{clinton}$, $\hat{\rho}_{perot}$, and $\hat{\rho}_{bush}$ instead of $\rho_{clinton}$, $\rho_{perot}$, and $\rho_{bush}$ because this formula generates our estimated `pres_vote` probabilities for each candidate. A hat indicates an estimated value.
 
 **This is our data generating mechanism.**
 
@@ -1540,13 +1540,40 @@ predictions(fit_nes, type = "prob")
 `predictions()` returns a data frame with one row for each observation in the data set used to fit the model. In this case, predictions() returns 4,974 rows, because the input data has 4,974 observations. Each row contains the predicted probability for a specific outcome category (e.g., Bush, Perot) for a given observation.
 
 ### Exercise 8
-
+<!-- AR: Plot should be labelled or colored to indicate how points correspond to candidates. -->
 Run `plot_predictions` on `fit_nes` with `type` set to `"prob"`, and `condition` set to `c("sex")`.    
 
 ```{r temperance-8, exercise = TRUE}
-plot_predictions(fit_nes, 
-				 type = "prob",
-                 condition = c("sex"))
+plot_predictions(
+  fit_nes,
+  type = "prob",
+  condition = c("sex"),
+  draw = FALSE
+) |>
+  mutate(
+    group = factor(group, levels = c("Clinton", "Bush", "Perot"))
+  ) |>
+  ggplot(aes(x = sex, y = estimate, color = group)) +
+  geom_point(size = 3, position = position_dodge(width = 0.3)) +
+  geom_errorbar(
+    aes(ymin = conf.low, ymax = conf.high),
+    width = 0.08,
+    position = position_dodge(width = 0.3)
+  ) +
+  scale_y_continuous(labels = scales::label_percent(accuracy = 1)) +
+  labs(
+    title = "Predicted 1992 Presidential Vote Probabilities by Sex",
+    subtitle = "Women were more likely to support Clinton; men leaned more toward Bush and Perot.",
+    x = "Sex",
+    y = "Predicted probability",
+    color = "Candidate",
+    caption = "Source: National Election Studies (NES), 1992."
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    legend.position = "top",
+    plot.title = element_text(face = "bold")
+  )
 ```
 
 ```{r temperance-8-hint-1, eval = FALSE}
