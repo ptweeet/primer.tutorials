@@ -238,7 +238,9 @@ question_text(NULL,
 	rows = 6)
 ```
 
-### 
+###
+
+Validity is always about the *columns* in the Preceptor Table and the data. Just because columns from these two different tables have the same *name* does not mean that they are the same *thing*.
 
 We hope that all this new terminology is not overwhelming. The "[Rubin Causal Model](https://ppbds.github.io/primer/rubin-causal-model.html)" chapter in the [*Primer*](https://ppbds.github.io/primer/) provides an introduction to some of these terms.
 
@@ -476,7 +478,7 @@ Write two sentences about *validity*, as used as an assumption in the *Primer*.
 
 ```{r predictive-model-2}
 question_text(NULL,
-	message = "The assumption of validity allows us to ignore any variation in treatment or in any other variable. It allows us to 'stack' the rows from the data, the Preceptor Table, and the population into a single Population Table.",
+	message = "Validity is the consistency, or lack thereof, in the columns of the data set and the corresponding columns in the Preceptor Table. If validity holds, we can 'stack' the rows from the data, the Preceptor Table, and the population into a single Population Table.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -717,7 +719,7 @@ Come up with a scenario for this problem in which the assumption of validity mig
 
 ```{r causal-model-6}
 question_text(NULL,
-	message = "If different questions or wording of the questions were used, it could result in different outcomes across time.",
+	message = "The `att_end` column in the data records how commuters responded to a survey question about immigration attitudes. But the `att_end` column in the Preceptor Table represents their true, underlying attitudes — not necessarily what they would report on a survey. People do not always answer surveys honestly, so the two columns may not be measuring the same thing.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -969,11 +971,11 @@ question_text(NULL,
 
 ### Exercise 4
 
-Come up with a scenario for the wealth problem in which the assumption of validity might not hold.
+Come up with a scenario for the wealth problem in which the assumption of validity might not hold. Use the words "column" or "columns" in your answer.
 
 ```{r review-4}
 question_text(NULL,
-	message = "Since we want to know the wealth, but only have data incorporating income, the two are different enough that validity may not hold.",
+	message = "The outcome column in the Preceptor Table represents true wealth — the total value of a person's assets. But the outcome column in our data records income, which is a flow of earnings over time. Wealth and income are different concepts, so these two columns are not measuring the same thing, and validity may not hold.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,

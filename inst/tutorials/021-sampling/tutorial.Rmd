@@ -1506,11 +1506,11 @@ Validity is always about the *columns* in the Preceptor Table and the data. Just
 
 ### Exercise 3
 
-Provide one reason why the assumption of validity might not hold for the outcome variable `XX` or for one of the covariates. Use the words "column" or "columns" in your answer.
+Provide one reason why the assumption of validity might not hold for the outcome variable `color` or for one of the covariates. Use the words "column" or "columns" in your answer.
 
 ```{r justice-3}
 question_text(NULL,
-	message = "The column for `color` in our data might not match the column in the Preceptor Table if, for example, some red beads are faded and recorded as not red. Similarly, if we had a column for bead position, it might be measured differently in the data and the Preceptor Table, causing validity problems for that covariate as well.",
+	message = "The `color` column in our data might not match the `color` column in the Preceptor Table if, for example, some red beads have faded over time and are recorded as not red. In that case, the data column and the Preceptor Table column would not be measuring the same thing.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -2397,14 +2397,14 @@ avg_predictions(fit_color, type = "prob")
 
 ### Exercise 9
 
-Run `plot_predictions()` on `fit_color` with `type = "prob"` and `condition = "group"`. 
+Run `plot_predictions()` on `fit_color` with `type = "prob"` and `condition = "color"`.
 
 ```{r temperance-9, exercise = TRUE}
 
 ```
 
 ```{r temperance-9-test, include = FALSE}
-plot_predictions(fit_color, type = "prob", condition = "group")
+plot_predictions(fit_color, type = "prob", condition = "color")
 ```
 
 ### 
@@ -2416,7 +2416,7 @@ This plot shows the model’s estimate for the probability that a scooped bead i
 Run this code to get the underlying predicted probabilities as a tibble instead of a plot. The argument `draw = FALSE` tells R not to make a graph, but to return the raw prediction values you can use or inspect.
 
 ```
-plot_predictions(fit_color, type = "prob", condition = "group", draw = FALSE)
+plot_predictions(fit_color, type = "prob", condition = "color", draw = FALSE)
 ```       
 
 ```{r temperance-10, exercise = TRUE}
