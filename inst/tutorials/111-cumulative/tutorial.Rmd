@@ -913,7 +913,7 @@ Provide one reason why the assumption of validity might not hold for the outcome
 
 ```{r wisdom-26}
 question_text(NULL,
-	message = "Both the colums in the data we have and the Preceptor Table have a variable called approval, but the Preceptor Table is the true approval of the president where as the data only has the self reported approval of the president. People could lie about their approval of the president.",
+	message = "The `approval` column in our data records how survey respondents reported their approval of the president. But the `approval` column in the Preceptor Table represents respondents' true, underlying approval — not necessarily what they would report on a survey. Survey respondents may not accurately report their true opinions, so the two columns may not be measuring the same thing.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
