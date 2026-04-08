@@ -635,7 +635,7 @@ In your own words, define "validity" as we use the term.
 
 ```{r justice-2}
 question_text(NULL,
-	message = "Validity is the consistency, or lack thereof, in the columns of the dataset and the corresponding columns in the Preceptor Table.",
+	message = "Validity is the consistency, or lack thereof, in the columns of the data set and the corresponding columns in the Preceptor Table.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -1660,7 +1660,7 @@ Write a few sentences which explain why the estimates for the quantities of inte
 
 ```{r temperance-13}
 question_text(NULL,
-	message = "The estimates might be wrong because the stability assumption is flawed. If things change alot between March and November, then the support for Biden might end up much higher or lower than 42%.",
+	message = "The estimates might be wrong because the stability assumption is flawed. If things change a lot between March and November, then the support for Biden might end up much higher or lower than 42%.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
