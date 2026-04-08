@@ -14,9 +14,9 @@ Use Claud Code to make dramatic improvements in this tutorial.
 
 * Fix validity in one or two tutorial. Submit PRs. Have a conversation with Claude. - DONE
 
-* Fix it everywhere else.
+* Fix it everywhere else. - IN PROGRESS
 
-* Figure out other errors. template_tutorial.Rmd is ground truth. Submit PRs fixing them.
+* Figure out other errors. template_tutorial.Rmd is ground truth. Submit PRs fixing them. - IN PROGRESS (putting these types of changes from the validity edits here. Next, I'll go through and specifically ensure consistency with template_tutorial.rmd)
 
 * Read template_tutorial.Rmd.  
 
