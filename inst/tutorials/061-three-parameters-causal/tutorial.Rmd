@@ -1731,7 +1731,7 @@ Write a few sentences which explain why the estimates for the quantities of inte
 
 ```{r temperance-14}
 question_text(NULL,
-	message = "The estimates may be misleading because we’re modeling immigration attitudes, not actual voting behavior. Without data linking the two, our inferences could be biased or overconfident. A better approach would model voting directly or use wider confidence intervals to reflect this uncertainty.",
+	message = "The estimates might be wrong for several reasons. First, validity may not hold — the `att_end` column measures survey responses, which may not reflect true underlying attitudes toward immigration. Second, the effect may not be stable over time; exposure to Spanish speakers on a train platform in 2012 might have a different effect on attitudes today. For these reasons, we should treat the confidence interval as wider than our model suggests.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
