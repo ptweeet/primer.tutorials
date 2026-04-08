@@ -14,3 +14,4 @@ tutorials/[^/]*/(?!(data|images|.*Rmd))
 ^TODO\.txt$
 ^primer\.tutorials\.Rproj$
 ^\.Rproj\.user$
+^Claude.md$
