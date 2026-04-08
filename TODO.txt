@@ -23,6 +23,8 @@ Use Claud Code to make dramatic improvements in this tutorial.
 
 ### Later projects
 
+Population Table versus population.
+
 All footnotes are 1.
 
 Must be possible for a footnote to just not be there, presumably by setting the value to NULL.

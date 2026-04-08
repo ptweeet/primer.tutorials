@@ -58,7 +58,7 @@ options(tutorial.exercise.timelimit = 600,
         tutorial.storage = "local") 
 
 # XX: Never include setup code that takes more than a few seconds to run. See
-# https://ppbds.github.io/tutorial.helpers/articles/instructions.html#data for
+# https://ppbds.github.io/tutorial.helpers/articles/ai.html#data for
 # background.
 
 # XX: You need to create a version of your model in this setup code chunk. We
@@ -67,10 +67,6 @@ options(tutorial.exercise.timelimit = 600,
 
 fit_XX <- linear_reg(engine = "lm") |> 
   fit(att_end ~ sex + treatment + age, data = primer.data::trains)
-
-# XX: If model creation, or any other set up code, takes more than a few seconds 
-# to run, then write/load the object, following this advice:
-# https://ppbds.github.io/tutorial.helpers/articles/instructions.html#data
 ```
 
 ```{r copy-code-chunk, child = system.file("child_documents/copy_button.Rmd", package = "tutorial.helpers")}
@@ -81,7 +77,7 @@ fit_XX <- linear_reg(engine = "lm") |>
 
 <!-- INSTRUCTIONS to Users of this Template -->
 
-<!-- This is the template tutorial for creating any tutorial which uses the Cardinal Virtues to answer a question given a data set. Although its primary use is for the chapters after 3 in the Primer, it could be used for independent tutorials as well. The letters `XX` are used to indicate locations which require editing. Comments with instructions are interspersed. -->
+<!-- This is the template tutorial for creating any tutorial which uses the Cardinal Virtues to answer a question given a data set. Although its primary use is for the chapters after 4 in the Primer, it could be used for independent tutorials as well. The letters `XX` are used to indicate locations which require editing. Comments with instructions are interspersed. -->
 
 <!-- Read The Cardinal Virtues vignette in the package for background: https://ppbds.github.io/primer.tutorials/articles/cardinal_virtues.html  -->
 
@@ -97,11 +93,11 @@ fit_XX <- linear_reg(engine = "lm") |>
 
 <!-- Note that the questions are a mixture of our three types: code, written (with answer) and written (without answer). The last is only used for questions in which we ask the student to run a command like `show_file()`. Otherwise, we always provide an excellent written answer because students will generally look closely at our answer because they are concerned about whether or not their written answer matches ours. -->
 
-<!-- A plot, especially of the outcome or key covariate, often makes for an excellent knowledge drop. Just have a code chunk with no code chunk label, just ```{r} ```. -->
+<!-- A plot, especially of the outcome or key covariate, often makes for an excellent knowledge drop. Just have a code chunk with no code chunk label, i.e., just ```{r} ```. -->
 
 <!-- Whenever you tell a student to make a change in the QMD, you should tell them to `Cmd/Ctrl + Shift + K` in order to render the document. (This will also cause it to be saved.) This is good practice for catching bugs early. (Professionals do this.) Then, the last step in these exercises is often some version of show_file() and then CP/CR. -->
 
-<!-- Make use of, e.g., `show_file("tutorial-6.qmd", start = -5)` to get just the last 5 lines of the QMD. We don't want students to copy/paste the whole document. We also don't need to ensure that we get whatever it is that was just changed. We never look! Instead, we are just plausibly threatening to look.  -->
+<!-- Make use of, e.g., `show_file("tutorial-6.qmd", start = -5)` to get just the last 5 lines of the QMD. We don't want students to copy/paste the whole document. We also don't need to ensure that we get whatever it is that was just changed. We never look! Instead, we are just plausibly threatening to look. Although `chunk = "Last"` is probably prefered to `start = -5`.  -->
 
 <!-- Make sure to uncomment the test code chunks below, once you have created the necessary objects. -->
 
@@ -112,13 +108,15 @@ This tutorial supports [*Preceptor’s Primer for Bayesian Data Science: Using t
 
 The world confronts us. Make decisions we must.
 
-<!-- XX: Add an "Imagine" paragraph The purpose of the paragraph is to describe a real person in the world. In general, this person has lots of data and lots of problems and lots of decisions to make. And they are a real person! This motivates the work that we will do below. Always start with "Imagine that you are . . ." And end with "There are many decisions to make." Examples: -->
+<!-- XX: Add an "Imagine" paragraph The purpose of the paragraph is to describe a real person in the world. In general, this person has lots of data and lots of problems and lots of decisions to make. And they are a real person! This motivates the work that we will do below. Always start with "Imagine that you are . . ." Always end with "There are many decisions to make." Examples: -->
 
 <!-- XX: Example: Imagine you're in charge of ordering uniforms for next year's Marine Corps bootcamp recruits. There are many factors to consider: the cost of different designs, the number of male and female recruits, the distributions of heights and weights, and so on. There are many decisions to make. -->
 
 <!-- XX: Example: Imagine that you are running for Governor of Texas in the next election. Seeking any political office, much less the governorship of a large state, is difficult. You have resources --- money, volunteers, surrogates, your own time. You have goals --- increase your name recognition, raise money, attack your opponent, persuade undecided voters, get your supporters to vote. There are many decisions to make. -->
 
 Imagine that you are ... XX. There are many decisions to make.
+
+<!-- XX: The main purpose of the Introduction section is to re-iterate key concepts, mainly involving causal versus predictive models. We want to ensure that students have completely internalized these points. -->
 
 ### Exercise 1
 
@@ -294,8 +292,6 @@ According to the Rubin Causal Model, there must be two (or more) potential outco
 
 ### Exercise 8
 
-<!-- IS: move to wisdom instead? -->
-
 What is the fundamental problem of causal inference?
 
 ```{r introduction-8}
@@ -332,7 +328,7 @@ question_text(NULL,
 
 We will use `XX` as our outcome variable.
 
-<!-- XX: Create a simple univariate plot of the outcome variable. Or a bivariate plot in which the outcome variable, on the y-axis, is compared to a covariate, but not to the important covariate. Do not use any code chunk labels for this code chunk. The subtitle should highlight some aspect of the data. Plot does not need to be fancy but it should be competent, with axis labels, nice formatting and so on. We don't show students the code. You can add more knowledge below the plot, if you like. Looking closely at the outcome variable guides us as to the statistical model to use. -->
+<!-- XX: Create (with AI) a simple univariate plot of the outcome variable. Or a bivariate plot in which the outcome variable, on the y-axis, is compared to a covariate, but not to the important covariate. Do not use any code chunk labels for this code chunk. The subtitle should highlight some aspect of the data. Plot does not need to be fancy but it should be competent, with axis labels, nice formatting and so on. We don't show students the code. You can add more knowledge below the plot, if you like. Looking closely at the outcome variable guides us as to the statistical model to use. -->
 
 ### Exercise 10
 
@@ -548,7 +544,7 @@ question_text(NULL,
 
 ### 
 
-The Preceptor Table does not include all the covariates which you will eventually include in your model. It only includes covariates which you need to answer your question.
+The Preceptor Table does not include all the covariates which you will eventually include in your model. It only includes, along with the outcome(s), covariates which are mentioned in your question.
 
 <!-- XX: Insert at least two questions which explore the data. Provide knowledge drops which highlight important aspects. Don't forget to `tutorial.helpers::check_current_tutorial()` when you are done so that all the subsequent exercises are renumbered correctly. -->
 
@@ -615,7 +611,7 @@ What is a covariate which you think might be useful for this problem, regardless
 
 ```{r wisdom-6}
 question_text(NULL,
-	message = "XX. Answer should be a sensible variables which is plausibly connected to the outcome.",
+	message = "XX. Answer should be a sensible variable which is plausibly connected to the outcome.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -641,7 +637,7 @@ question_text(NULL,
 
 ### 
 
-Remember that a treatment is just another covariate which, for the purposes of this specific problem, we are assuming can be manipulated, thereby, creating two or more different potential outcomes for each unit.
+Remember that a treatment is just a covariate which, for the purposes of this specific problem, we are assuming can be manipulated, thereby, creating two or more different potential outcomes for each unit.
 
 ### Exercise 8
 
@@ -690,57 +686,7 @@ question_text(NULL,
 
 The Preceptor Table for this problem looks something like this:
 
-<!-- XX: Here are two examples which might help you to create your own. In general, your question will only specify the outcome and one or two covariates, so the Preceptor Table is actually fairly small. Making a good Preceptor Table is one of the more difficult aspects of a tutorial. -->
-
-<!-- First, for a predictive model: -->
-
-<!-- ```{r} -->
-<!-- tibble(ID = c("1", "2", "...", "10", "11", "...", "103,754,865"), -->
-<!--        vote = c("Democrat", "Third Party", "...", "Republican", "Democrat", "...", "Republican"), -->
-<!--        sex = c("M", "F", "...", "F", "F", "...", "M")) |> -->
-
-<!--   gt() |> -->
-<!--   tab_header(title = "Preceptor Table") |>  -->
-<!--   cols_label(ID = md("ID"), -->
-<!--              vote = md("Vote"), -->
-<!--              sex = md("Sex")) |> -->
-<!--   tab_style(cell_borders(sides = "right"), -->
-<!--             location = cells_body(columns = c(ID))) |> -->
-<!--   tab_style(style = cell_text(align = "left", v_align = "middle", size = "large"),  -->
-<!--             locations = cells_column_labels(columns = c(ID))) |> -->
-<!--   cols_align(align = "center", columns = everything()) |> -->
-<!--   cols_align(align = "left", columns = c(ID)) |> -->
-<!--   fmt_markdown(columns = everything()) |> -->
-<!--   tab_spanner(label = "Outcome", columns = c(vote)) |> -->
-<!--   tab_spanner(label = "Covariate", columns = c(sex)) -->
-<!-- ``` -->
-
-<!-- Second, for a causal model: -->
-
-<!-- ```{r} -->
-<!-- tibble(ID = c("1", "2", "...", "10", "11", "...", "N"), -->
-<!--        voting_after_treated = c("1", "1", "...", "1", "0", "...", "1"), -->
-<!--        voting_after_control = c("1", "0", "...", "1", "1", "...", "0"), -->
-<!--        treatment = c("Yes", "No", "...", "Yes", "Yes", "...", "No"), -->
-<!--        engagement = c("1", "3", "...", "6", "2", "...", "2")) |> -->
-
-<!--   gt() |> -->
-<!--   tab_header(title = "Preceptor Table") |>  -->
-<!--   cols_label(ID = md("ID"), -->
-<!--              voting_after_treated = md("Voting After Treatment"), -->
-<!--              voting_after_control = md("Voting After Control"), -->
-<!--              treatment = md("Treatment"), -->
-<!--              engagement = md("Engagement")) |> -->
-<!--   tab_style(cell_borders(sides = "right"), -->
-<!--             location = cells_body(columns = c(ID))) |> -->
-<!--   tab_style(style = cell_text(align = "left", v_align = "middle", size = "large"),  -->
-<!--             locations = cells_column_labels(columns = c(ID))) |> -->
-<!--   cols_align(align = "center", columns = everything()) |> -->
-<!--   cols_align(align = "left", columns = c(ID)) |> -->
-<!--   fmt_markdown(columns = everything()) |> -->
-<!--   tab_spanner(label = "Covariates", columns = c(treatment, engagement)) |> -->
-<!--   tab_spanner(label = "Outcomes", columns = c(voting_after_control, voting_after_treated)) -->
-<!-- ``` -->
+<!-- Use primer.tutorials::make_p_tibble() to create the tables that you need. -->
 
 Like all aspects of a data science problem, the Preceptor Table evolves as we continue our work. 
 
@@ -2235,6 +2181,14 @@ This tutorial supports [*Preceptor’s Primer for Bayesian Data Science: Using t
 
 <!-- Priorities: -->
 
+<!-- Update the repo creation exercises to work on VS Code on Codespaces.  -->
+
+<!-- Deal with different starting directories in Positron versus VS Code. -->
+
+<!-- The language of "Console World" does not really work in VS Code. Maybe "R World?" -->
+
+<!-- Perhaps "In the Console" should be "In R?" -->
+
 <!-- OPEN ISSUES: -->
 
 <!-- Should there be questions about, say, using AI to create a nice looking histogram or density plot of the outcome variable? Good to practice AI. Good to add stuff to the QMD.  -->
@@ -2306,8 +2260,10 @@ question_text(NULL,
 
 <!-- Both a causal effect and a prediction are much fuzzier notions than you might think because their are so many, depending on AGGREGATION. That is, you might ask for the average causal effect, or the average causal effect for men and for women, or for the difference in average causal effect between men and women, or . . . The key point is that all these questions are trivial to answer if you have the Preceptor Table *and* they might require very different approaches given that we don't. This is where the power/flexibility of marginaleffects can come in handy. -->
 
-
-
 <!-- Add discussion of easystats::report()? -->
 
 <!-- Should we put the final image at the start of each tutorial, in the Introduction? Might it be interesting or motivating for students? Or a waste of time? -->
+
+<!-- With AI, maybe we should never build code line-by-line, just ask AI. In that case, we don't need the `child_documents/copy_button.Rmd` addition at the top. -->
+
+<!-- What changes should we make if we want to have versions of all tutorials which work in both R and Python? -->
