@@ -334,7 +334,7 @@ question_text(
 The same data set can be used to create, separately, lots and lots of different models, both causal and predictive. We can just use different outcome variables and/or specify different treatment variables. This is a *conceptual* framework we apply to the data. It is never inherent in the data itself.
 
 ### Exercise 5
-<!-- AR: I was somewhat confused by the wording of this question. -->
+
 In a few sentences, specify the two different values for the imaginary treatment variable `vitamin`. Then, for a single unit, invent values for the potential outcomes which could result, and then calculate the causal effect for that unit given those values.
 
 ```{r wisdom-5}
@@ -810,7 +810,7 @@ Read our answer. It will not be the same as yours. You can, if you want, change 
 *The arc of the moral universe is long, but it bends toward justice.* - Theodore Parker
 
 ### Exercise 1
-<!-- AR: answer does not mention 5 components -->
+
 In your own words, name the key components of Justice when working on a data science problem.
 
 ```{r justice-1}
@@ -882,8 +882,8 @@ question_text(NULL,
 The Population Table is almost always much bigger than the combination of the Preceptor Table and the data because, if we can really assume that both the Preceptor Table and the data are part of the same population, then that population must cover a broad universe of time and units since the Preceptor Table and the data are, themselves, often far apart from each other.
 
 ### Exercise 5
-<!-- AR: What Population Table? -->
-Specify the unit/time combinations which define each row in this Population Table.
+
+Specify the unit/time combinations which define each row in the Population Table for our problem.
 
 ```{r justice-5}
 question_text(NULL,
@@ -916,7 +916,7 @@ question_text(NULL,
 ```
 
 ### 
-<!-- AR: What is the distinction between the data and the population here? Do we see a table for the population? -->
+
 The longer the time period between the Preceptor Table and the data, the more suspect the assumption of stability becomes. 
 
 ### Exercise 7
