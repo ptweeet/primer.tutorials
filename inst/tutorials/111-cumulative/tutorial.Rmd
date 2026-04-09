@@ -564,7 +564,7 @@ Describe in words the Preceptor Table for this problem.
 
 ```{r wisdom-13}
 question_text(NULL,
-	message = "The Preceptor Table has 3 columns. There is a column for the ID, and one for the outcome. There will be a column for ideology Each row represents one individual.",
+	message = "The Preceptor Table has 3 columns. There is a column for the ID, one for the outcome, and one for ideology. Each row represents one individual.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -596,6 +596,8 @@ tibble(ID = c("1", "2", "...", "10", "11", "...", "N"),
   tab_spanner(label = "Covariates", columns = c(ideology)) |>
   tab_spanner(label = "Outcomes", columns = c(approval))
 ```
+
+Like all aspects of a data science problem, the Preceptor Table evolves as we continue our work.
 
 ### Exercise 14
 

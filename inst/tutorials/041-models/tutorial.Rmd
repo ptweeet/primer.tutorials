@@ -548,7 +548,7 @@ Describe in words the Preceptor Table for this problem.
 
 ```{r wisdom-19}
 question_text(NULL,
-	message = "The Preceptor Table consists of rows representing individual voters in the 2024 U.S. presidential election, with columns showing whether or not the individual voted for Biden.",
+	message = "The Preceptor Table consists of rows representing individual voters in the 2024 U.S. presidential election. The outcome column shows whether or not the individual voted for Biden. There is also at least one covariate column, such as party affiliation.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,

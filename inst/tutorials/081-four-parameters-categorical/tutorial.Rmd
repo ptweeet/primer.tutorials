@@ -638,7 +638,7 @@ tibble(ID = c("1", "2", "...", "10", "11", "...", "103,754,865"),
   tab_spanner(label = "Covariate", columns = c(sex))
 ```
 
-Like all aspects of a data science problem, the Preceptor Table evolves as we work on the problem. 
+Like all aspects of a data science problem, the Preceptor Table evolves as we continue our work.
 
 ### Exercise 20
 

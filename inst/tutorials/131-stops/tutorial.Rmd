@@ -542,7 +542,7 @@ Describe in words the Preceptor Table for this problem.
 
 ```{r wisdom-9}
 question_text(NULL,
-	message = "On the far left, our Preceptor Table must have some way of idenitfying the people. Then, we would have a column called `arrested` (our outcome variable) and following this would be our covariate columns: `race`, `sex`, and `zone`.",
+	message = "The Preceptor Table has one row for each traffic stop. The columns are an ID, `arrested` (the outcome variable), and covariates including `race`, `sex`, and `zone`.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,

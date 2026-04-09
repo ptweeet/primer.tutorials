@@ -550,7 +550,7 @@ Describe in words the Preceptor Table for this problem.
 
 ```{r wisdom-16}
 question_text(NULL,
-	message = "The rows (units) are individual candidates for political office. The outcome is the number of years lived after the election. Key covariates include sex, age at the election and party.",
+	message = "The rows (units) are individual candidates for political office. The outcome is the number of years lived after the election. Key covariates include sex, age at the election, and party.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
