@@ -488,7 +488,7 @@ What is a covariate which you think might be useful for this problem, regardless
 
 ```{r wisdom-13}
 question_text(NULL,
-	message = "We will certainly need sex, with two values: “Male” and “Female”. Other variables which might be helpful include party, income, race and past voting history.",
+	message = “A useful covariate is `sex`, with two values: \”Male\” and \”Female\”. Other variables which might be helpful include party, income, race, and past voting history.”,
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,

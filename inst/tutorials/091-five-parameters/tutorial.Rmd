@@ -486,7 +486,7 @@ What is a covariate which you think might be useful for this problem, regardless
 
 ```{r wisdom-13}
 question_text(NULL,
-	message = "Longevity of someone's parents is a good predictor for her own lifespan. A polygenic risk score for longevity might also be useful.",
+	message = "Longevity of someone's parents is a good predictor of their own lifespan. A polygenic risk score for longevity might also be useful.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,

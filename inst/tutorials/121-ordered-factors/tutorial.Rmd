@@ -421,7 +421,7 @@ What is a covariate which you think might be useful for this problem, regardless
 
 ```{r wisdom-6}
 question_text(NULL,
-	message = "We will need `tuition` for sure, some others that might be useful are: `selectivity`, size of campus, location of campus (could be `region`, `state` or `zip`) and the prestige (or `tier`) of the school",
+	message = "A useful covariate is `tuition`. Others that might be helpful include `selectivity`, size of campus, location of campus (could be `region`, `state`, or `zip`), and the prestige (or `tier`) of the school.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -430,7 +430,7 @@ question_text(NULL,
 
 ### 
 
-The term "covariates" is used in at least three ways in data science. First, it is all the variables which might be useful, regardless of whether or not we have the data. Second, it is all the variables which we have data for. Third, it is the set of covariates which we end up using in the model.
+The term "covariates" is used in at least three ways in data science. First, it is all the variables which might be useful, regardless of whether or not we have the data. Second, it is all the variables for which we have data. Third, it is the set of variables in the data which we end up using in the model.
 
 ### Exercise 7
 

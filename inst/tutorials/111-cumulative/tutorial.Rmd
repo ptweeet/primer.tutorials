@@ -433,7 +433,7 @@ What is a covariate which you think might be useful for this problem, regardless
 
 ```{r wisdom-7}
 question_text(NULL,
-	message = "Sex and race could have a relationship with the approval of the president.",
+	message = "A useful covariate would be `ideology`, since it likely has a strong connection to presidential approval.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,

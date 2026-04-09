@@ -474,7 +474,7 @@ What is a covariate which you think might be useful for this problem, regardless
 
 ```{r wisdom-6}
 question_text(NULL,
-	message = "We obviously need `race`. However, other characteristics like the person's age, sex, and the type of car they're driving might also affect `race`. It would also be ebenficial to see if the zone of the officer impacts the arrest rates, so we should also use the variable `zone`.",
+	message = "A useful covariate is `race`. Other characteristics like the person's age, sex, and the type of car they're driving might also affect whether someone is arrested. It would also be beneficial to include `zone`, since the officer's zone may affect arrest rates.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
