@@ -385,7 +385,7 @@ The Preceptor Table does not include all the covariates which you will eventuall
 
 ### Exercise 10
 
-Describe the key components of Preceptor Tables in general, without worrying about this specific problem. Use words like "units," "covariates," and "outcomes." 
+Describe the key components of Preceptor Tables in general, without worrying about this specific problem. Use words like "units," "outcomes," and "covariates."
 
 ```{r wisdom-10}
 question_text(NULL,
