@@ -675,14 +675,14 @@ What are the treatments, if any, for this problem?
 
 ```{r wisdom-19}
 question_text(NULL,
-	message = "XX",
+	message = "There are no treatments, since this is a predictive model.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
 	rows = 6)
 ```
 
-### 
+###
 
 Remember that a treatment is just another covariate which, for the purposes of this specific problem, we are assuming can be manipulated, thereby, creating two or more different potential outcomes for each unit.
 

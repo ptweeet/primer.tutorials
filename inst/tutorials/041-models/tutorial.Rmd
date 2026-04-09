@@ -459,7 +459,7 @@ What are the treatments, if any, for this problem?
 
 ```{r wisdom-14}
 question_text(NULL,
-	message = "There is no treatment.",
+	message = "There are no treatments.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,

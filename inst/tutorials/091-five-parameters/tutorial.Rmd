@@ -503,7 +503,7 @@ What are the treatments, if any, for this problem?
 
 ```{r wisdom-14}
 question_text(NULL,
-	message = "Since this is a predictive model there is no treatment per se. Any variable which one might consider a treatment is just another covariate in this context. Barfort et al consider winning/losing a close election to be a treatment.",
+	message = "Since this is a predictive model, there are no treatments.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,

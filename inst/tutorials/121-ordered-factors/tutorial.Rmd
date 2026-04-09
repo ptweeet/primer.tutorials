@@ -438,7 +438,7 @@ What are the treatments, if any, for this problem?
 
 ```{r wisdom-7}
 question_text(NULL,
-	message = "Since this is a predicative model, there are no treatments.",
+	message = "Since this is a predictive model, there are no treatments.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,

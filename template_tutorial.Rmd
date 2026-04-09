@@ -637,7 +637,7 @@ question_text(NULL,
 
 ### 
 
-Remember that a treatment is just a covariate which, for the purposes of this specific problem, we are assuming can be manipulated, thereby, creating two or more different potential outcomes for each unit.
+Remember that a treatment is just another covariate which, for the purposes of this specific problem, we are assuming can be manipulated, thereby, creating two or more different potential outcomes for each unit.
 
 ### Exercise 8
 
