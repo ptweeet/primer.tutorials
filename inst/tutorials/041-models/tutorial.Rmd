@@ -209,7 +209,7 @@ In your own words, describe the key components of Wisdom when working on a data 
 
 ```{r wisdom-1}
 question_text(NULL,
-    message = "Wisdom requires the creation of a Preceptor Table and an examination of our data.",
+    message = "Wisdom requires a question, the creation of a Preceptor Table, and an examination of our data.",
     answer(NULL, correct = TRUE),
     allow_retry = FALSE,
     incorrect = NULL,
