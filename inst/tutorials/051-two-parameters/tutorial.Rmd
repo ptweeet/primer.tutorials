@@ -250,7 +250,7 @@ In your own words, describe the key components of Wisdom when working on a data 
 
 ```{r wisdom-1}
 question_text(NULL,
-    message = "Wisdom requires a question, the creation of a Preceptor Table and an examination of our data.",
+    message = "Wisdom requires a question, the creation of a Preceptor Table, and an examination of our data.",
     answer(NULL, correct = TRUE),
     allow_retry = FALSE,
     incorrect = NULL,
@@ -619,7 +619,7 @@ What are the units for this problem?
 ```{r wisdom-16}
 question_text(
   NULL,
-  message = "Every USMC recruit enlisting next year, one row per person. The rows of the Preceptor Table are the units, the objects on which the outcome is measured. ",
+  message = "The units are all USMC recruits enlisting next year.",
   answer(NULL, correct = TRUE),
   allow_retry = FALSE,
   incorrect = NULL,
@@ -675,14 +675,14 @@ What are the treatments, if any, for this problem?
 
 ```{r wisdom-19}
 question_text(NULL,
-	message = "XX",
+	message = "There are no treatments, since this is a predictive model.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
 	rows = 6)
 ```
 
-### 
+###
 
 Remember that a treatment is just another covariate which, for the purposes of this specific problem, we are assuming can be manipulated, thereby, creating two or more different potential outcomes for each unit.
 
@@ -699,7 +699,9 @@ question_text(NULL,
 	rows = 6)
 ```
 
-### 
+###
+
+A Preceptor Table can never really refer to an exact instant in time since nothing is instantaneous in this fallen world.
 
 In almost all practical problems, the data was gathered at a time other than that to which the Preceptor Table refers.
 

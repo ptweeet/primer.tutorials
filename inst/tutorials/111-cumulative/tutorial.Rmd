@@ -309,7 +309,7 @@ In your own words, describe the key components of Wisdom when working on a data 
 
 ```{r wisdom-1}
 question_text(NULL,
-	message = "Wisdom requires the creation of a Preceptor Table, an examination of our data, and a determination, using the concept of validity, as to whether or not we can (reasonably!) assume that the two come from the same population.",
+	message = "Wisdom requires a question, the creation of a Preceptor Table, and an examination of our data.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -416,7 +416,7 @@ What is the outcome variable for this problem?
 
 ```{r wisdom-6}
 question_text(NULL,
-	message = "Keep track of the outcome variable related to presidential approval. In this case, approval represents respondents’ approval rating of the president.",
+	message = "The outcome variable is `approval`, which measures each respondent’s approval rating of the president.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -433,7 +433,7 @@ What is a covariate which you think might be useful for this problem, regardless
 
 ```{r wisdom-7}
 question_text(NULL,
-	message = "Sex and race could have a relationship with the approval of the president.",
+	message = "A useful covariate would be `ideology`, since it likely has a strong connection to presidential approval.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -467,15 +467,18 @@ What moment in time does the Preceptor Table refer to?
 
 ```{r wisdom-9}
 question_text(NULL,
-	message = "2020",
+	message = "The Preceptor Table refers to the upcoming election. The data come from the 2020 CES survey.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
 	rows = 6)
 ```
 
-### 
+###
 
+A Preceptor Table can never really refer to an exact instant in time since nothing is instantaneous in this fallen world.
+
+In almost all practical problems, the data was gathered at a time other than that to which the Preceptor Table refers.
 
 ```{r}
 results <- plot_predictions(fit_approval,
@@ -561,7 +564,7 @@ Describe in words the Preceptor Table for this problem.
 
 ```{r wisdom-13}
 question_text(NULL,
-	message = "The Preceptor Table has 3 columns. There is a column for the ID, and one for the outcome. There will be a column for ideology Each row represents one individual.",
+	message = "The Preceptor Table has 3 columns. There is a column for the ID, one for the outcome, and one for ideology. Each row represents one individual.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -593,6 +596,8 @@ tibble(ID = c("1", "2", "...", "10", "11", "...", "N"),
   tab_spanner(label = "Covariates", columns = c(ideology)) |>
   tab_spanner(label = "Outcomes", columns = c(approval))
 ```
+
+Like all aspects of a data science problem, the Preceptor Table evolves as we continue our work.
 
 ### Exercise 14
 

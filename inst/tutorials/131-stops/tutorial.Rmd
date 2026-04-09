@@ -421,7 +421,7 @@ Describe the key components of Preceptor Tables in general, without worrying abo
 
 ```{r wisdom-3}
 question_text(NULL,
-	message = "The rows of the Preceptor Table are the units. The outcome is at least one of the columns. If the problem is causal, there will be at least two (potential) outcome columns. The other columns are covariates. If the problem is causal, at least one of the covariates will considered a treatment.",
+	message = "The rows of the Preceptor Table are the units. The outcome is at least one of the columns. If the problem is causal, there will be at least two (potential) outcome columns. The other columns are covariates. If the problem is causal, at least one of the covariates will be considered a treatment.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -438,7 +438,7 @@ What are the units for this problem?
 
 ```{r wisdom-4}
 question_text(NULL,
-	message = "The units are the people that have been pulled over.",
+	message = "The units are the people who have been pulled over.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -474,7 +474,7 @@ What is a covariate which you think might be useful for this problem, regardless
 
 ```{r wisdom-6}
 question_text(NULL,
-	message = "We obviously need `race`. However, other characteristics like the person's age, sex, and the type of car they're driving might also affect `race`. It would also be ebenficial to see if the zone of the officer impacts the arrest rates, so we should also use the variable `zone`.",
+	message = "A useful covariate is `race`. Other characteristics like the person's age, sex, and the type of car they're driving might also affect whether someone is arrested. It would also be beneficial to include `zone`, since the officer's zone may affect arrest rates.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -508,7 +508,7 @@ What moment in time does the Preceptor Table refer to?
 
 ```{r wisdom-8}
 question_text(NULL,
-	message = "Our Preceptor Table should represent traffic stops somewhere about the late 2000s to the mid 2010s for maximum compatibility with our data.",
+	message = "Our Preceptor Table should represent traffic stops sometime between the late 2000s and the mid 2010s for maximum compatibility with our data.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -542,7 +542,7 @@ Describe in words the Preceptor Table for this problem.
 
 ```{r wisdom-9}
 question_text(NULL,
-	message = "On the far left, our Preceptor Table must have some way of idenitfying the people. Then, we would have a column called `arrested` (our outcome variable) and following this would be our covariate columns: `race`, `sex`, and `zone`.",
+	message = "The Preceptor Table has one row for each traffic stop. The columns are an ID, `arrested` (the outcome variable), and covariates including `race`, `sex`, and `zone`.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,

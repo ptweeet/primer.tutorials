@@ -458,7 +458,7 @@ What is the outcome variable for this problem?
 
 ```{r wisdom-5}
 question_text(NULL,
-	message = "`att_end`",
+	message = "The outcome variable is `att_end`, which measures each commuter's attitude toward immigration after the experiment.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -546,7 +546,7 @@ Describe in words the Preceptor Table for this problem.
 
 ```{r wisdom-9}
 question_text(NULL,
-	message = "There is a row for each registered voter in the district. There are two columns for potential outcomes: attitude toward immigration if treated and attitude if control. There is one column to indicate which treatment the voter received.",
+	message = "There is a row for each Boston commuter in the experiment. There are two columns for potential outcomes: attitude toward immigration if treated and attitude if control. There is one column to indicate which treatment the commuter received.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,

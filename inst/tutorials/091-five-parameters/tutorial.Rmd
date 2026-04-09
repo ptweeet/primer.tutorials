@@ -248,7 +248,7 @@ In your own words, describe the key components of Wisdom when working on a data 
 
 ```{r wisdom-1}
 question_text(NULL,
-    message = "Wisdom requires a question, the creation of a Preceptor Table and an examination of our data.",
+    message = "Wisdom requires a question, the creation of a Preceptor Table, and an examination of our data.",
     answer(NULL, correct = TRUE),
     allow_retry = FALSE,
     incorrect = NULL,
@@ -433,7 +433,7 @@ Describe the key components of Preceptor Tables in general, without worrying abo
 
 ```{r wisdom-10}
 question_text(NULL,
-	message = "The rows of the Preceptor Table are the units. The outcome is at least one of the columns. If the problem is causal, there will be at least two (potential) outcome columns. The other columns are covariates. If the problem is causal, at least one of the covariates will considered a treatment.",
+	message = "The rows of the Preceptor Table are the units. The outcome is at least one of the columns. If the problem is causal, there will be at least two (potential) outcome columns. The other columns are covariates. If the problem is causal, at least one of the covariates will be considered a treatment.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -450,7 +450,7 @@ What are the units for this problem?
 
 ```{r wisdom-11}
 question_text(NULL,
-	message = "Individual candidates",
+	message = "The units are individual gubernatorial candidates.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -469,7 +469,7 @@ What is the outcome variable for this problem?
 
 ```{r wisdom-12}
 question_text(NULL,
-	message = "lived_after",
+	message = "The outcome variable is `lived_after`, which measures how many years a governor lived after leaving office.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -486,7 +486,7 @@ What is a covariate which you think might be useful for this problem, regardless
 
 ```{r wisdom-13}
 question_text(NULL,
-	message = "Longevity of someone's parents is a good predictor for her own lifespan. A polygenic risk score for longevity might also be useful.",
+	message = "Longevity of someone's parents is a good predictor of their own lifespan. A polygenic risk score for longevity might also be useful.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -503,7 +503,7 @@ What are the treatments, if any, for this problem?
 
 ```{r wisdom-14}
 question_text(NULL,
-	message = "Since this is a predictive model there is no treatment per se. Any variable which one might consider a treatment is just another covariate in this context. Barfort et al consider winning/losing a close election to be a treatment.",
+	message = "Since this is a predictive model, there are no treatments.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -520,7 +520,7 @@ What moment in time does the Preceptor Table refer to?
 
 ```{r wisdom-15}
 question_text(NULL,
-	message = "The Preceptor Table refers to now, today, because we are trying to help someone make a decision about running for office. We want to help her better understand the likelihood of various outcomes.",
+	message = "The Preceptor Table refers to now, today, because we are trying to help someone make a decision about running for office. We want to help them better understand the likelihood of various outcomes.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -550,7 +550,7 @@ Describe in words the Preceptor Table for this problem.
 
 ```{r wisdom-16}
 question_text(NULL,
-	message = "The rows (units) are individual candidates for political office. The outcome is the number of years lived after the election. Key covariates include sex, age at the election and party.",
+	message = "The rows (units) are individual candidates for political office. The outcome is the number of years lived after the election. Key covariates include sex, age at the election, and party.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -595,7 +595,7 @@ What is the narrow, specific question we will try to answer?
 
 ```{r wisdom-17}
 question_text(NULL,
-	message = "How long do political candidates live after the election?",
+	message = "How many years do gubernatorial candidates live after leaving office?",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -620,7 +620,7 @@ Type your two sentences below.
 
 ```{r wisdom-18}
 question_text(NULL,
-	message = "Running for political office is stressful. Using data from over 1,000 candidates for governor since 1945 in the United States, we seek to create a model for forecasting longevity for political candidates.",
+	message = "Running for political office is stressful. Using data from over 1,000 candidates for governor since 1945 in the United States, we seek to create a model for forecasting longevity for gubernatorial candidates.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -1604,7 +1604,7 @@ What is the specific question we are trying to answer?
 
 ```{r temperance-7}
 question_text(NULL,
-	message = "How long do political candidates live after the election?",
+	message = "How many years do gubernatorial candidates live after leaving office?",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,

@@ -219,11 +219,11 @@ Note that the survey has been conducted since 1948 before and after each preside
 
 ### Exercise 1
 
-In your own words, describe the key components of Wisdom for working on a data science problem.
+In your own words, describe the key components of Wisdom when working on a data science problem.
 
 ```{r wisdom-1}
 question_text(NULL,
-	message = "Wisdom requires a question, the creation of a Preceptor Table and an examination of our data.",
+	message = "Wisdom requires a question, the creation of a Preceptor Table, and an examination of our data.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -399,7 +399,7 @@ Write a predictive question which connects the outcome variable `pres_vote` to `
 # "average" is implicit in the question.
 
 question_text(NULL,
-	message = "What was the difference in voting preference of men and women in the 1992 US Presidential election among supporters of the three leading candidates: Clinton, Bush and Perot?",
+	message = "What was the difference in voting preference of men and women in the 1992 US Presidential election among supporters of the three leading candidates: Clinton, Bush, and Perot?",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -450,7 +450,7 @@ What are the units for this problem?
 
 ```{r wisdom-11}
 question_text(NULL,
-	message = "Individual US voters.",
+	message = "The units are individual US voters.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -467,7 +467,7 @@ We model units, but we only really care about aggregates.
 
 ### Exercise 12
 
-What is the outcome for this problem?
+What is the outcome variable for this problem?
 
 ```{r wisdom-12}
 question_text(NULL,
@@ -488,7 +488,7 @@ What is a covariate which you think might be useful for this problem, regardless
 
 ```{r wisdom-13}
 question_text(NULL,
-	message = "We will certainly need sex, with two values: “Male” and “Female”. Other variables which might be helpful include party, income, race and past voting history.",
+	message = "A useful covariate is `sex`, with two values: \"Male\" and \"Female\". Other variables which might be helpful include party, income, race, and past voting history.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -505,7 +505,7 @@ What are the treatments, if any, for this problem?
 
 ```{r wisdom-14}
 question_text(NULL,
-	message = "There are no treatment variables.",
+	message = "There are no treatments.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -522,7 +522,7 @@ What moment in time does the Preceptor Table refer to?
 
 ```{r wisdom-15}
 question_text(NULL,
-	message = "The Presidential Election result in 1992.",
+	message = "The Preceptor Table refers to the time of the 1992 Presidential Election.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -638,7 +638,7 @@ tibble(ID = c("1", "2", "...", "10", "11", "...", "103,754,865"),
   tab_spanner(label = "Covariate", columns = c(sex))
 ```
 
-Like all aspects of a data science problem, the Preceptor Table evolves as we work on the problem. 
+Like all aspects of a data science problem, the Preceptor Table evolves as we continue our work.
 
 ### Exercise 20
 
@@ -646,7 +646,7 @@ What is the narrow, specific question we will try to answer?
 
 ```{r wisdom-20}
 question_text(NULL,
-	message = "What was the difference in voting preference of men and women in the 1992 US Presidential election among supporters of the three leading candidates: Clinton, Bush and Perot?",
+	message = "What was the difference in voting preference of men and women in the 1992 US Presidential election among supporters of the three leading candidates: Clinton, Bush, and Perot?",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -663,20 +663,22 @@ Our Quantity of Interest might appear too specific, too narrow to capture the fu
 
 Over the course of this tutorial, we will be creating a summary paragraph. The purpose of this exercise is to write the first two sentences of that paragraph.
 
-The first sentence is a general statement about the overall topic, mentioning both general class of the outcome variable and of at least one of the covariates. It is **not** connected to the initial "Imagine that you are XX" which set the stage for this project. That sentence can be rhetorical. It can be trite, or even a platitude. The purpose of the sentence to let the reader know, gently, about our topic.
+The first sentence is a general statement about the overall topic, mentioning both the general class of the outcome variable and of at least one of the covariates. It is **not** connected to the initial "Imagine that you are XX" which set the stage for this project. That sentence can be rhetorical. It can be trite, or even a platitude. The purpose of the sentence is to let the reader know, gently, about our topic.
 
-The second sentence does two things. First, it introduces the data source. Second, it introduces the specific question. The sentence can't be that long. Important aspects of the data include when/where it was gather, how many observations it includes and the organization (if famous) which collected it.
+The second sentence does two things. First, it introduces the data source. Second, it introduces the specific question. The sentence can't be that long. Important aspects of the data include when/where it was gathered, how many observations it includes and the organization (if famous) which collected it.
 
 Type your two sentences below.
 
 ```{r wisdom-21}
 question_text(NULL,
-	message = "Understanding the voter preference of different genders is essential for a candidate to design the campaign strategy. Using data from the National Election Studies survey of US citizens, we seek to understand the relationship between voter preference and sex in the 1992 Presidential election.",
+	message = "Understanding the voter preference of different genders is essential for a candidate to design a campaign strategy. Using data from the National Election Study survey of US citizens, we seek to understand the relationship between voter preference and sex in the 1992 Presidential election.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
 	rows = 6)
 ```
+
+###
 
 Read our answer. It will not be the same as yours. You can, if you want, change your answer to incorporate some of our ideas. Do not copy/paste our answer exactly. Add your two sentences, edited or otherwise, to `analysis.qmd`, `Cmd/Ctrl + Shift + K`, and then commit/push.
 
@@ -1505,7 +1507,7 @@ What is the specific question we are trying to answer?
 
 ```{r temperance-6}
 question_text(NULL,
-	message = "What was the difference in voting preference of men and women in the 1992 US Presidential election among supporters of the three leading candidates: Clinton, Bush and Perot?",
+	message = "What was the difference in voting preference of men and women in the 1992 US Presidential election among supporters of the three leading candidates: Clinton, Bush, and Perot?",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,

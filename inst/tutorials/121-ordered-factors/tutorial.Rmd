@@ -334,7 +334,7 @@ In your own words, describe the key components of Wisdom when working on a data 
 
 ```{r wisdom-1}
 question_text(NULL,
-	message = "Wisdom requires a question, the creation of a Preceptor Table and an examination of our data.",
+	message = "Wisdom requires a question, the creation of a Preceptor Table, and an examination of our data.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -404,7 +404,7 @@ What is the outcome variable for this problem?
 
 ```{r wisdom-5}
 question_text(NULL,
-	message = "Graduation rate for each individual college.",
+	message = "The outcome variable is `grad_rate`, which measures the graduation rate for each college.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -421,7 +421,7 @@ What is a covariate which you think might be useful for this problem, regardless
 
 ```{r wisdom-6}
 question_text(NULL,
-	message = "We will need `tuition` for sure, some others that might be useful are: `selectivity`, size of campus, location of campus (could be `region`, `state` or `zip`) and the prestige (or `tier`) of the school",
+	message = "A useful covariate is `tuition`. Others that might be helpful include `selectivity`, size of campus, location of campus (could be `region`, `state`, or `zip`), and the prestige (or `tier`) of the school.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -430,7 +430,7 @@ question_text(NULL,
 
 ### 
 
-The term "covariates" is used in at least three ways in data science. First, it is all the variables which might be useful, regardless of whether or not we have the data. Second, it is all the variables which we have data for. Third, it is the set of covariates which we end up using in the model.
+The term "covariates" is used in at least three ways in data science. First, it is all the variables which might be useful, regardless of whether or not we have the data. Second, it is all the variables for which we have data. Third, it is the set of variables in the data which we end up using in the model.
 
 ### Exercise 7
 
@@ -438,7 +438,7 @@ What are the treatments, if any, for this problem?
 
 ```{r wisdom-7}
 question_text(NULL,
-	message = "Since this is a predicative model, there are no treatments.",
+	message = "Since this is a predictive model, there are no treatments.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -455,7 +455,7 @@ What moment in time does the Preceptor Table refer to?
 
 ```{r wisdom-8}
 question_text(NULL,
-	message = "Now",
+	message = "The Preceptor Table refers to the current academic year, when students are choosing colleges.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -487,7 +487,7 @@ Describe in words the Preceptor Table for this problem.
 
 ```{r wisdom-9}
 question_text(NULL,
-	message = "The Preceptor Table contains a row for each college. There are three columns: one is tuition, which is our main covariate; next we have ID and finally the last one is graduation rate, which is our outcome variable.",
+	message = "The Preceptor Table has one row for each college. The columns are ID, `grad_rate` (the outcome variable), and `tuition` (the main covariate).",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -534,7 +534,7 @@ data |>
 
 ### 
 
-Like all aspects of a data science problem, the Preceptor Table evolves as we work on the problem. For example, at the start, we aren't sure what right-hand side variables will be included in the model, so we are not yet sure which columns must be in the Preceptor Table.
+Like all aspects of a data science problem, the Preceptor Table evolves as we continue our work. For example, at the start, we aren't sure what right-hand side variables will be included in the model, so we are not yet sure which columns must be in the Preceptor Table.
 
 ### Exercise 10
 
@@ -559,15 +559,15 @@ Our Quantity of Interest might appear too specific, too narrow to capture the fu
 
 Over the course of this tutorial, we will be creating a summary paragraph. The purpose of this exercise is to write the first two sentences of that paragraph.
 
-The first sentence is a general statement about the overall topic, mentioning both general class of the outcome variable and of at least one of the covariates. It is **not** connected to the initial "Imagine that you are XX" which set the stage for this project. That sentence can be rhetorical. It can be trite, or even a platitude. The purpose of the sentence to let the reader know, gently, about our topic.
+The first sentence is a general statement about the overall topic, mentioning both the general class of the outcome variable and of at least one of the covariates. It is **not** connected to the initial "Imagine that you are XX" which set the stage for this project. That sentence can be rhetorical. It can be trite, or even a platitude. The purpose of the sentence is to let the reader know, gently, about our topic.
 
-The second sentence does two things. First, it introduces the data source. Second, it introduces the specific question. The sentence can't be that long. Important aspects of the data include when/where it was gather, how many observations it includes and the organization (if famous) which collected it.
+The second sentence does two things. First, it introduces the data source. Second, it introduces the specific question. The sentence can't be that long. Important aspects of the data include when/where it was gathered, how many observations it includes and the organization (if famous) which collected it.
 
 Type your two sentences below.
 
 ```{r wisdom-11}
 question_text(NULL,
-	message = "Tuition fee and educational quality are one of the main concerns for many students and their families when going to college. Using data from a IPEDS, a system of interrelated surveys on postsecondary eduation in 2013, we seek to understand the relationship between graduation rates tuition for colleges/universities in the United States.",
+	message = "Tuition and educational quality are among the main concerns for many students and their families when choosing a college. Using data from IPEDS, a system of interrelated surveys on postsecondary education in 2013, we seek to understand the relationship between graduation rates and tuition for colleges and universities in the United States.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
