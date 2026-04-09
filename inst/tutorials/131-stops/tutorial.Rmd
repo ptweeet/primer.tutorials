@@ -438,7 +438,7 @@ What are the units for this problem?
 
 ```{r wisdom-4}
 question_text(NULL,
-	message = "The units are the people that have been pulled over.",
+	message = "The units are the people who have been pulled over.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,

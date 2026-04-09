@@ -406,7 +406,7 @@ What are the units for this problem?
 
 ```{r wisdom-11}
 question_text(NULL,
-	message = "The units are all voting-eligible citizens in October/November 2024",
+	message = "The units are all voting-eligible citizens in October/November 2024.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,

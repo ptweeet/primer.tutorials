@@ -619,7 +619,7 @@ What are the units for this problem?
 ```{r wisdom-16}
 question_text(
   NULL,
-  message = "Every USMC recruit enlisting next year, one row per person. The rows of the Preceptor Table are the units, the objects on which the outcome is measured. ",
+  message = "The units are all USMC recruits enlisting next year.",
   answer(NULL, correct = TRUE),
   allow_retry = FALSE,
   incorrect = NULL,

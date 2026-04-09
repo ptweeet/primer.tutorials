@@ -450,7 +450,7 @@ What are the units for this problem?
 
 ```{r wisdom-11}
 question_text(NULL,
-	message = "Individual candidates",
+	message = "The units are individual gubernatorial candidates.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
