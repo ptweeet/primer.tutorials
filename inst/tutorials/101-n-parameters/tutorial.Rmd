@@ -664,7 +664,7 @@ Type your two sentences below.
 
 ```{r wisdom-20}
 question_text(NULL,
-	message = "Sending postcards to registered voters is a traditional element of US campaigns. For this analysis, we use data from a 2006 field experiment in Michigan to inform strategies for increasing turnout in the current Texas gubernatorial election. However, we recognize that Michigan may differ from Texas and the broader US.",
+	message = "Sending postcards to registered voters is a traditional element of US campaigns. Using data from a 2006 field experiment in Michigan, we seek to estimate the causal effect of postcard mailings on voter turnout.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,

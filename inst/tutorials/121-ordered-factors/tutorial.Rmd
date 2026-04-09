@@ -559,15 +559,15 @@ Our Quantity of Interest might appear too specific, too narrow to capture the fu
 
 Over the course of this tutorial, we will be creating a summary paragraph. The purpose of this exercise is to write the first two sentences of that paragraph.
 
-The first sentence is a general statement about the overall topic, mentioning both general class of the outcome variable and of at least one of the covariates. It is **not** connected to the initial "Imagine that you are XX" which set the stage for this project. That sentence can be rhetorical. It can be trite, or even a platitude. The purpose of the sentence to let the reader know, gently, about our topic.
+The first sentence is a general statement about the overall topic, mentioning both the general class of the outcome variable and of at least one of the covariates. It is **not** connected to the initial "Imagine that you are XX" which set the stage for this project. That sentence can be rhetorical. It can be trite, or even a platitude. The purpose of the sentence is to let the reader know, gently, about our topic.
 
-The second sentence does two things. First, it introduces the data source. Second, it introduces the specific question. The sentence can't be that long. Important aspects of the data include when/where it was gather, how many observations it includes and the organization (if famous) which collected it.
+The second sentence does two things. First, it introduces the data source. Second, it introduces the specific question. The sentence can't be that long. Important aspects of the data include when/where it was gathered, how many observations it includes and the organization (if famous) which collected it.
 
 Type your two sentences below.
 
 ```{r wisdom-11}
 question_text(NULL,
-	message = "Tuition fee and educational quality are one of the main concerns for many students and their families when going to college. Using data from a IPEDS, a system of interrelated surveys on postsecondary eduation in 2013, we seek to understand the relationship between graduation rates tuition for colleges/universities in the United States.",
+	message = "Tuition and educational quality are among the main concerns for many students and their families when choosing a college. Using data from IPEDS, a system of interrelated surveys on postsecondary education in 2013, we seek to understand the relationship between graduation rates and tuition for colleges and universities in the United States.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,

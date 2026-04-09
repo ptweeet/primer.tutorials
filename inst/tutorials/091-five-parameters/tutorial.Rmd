@@ -620,7 +620,7 @@ Type your two sentences below.
 
 ```{r wisdom-18}
 question_text(NULL,
-	message = "Running for political office is stressful. Using data from over 1,000 candidates for governor since 1945 in the United States, we seek to create a model for forecasting longevity for political candidates.",
+	message = "Running for political office is stressful. Using data from over 1,000 candidates for governor since 1945 in the United States, we seek to create a model for forecasting longevity for gubernatorial candidates.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
