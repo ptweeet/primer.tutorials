@@ -804,7 +804,7 @@ Validity is always about the *columns* in the Preceptor Table and the data. Just
 
 ### Exercise 3
 
-<!-- XX: For the validity questions, specifics matter. There is always a reason why the outcome column in the data is not the same as the outcome columns in the Preceptor Table, even in the case of simple sampling. For example, consider a historical question connecting sex with presidential vote. Our data is a subset of our Preceptor Table. We have information on a few thousand voters and want to draw inferences about millions of other voters in the same election. But, even in this case, the outcome columns are different. The data is who people told a survey who they voted for. The Preceptor Table is who people actually did vote for. Those are not the same things. If they, in your view, are different enough than validity is violated. -->
+<!-- XX: For the validity questions, specifics matter. There is always a reason why the outcome column in the data is not the same as the outcome columns in the Preceptor Table, even in the case of simple sampling. For example, consider a historical question connecting sex with presidential vote. Our data is a subset of our Preceptor Table. We have information on a few thousand voters and want to draw inferences about millions of other voters in the same election. But, even in this case, the outcome columns are different. The data is who people told a survey who they voted for. The Preceptor Table is who people actually did vote for. Those are not the same things! If they, in your view, are different enough than validity is violated. -->
 
 Provide one reason why the assumption of validity might not hold for the outcome variable `XX` or for one of the covariates. Use the words "column" or "columns" in your answer.
 
@@ -818,6 +818,8 @@ question_text(NULL,
 ```
 
 ### 
+
+<!-- DK: This knowledge drop is too long. It should have two parts: one the same for all tutorials and one which brings in details of the problem in this tutorial. Or maybe that is already covered in the answer above?  -->
 
 In order to consider the Preceptor Table and the data to be drawn from the same population, the columns from one must have a *valid correspondence* with the columns in the other. Validity, if true (or at least reasonable), allows us to construct the Population Table, which is the first step in Justice.
 
@@ -859,92 +861,7 @@ question_text(NULL,
 
 The exact time period used --- whether hour, day, month, year, or whatever --- is relatively arbitrary. The important thing to note is that the Population Table, unlike the Preceptor Table, covers a period of time over which things may change.
 
-<!-- XX: Give an example if possible. -->
-
-<!-- DK: Add example (steal from Preceptor Table above) which students can then modify. Also available in Primer. Done.-->
-
-<!-- First, for a predictive model: -->
-
-<!-- #| echo: false
-tibble(source = c("PT/Data", "PT/Data", "PT", "PT", "PT", "PT", "...", "PT/Data", "PT/Data", "PT",  "PT",  "...", "PT/Data"),
-       ID = c("1", "2", "3", "4", "5", "6", "...", "10", "11", "12", "13", "...", "103,754,865"),
-       vote = c("Democrat", "Third Party", "Republican", "Democrat", "Democrat", "Democrat",  "...", "Republican", "Democrat", "Democrat", "Republican", "...", "Republican"),
-       sex = c("M", "F", "M", "F", "F", "M", "...", "F", "F", "...", "F", "...", "M")) |>
-  
-  gt() |>
-  tab_header(title = "Population Table") |> 
-  cols_label(source = md("Source"),
-             ID = md("ID"),
-             vote = md("Vote"),
-             sex = md("Sex")) |>
-  tab_style(cell_borders(sides = "right"),
-            location = cells_body(columns = c(ID))) |>
-  tab_style(style = cell_text(align = "left", v_align = "middle", size = "large"), 
-            locations = cells_column_labels(columns = c(ID))) |>
-  cols_align(align = "center", columns = everything()) |>
-  cols_align(align = "left", columns = c(ID)) |>
-  fmt_markdown(columns = everything()) |>
-  tab_spanner(label = "Outcome", columns = c(vote)) |>
-  tab_spanner(label = "Covariate", columns = c(sex)) -->
-
-
-<!-- Second, for a causal model: -->
-
-<!-- ```{r}
-#| echo: false
- First, we create a tibble with the values we want for the table
-
-tibble(source = c("...", "...", "...",
-                  "Data", "Data", "...", 
-                  "...", "...", "...",
-                  "Preceptor Table", "Preceptor Table", "...",
-                  "...", "..."),
-       gender = c("?", "?", "...",
-                  "Male", "Female", "...",
-                  "?", "?", "...",
-                  "Female", "Female", "...",
-                  "?", "?"),
-       year = c("1990", "1995", "...",
-                "2006", "2006", "...",
-                "2010", "2012", "...",
-                "2026", "2026", "...",
-                "2046", "2050"),
-       state = c("?", "?", "...",
-                 "Michigan", "Michigan", "...",
-                 "?", "?", "...",
-                 "Texas", "Texas", "...",
-                 "?", "?"),
-       ytreat = c("?", "?", "...", 
-                  "Did not vote", "?", "...",
-                  "?", "?", "...",
-                  "?", "?", "...",
-                  "?", "?"),
-       ycontrol = c("?", "?", "...", 
-                    "?", "Voted", "...",
-                    "?", "?", "...", 
-                    "?", "?", "...",
-                    "?", "?")) |>
-  
- Then, we use the gt function to make it pretty
-  
-  gt() |>
-  cols_label(source = md("Source"),
-             gender = md("Sex"),
-             year = md("Year"),
-             state = md("State"),
-             ytreat = md("Treatment"),
-             ycontrol = md("Control")) |>
-  tab_style(cell_borders(sides = "right"),
-            location = cells_body(columns = c(source))) |>
-  tab_style(style = cell_text(align = "left", v_align = "middle", size = "large"), 
-            locations = cells_column_labels(columns = c(source))) |>
-  cols_align(align = "center", columns = everything()) |>
-  cols_align(align = "left", columns = c(source)) |>
-  fmt_markdown(columns = everything())  |>
-  tab_spanner(label = "Outcomes", c(ytreat, ycontrol)) 
-``` -->
-
-<!-- XX: Show what the population table looks like. -->
+<!-- XX: Show what the Population Table looks like using the code you already created when you (or Claude) use make_p_tables(). -->
 
 ### Exercise 6
 
@@ -961,11 +878,7 @@ question_text(NULL,
 
 ### 
 
-<!-- XX: Select one of these two knowledge drops. -->
-
-<!-- Stability is all about *time*. Is the relationship among the columns in the Population Table stable over time? In particular, is the relationship --- which is another way of saying "mathematical formula" --- at the time the data was gathered the same as the relationship at the (generally later) time referenced by the Preceptor Table. -->
-
-<!-- The longer the time period between the Preceptor Table and the data, the more suspect the assumption of stability becomes.  -->
+Stability is all about *time*. Is the relationship among the columns in the Population Table stable over time? In particular, is the relationship --- which is another way of saying "mathematical formula" --- at the time the data was gathered the same as the relationship at the (generally later) time referenced by the Preceptor Table? The longer the time period between the Preceptor Table and the data, the more suspect the assumption of stability becomes. 
 
 ### Exercise 7
 
@@ -1006,12 +919,8 @@ Ideally, we would like both the Preceptor Table *and* our data to be random samp
 We do not use the data, directly, to estimate missing values in the Preceptor Table. Instead, we use the data to learn about the overall population. Provide one reason, involving the relationship between the data and the population, for why the assumption of representativeness might not be true in this case. 
 
 ```{r justice-9}
-# XX: In your answer, try not use the concept of time, even though, in theory,
-# it is perfectly reasonable to do so. Instead, focus on why the data might
-# not be representative of the population at that moment in time.
-
 question_text(NULL,
-	message = "XX",
+	message = "XX: In your answer, try not use the concept of time, even though, in theory, it is perfectly reasonable to do so. Instead, focus on why the data might not be representative of the population at that moment in time.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -1020,20 +929,15 @@ question_text(NULL,
 
 ### 
 
-The reason that representativeness is important is because, when it is violated, the estimates for the model parameters might be biased. 
+The reason that representativeness is important is because, when it is violated, the estimates for the model parameters will be biased. 
 
 ### Exercise 10
 
 We use information about the population to make inferences about the Preceptor Table. Provide one reason, involving the relationship between the Population and the Preceptor Table, for why the assumption of representativeness might not be true in this case.
 
 ```{r justice-10}
-# XX: Again, try not to use of the concept time. We want to save examples of
-# changes caused by time for the discussion about stability. Instead, focus on
-# why the Preceptor Table might not be representative of the population at that 
-# moment in time. 
-
 question_text(NULL,
-	message = "XX",
+	message = "XX: Again, try not to use of the concept time. We want to save examples of changes caused by time for the discussion about stability. Instead, focus on why the Preceptor Table might not be representative of the population at that moment in time. ",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -1043,9 +947,6 @@ question_text(NULL,
 ### 
 
 Stability looks across time periods. Representativeness looks within time periods, for the most part. 
-
-<!-- XX: Use this comment when it is relevant to the problem at hand. Of course, it is sometimes the case that the Preceptor Table includes every row from the Population Table for that moment in time. In that case, the assumption of representativeness is met, by definition, if we only consider that moment. So, in that case, the only possible violation of representativeness must involve a claim that this moment in time is not representative of the rest of the Population Table. -->
-
 
 ### Exercise 11
 
@@ -1063,6 +964,8 @@ question_text(NULL,
 ### 
 
 This assumption is only relevant for causal models. We describe a model as "confounded" if this is not true. The easiest way to ensure unconfoundedness is to assign treatment randomly.
+
+<!-- XX: This knowledge drop will grow mre complex as we get into later tutorials. Conditioning on pre-treatment covariates is a very confusing concept which students can't handle until tutorial 10. -->
 
 ### Exercise 12
 
@@ -1083,6 +986,8 @@ question_text(NULL,
 
 The great advantage of randomized assignment of treatment is that it guarantees unconfoundedness, *if the randomization is done correctly*. There is no way for treatment assignment to be correlated with anything, including potential outcomes, if treatment assignment is random, and *if the experimental set up worked as designed.* Sadly, in the real world, there are sometimes problems.
 
+<!-- XX: This is another knowledge drop that should be broken into two sections: the first is always the same; the second uses details from the current problem. -->
+
 ### Exercise 13
 
 A statistical model consists of two parts: the *probability family* and the *link function*. The probability family is the probability distribution which generates the randomness in our data. The link function is the mathematical formula which links our data to the unknown parameters in the probability distribution. 
@@ -1091,9 +996,9 @@ A statistical model consists of two parts: the *probability family* and the *lin
 
 Add `library(tidymodels)` to the QMD file.
 
-Place your cursor in the QMD file on the `library(tidymodels)` line. Use `Cmd/Ctrl + Enter` to execute that line.
+Place your cursor in the QMD file on that line. Use `Cmd/Ctrl + Enter` to execute that line.
 
-Note that this causes `library(tidymodels)` to be copied down to the Console and then executed. 
+Note that this causes the `library()` call to be copied down to the Console and then executed. 
 
 CP/CR.
 
@@ -1364,7 +1269,9 @@ Because our outcome variable is [XX: binary or continuous or multinomial or cumu
 
 The *[tidymodels](https://www.tidymodels.org/)* framework is the most popular one in the R world for estimating models. *[Tidy Modeling with R](https://www.tmwr.org/)* by Max Kuhn and Julia Silge is a great introduction.
 
-<!-- XX: We now fit a bunch of models. Include the results of the model fitting code in the tutorial itself, even though the student will also see those results when she runs the code herself. When you do, you don't need to include the input or even all the output, just the important part for whatever discussion goes along with it. -->
+<!-- XX: We now fit a bunch of models in a bunch of new exercises, starting below. Include the results of the model fitting code in the tutorial itself, even though the student will also see those results when she runs the code herself. When you do, you don't need to include the input or even all the output, just the important part for whatever discussion goes along with it. -->
+
+<!-- XX: In the earlier tutorials, this section will look a lot like the next few questions below. After tutorial 10, I hope that we use less simple examples.  -->
 
 ### Exercise 3
 
@@ -1418,7 +1325,7 @@ Continue the pipe with `tidy(conf.int = TRUE)`.
 
 ### 
 
-<!-- XX: Discuss the meaning of the intercept and beta_1. -->
+<!-- XX: Discuss the meaning of the intercept and beta_1. Use the actual results. DK: Add some examples here. See https://ppbds.github.io/primer.tutorials/articles/cardinal_virtues.html for detailed examples. This is a good document to show to Claude. Actually, looks like lots of the knowledge drops below come from this document. -->
 
 ### Exercise 5
 
@@ -1476,11 +1383,9 @@ Change the call to `fit()` to `fit(XX, data = XX)`.
 
 ### 
 
+The more variables we add, the more difficult it is to interpret the meaning of any particular coefficient. But interpretation also becomes less important. We don't really care about coefficients. We care about using our model to estimate quantities of interest.
+
 <!-- XX: Some commentary about why this is the model that you are choosing. -->
-
-<!-- XX: Consider including: -->
-
-<!-- The more variables we add, the more difficult it is to interpret the meaning of any particular coefficient. But interpretation also becomes less important. We don't really care about coefficients. We care about using our model to estimate quantities of interest. -->
 
 ### Exercise 7
 
@@ -1504,7 +1409,7 @@ In data science, **we deal with words, math, and code, but the most important of
 
 ### Exercise 8
 
-<!-- DK: Should this happen in the QMD first, before it is `Cmd/Ctrl + Enter`'d to the Console? -->
+<!-- DK: This should happen in the QMD first, before it is `Cmd/Ctrl + Enter`'d to the Console? -->
 
 We need `fit_XX` to exit in Console World. Copy/paste this code into the Console and execute it.
 
@@ -1563,7 +1468,7 @@ question_text(NULL,
 
 The purpose of `check_predictions()` is to compare your actual data (in green) with data that has been simulated from your fitted model, i.e., from your data generating mechanism. If your DGM is reasonable, then data simulated from it should not look too dissimilar from your actual data. Of course, it won't look exactly the same because of randomness, both in the world and in your simulation. But the actual data should be within the range of outcomes that your DGM simulates with `check_predictions()`.
 
-<!-- XX: Note whether or not most/all of the data looks like the simulated data. Conclude that, while not perfect, the model is probably good enough. Or! Note that it is not good enough, and go create a new model, and then check it. Then note how much better it is. And then make that new fitted object the one we use going forward. -->
+<!-- XX: Note whether or not most/all of the data looks like the simulated data. Conclude that, while not perfect, the model is probably good enough. Or! Note that it is not good enough, and go create a new model, and then check it. Then note how much better it is. And then make that new fitted object the one we use going forward. We might wait to do this in tutorials 11+ -->
 
 ### Exercise 11
 
@@ -2181,6 +2086,10 @@ This tutorial supports [*Preceptor’s Primer for Bayesian Data Science: Using t
 
 <!-- Priorities: -->
 
+<!-- Seems like the definition of Justice should include deciding the mathematical formula . . . Maybe Justice creates the Population Table and the mathematical relationship between the outcome and the covariates. Implicit in this definition are the assumptions that must be checked when using the Population Table. -->
+
+<!-- Change the definition of Courage to include a few more things besides the DGM, like no hypothesis tests. -->
+
 <!-- Update the repo creation exercises to work on VS Code on Codespaces.  -->
 
 <!-- Deal with different starting directories in Positron versus VS Code. -->
@@ -2188,6 +2097,10 @@ This tutorial supports [*Preceptor’s Primer for Bayesian Data Science: Using t
 <!-- The language of "Console World" does not really work in VS Code. Maybe "R World?" -->
 
 <!-- Perhaps "In the Console" should be "In R?" -->
+
+<!-- Not sure if the whole probability family and link function stuff works . . . -->
+
+
 
 <!-- OPEN ISSUES: -->
 
