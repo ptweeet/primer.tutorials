@@ -595,7 +595,7 @@ What is the narrow, specific question we will try to answer?
 
 ```{r wisdom-17}
 question_text(NULL,
-	message = "How long do political candidates live after the election?",
+	message = "How many years do gubernatorial candidates live after leaving office?",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -1604,7 +1604,7 @@ What is the specific question we are trying to answer?
 
 ```{r temperance-7}
 question_text(NULL,
-	message = "How long do political candidates live after the election?",
+	message = "How many years do gubernatorial candidates live after leaving office?",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,

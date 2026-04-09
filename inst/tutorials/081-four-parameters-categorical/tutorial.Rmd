@@ -399,7 +399,7 @@ Write a predictive question which connects the outcome variable `pres_vote` to `
 # "average" is implicit in the question.
 
 question_text(NULL,
-	message = "What was the difference in voting preference of men and women in the 1992 US Presidential election among supporters of the three leading candidates: Clinton, Bush and Perot?",
+	message = "What was the difference in voting preference of men and women in the 1992 US Presidential election among supporters of the three leading candidates: Clinton, Bush, and Perot?",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -646,7 +646,7 @@ What is the narrow, specific question we will try to answer?
 
 ```{r wisdom-20}
 question_text(NULL,
-	message = "What was the difference in voting preference of men and women in the 1992 US Presidential election among supporters of the three leading candidates: Clinton, Bush and Perot?",
+	message = "What was the difference in voting preference of men and women in the 1992 US Presidential election among supporters of the three leading candidates: Clinton, Bush, and Perot?",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -1505,7 +1505,7 @@ What is the specific question we are trying to answer?
 
 ```{r temperance-6}
 question_text(NULL,
-	message = "What was the difference in voting preference of men and women in the 1992 US Presidential election among supporters of the three leading candidates: Clinton, Bush and Perot?",
+	message = "What was the difference in voting preference of men and women in the 1992 US Presidential election among supporters of the three leading candidates: Clinton, Bush, and Perot?",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
