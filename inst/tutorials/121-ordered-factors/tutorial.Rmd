@@ -585,11 +585,11 @@ Read our answer. It will not be the same as yours. You can, if you want, change 
 
 ### Exercise 1
 
-In your own words, name the four key components of Justice for working on a data science problem.
+In your own words, name the five key components of Justice when working on a data science problem.
 
 ```{r justice-1}
 question_text(NULL,
-	message = "Justice concerns four topics: the Population Table, stability, representativeness, and unconfoundedness.",
+	message = "Justice concerns the Population Table and the four key assumptions which underlie it: validity, stability, representativeness, and unconfoundedness.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -619,11 +619,11 @@ Validity is always about the *columns* in the Preceptor Table and the data. Just
 
 ### Exercise 3
 
-Provide one reason why the assumption of validity might not hold for the outcome variable: `grad_rate`. Use the words "column" or "columns" in yor answer.
+Provide one reason why the assumption of validity might not hold for the outcome variable: `grad_rate`. Use the words "column" or "columns" in your answer.
 
 ```{r justice-3}
 question_text(NULL,
-	message = "An instance where validity would not hold would be if the column `grad_rate` from the data refered to the graduation rate in 2013, but now it could be the case that colleges have increased their minimum GPA for graduation or added more requirement that caused changes in the graduatiation rate column in the Preceptor Table though they may have the same name.",
+	message = "The `grad_rate` column in our data is reported by colleges themselves to the federal government, and colleges have an incentive to make their graduation rates look high. The `grad_rate` column in the Preceptor Table represents the true graduation rate. These two columns may not be measuring exactly the same thing.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -635,6 +635,8 @@ question_text(NULL,
 In order to consider the Preceptor Table and the data to be drawn from the same population, the columns from one must have a *valid correspondence* with the columns in the other. Validity, if true (or at least reasonable), allows us to construct the Population Table, which is the first step in Justice.
 
 Because we control the Preceptor Table and, to a lesser extent, the original question, we can adjust those variables to be “closer” to the data that we actually have. This is another example of the iterative nature of data science. If the data is not close enough to the question, then we check with our boss/colleague/customer to see if we can modify the question in order to make the match between the data and the Preceptor Table close enough for validity to hold.
+
+Despite these potential problems, we will assume that validity holds since it, mostly (?), does.
 
 ### Exercise 4
 
