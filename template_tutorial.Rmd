@@ -1654,6 +1654,12 @@ Read our answer. It will not be the same as yours. You can, if you want, change 
 
 <!-- XX: Choose one. -->
 
+XX: Here are some thoughts on the exercises which belong in this section. 
+
+First, we show the parameter values of the DGM and try to interpret their meaning. This is relatively straight-forward for simple linear models. With non-linear models and interaction terms, it becomes much harder, but we still give it a try, if only to highlight how the approaches for linear models fail in these cases. With complex models like random forest, the parameters have no meaningful interpretation. In those cases, we still have an exercise which ensures that the student understands that.
+
+Second, 
+
 *Temperance is a tree which has for its root very little contentment, and for its fruit calm and peace.* - Buddha
 *Temperance is the greatest of all virtues. It subdues every passion and emotion, and almost creates a Heaven upon Earth.* - Joseph Smith Jr.
 *Temperance is a bridle of gold; he, who uses it rightly, is more like a god than a man.* - Robert Burton
@@ -1667,7 +1673,7 @@ In your own words, describe the use of Temperance in data science.
 
 ```{r temperance-1}
 question_text(NULL,
-	message = "Temperance uses the data generating mechanism to answer the question with which we began. Humility reminds us that this answer is always a lie. We can also use the DGM to calculate many similar quantities of interest, displaying the results graphically.",
+	message = "Temperance interprets the data generating mechanism and then uses it to answer, with the help of graphics, the question(s) with which we began. Humility reminds us that this answer is always false.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -1692,11 +1698,11 @@ Example Knowledge Drops:
 
 * Dummy variables must always be interpreted in the context of the base value for that variable, which is generally included in the intercept. Example: "The base value here is 'asian/pacific islander.' The base value is the first alphabetically by default for character variables. However, if it is a factor variable, you can change that by setting the order of the levels by hand."
 
-* The interpretation of a treatment variable is very different from the interpretation of a standard covariate. The key point is that there is no such thing as a causal (versus predictive) data set nor a causal (versus predictive) R code formula. You can use the same data set (and the same R code!) for both causal and predictive models. The difference lies in the assumptions you make.
+* The interpretation of a treatment variable is very different from the interpretation of a standard covariate. The key point is that there is no such thing as a causal (versus predictive) data set nor a causal (versus predictive) R code formula. You can use the same data set (and the same R code) for both causal and predictive models. The difference lies in the assumptions you make.
 
 * Most of the time parameters in a model have no direct relationship with any population value in which we might be interested. This is especially true in complex and/or non-linear models. That is, in those cases, a coefficient like $\beta_0$ does not "mean" anything. But, in simple, small, linear models, it sometimes happens that a parameter does correspond to something real.
 
-* We care if the confidence interval for a given variable excludes zero. If not, then we can't be sure if the relationship between the variable and the outcome is positive or negative. In that case, then why would we include the variable in the model at all?
+* We care if the confidence interval for a given variable excludes zero. If not, then we can't be sure if the relationship between the variable and the outcome is positive or negative. In that case, why would we include the variable in the model at all?
 
 * We recommend the verb "adjust" in place of "control" when discussing the effect of including other variables in the model. Example: "The causal effect of exposure to Spanish-speakers is 1.5, adjusting for other variables like age and party." The word "adjusting" is better than the word "controlling" because it demonstrates some humility.
 
@@ -2069,7 +2075,7 @@ question_text(NULL,
 
 ### 
 
-We can never know all the entries in the Preceptor Table. That knowledge is reserved for God. If all our assumptions are correct, then our DGM is true, it accurately describes the way in which the world works. There is no better way to predict the future, or to model the past, than to use it. Sadly, this will only be the case with toy examples involving things like coins and dice. We hope that our DGM is close to the true DGM but, since our assumptions are never perfectly correct, our DGM will always be different. The estimated magnitude and importance of that difference is a matter of judgment.
+We can never know all the entries in the Preceptor Table. That knowledge is reserved for God. If all our assumptions are correct, then our DGM is true, it accurately describes the way in which the world works. There is no better way to predict the future, or to model the past, than to use it. Sadly, this will only be the case with toy examples involving things like coins and dice. We hope that our DGM is close to the true DGM but, since our assumptions are never perfectly correct, our DGM will always be different from the truth. The estimated magnitude and importance of that difference is a matter of judgment.
 
 The world confronts us. Make decisions we must.
 
