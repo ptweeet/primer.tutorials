@@ -455,7 +455,7 @@ What moment in time does the Preceptor Table refer to?
 
 ```{r wisdom-8}
 question_text(NULL,
-	message = "Now",
+	message = "The Preceptor Table refers to the current academic year, when students are choosing colleges.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,

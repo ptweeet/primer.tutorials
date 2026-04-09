@@ -508,7 +508,7 @@ What moment in time does the Preceptor Table refer to?
 
 ```{r wisdom-8}
 question_text(NULL,
-	message = "Our Preceptor Table should represent traffic stops somewhere about the late 2000s to the mid 2010s for maximum compatibility with our data.",
+	message = "Our Preceptor Table should represent traffic stops sometime between the late 2000s and the mid 2010s for maximum compatibility with our data.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,

@@ -699,7 +699,9 @@ question_text(NULL,
 	rows = 6)
 ```
 
-### 
+###
+
+A Preceptor Table can never really refer to an exact instant in time since nothing is instantaneous in this fallen world.
 
 In almost all practical problems, the data was gathered at a time other than that to which the Preceptor Table refers.
 

@@ -467,15 +467,18 @@ What moment in time does the Preceptor Table refer to?
 
 ```{r wisdom-9}
 question_text(NULL,
-	message = "2020",
+	message = "The Preceptor Table refers to the upcoming election. The data come from the 2020 CES survey.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
 	rows = 6)
 ```
 
-### 
+###
 
+A Preceptor Table can never really refer to an exact instant in time since nothing is instantaneous in this fallen world.
+
+In almost all practical problems, the data was gathered at a time other than that to which the Preceptor Table refers.
 
 ```{r}
 results <- plot_predictions(fit_approval,

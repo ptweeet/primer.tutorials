@@ -522,7 +522,7 @@ What moment in time does the Preceptor Table refer to?
 
 ```{r wisdom-15}
 question_text(NULL,
-	message = "The Presidential Election result in 1992.",
+	message = "The Preceptor Table refers to the time of the 1992 Presidential Election.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
