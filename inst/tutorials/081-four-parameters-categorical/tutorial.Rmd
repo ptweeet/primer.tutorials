@@ -467,7 +467,7 @@ We model units, but we only really care about aggregates.
 
 ### Exercise 12
 
-What is the outcome for this problem?
+What is the outcome variable for this problem?
 
 ```{r wisdom-12}
 question_text(NULL,

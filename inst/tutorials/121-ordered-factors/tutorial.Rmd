@@ -404,7 +404,7 @@ What is the outcome variable for this problem?
 
 ```{r wisdom-5}
 question_text(NULL,
-	message = "Graduation rate for each individual college.",
+	message = "The outcome variable is `grad_rate`, which measures the graduation rate for each college.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,

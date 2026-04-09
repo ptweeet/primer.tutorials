@@ -458,7 +458,7 @@ What is the outcome variable for this problem?
 
 ```{r wisdom-5}
 question_text(NULL,
-	message = "`att_end`",
+	message = "The outcome variable is `att_end`, which measures each commuter's attitude toward immigration after the experiment.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,

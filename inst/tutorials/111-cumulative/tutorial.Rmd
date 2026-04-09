@@ -416,7 +416,7 @@ What is the outcome variable for this problem?
 
 ```{r wisdom-6}
 question_text(NULL,
-	message = "Keep track of the outcome variable related to presidential approval. In this case, approval represents respondents’ approval rating of the president.",
+	message = "The outcome variable is `approval`, which measures each respondent’s approval rating of the president.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
