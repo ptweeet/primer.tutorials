@@ -155,7 +155,7 @@ question_text(NULL,
 
 ###
 
-We will be working with information about candidates for governor in the United States. The data was collected for “[Longevity Returns to Political Office](https://doi.org/10.1017/psrm.2019.63)” by Sebastian Barfort, Robert Klemmensen, and Erik Gahner Larsen ([pdf](https://github.com/PPBDS/primer.data/blob/master/inst/papers/governors.pdf)).
+The [tidyverse](https://www.tidyverse.org/) is a collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures.
 
 ### Exercise 5
 
