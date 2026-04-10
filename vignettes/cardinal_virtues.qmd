@@ -76,6 +76,16 @@ library(marginaleffects)
 
 -->
 
+<!-- 
+TODO:
+
+* Add political views and social class as a fourth running theme.
+
+* Use make_p_tables() to create the tables used as examples. 
+
+
+-->
+
 In the spirit of transparency, here are the guidelines which we provide to colleagues updating chapters in the [*Primer*](https://ppbds.github.io/primer/) and writing tutorials in this package. This is how we think data science ought to be taught. It is also, perhaps unsurprisingly, how we think data science ought to be done, at least at this introductory level. Key concepts are bolded when they are first introduced.
 
 ## Introduction 
@@ -151,7 +161,7 @@ If you don't care what Joe would have done in a counter-factual world in which h
 
 To create the Preceptor Table, we answer a series of questions:
 
-* C*ausal or predictive?*  Look for verbs like "cause" or "affect" or "influence." Look for a question which implies a comparison, *for a single individual unit*, between two states of the world, one in which the unit receives treatment $X$ and one in which the unit gets treatment $Y$. Look for a discussion of something which we can *manipulate*. Remember the motto: *No causation without manipulation*. We look to see if the question seeks to compare two potential outcomes *within the same unit*, rather than the same outcome between two different units.
+* C*ausal or predictive?*  Look for verbs like "cause" or "affect" or "influence." Look for a question which implies a comparison, *for a single individual unit*, between two states of the world, one in which the unit receives the treatment and one in which that same unit gets control. Look for a discussion of something which we can *manipulate*. Remember the motto: *No causation without manipulation*. We look to see if the question seeks to compare two potential outcomes *within the same unit*, rather than the same outcome between two different units.
 
 If none of this is present, use a predictive model. If all you need to know to answer the question is the outcome under one value of the treatment, then the model is predictive. In that case, the treatment is not truly a "treatment." It is just a covariate. Example: What is the `att_end` for all women if they were to get the treatment? This is a predictive question, not a causal one, because we do not need to know the outcome under treatment *and* under control for any individual woman.
 
@@ -236,7 +246,7 @@ In order to consider the two data sets to be drawn from the same population, the
 
 Validity discussions always have one (short) paragraph about each relevant variable (the outcome and any relevant covariates), with examples of why validity might *not* hold. Validity discussion finishes with a brief discussion along the lines of: "Despite these concerns, we will assume that validity does hold."
 
-These section can be longer of course, depending on how many details you discussed during the EDA. The central point is that we have two (potentially!) completely different things: the Preceptor Table and the data. *Just because two columns have the same name does not mean that they are the same thing.* Indeed, they will often be quite different! But because we control the Preceptor Table and, to a lesser extent, the original question, we can adjust those variables to be "closer" to the data that we actually have. This is another example of the iterative nature of data science. If the data is not close enough to the question, then we check with our boss/colleague/customer to see if we can modify the question in order to make the match between the data and the Preceptor Table close enough for validity to hold.
+These sections can be longer of course, depending on how many details you discussed during the EDA. The central point is that we have two (potentially!) completely different things: the Preceptor Table and the data. *Just because two columns have the same name does not mean that they are the same thing.* Indeed, they will often be quite different! But because we control the Preceptor Table and, to a lesser extent, the original question, we can adjust those variables to be "closer" to the data that we actually have. This is another example of the iterative nature of data science. If the data is not close enough to the question, then we check with our boss/colleague/customer to see if we can modify the question in order to make the match between the data and the Preceptor Table close enough for validity to hold.
 
 ### Population Table
 
@@ -330,13 +340,13 @@ If treatment assignment was random, then unconfoundedness is guaranteed, althoug
 
  Just because Wisdom points us toward a Population Table with $N$ rows does not mean we need to keep all $N$ rows, especially if creating a model which covers all rows is hard/impossible. We can just simplify the claims we are making about the world by removing some rows. Getting rid of rows will usually necessitate an adjustment to the question we are trying to answer. Again, data science is an iterative process.
 
-The Justice section concludes with a sentence or two about how, despite any problems with the core assumptions of stability, representativeness and unconfoundedness, we can still proceed to next steps because the assumptions hold enough.
+The Justice section concludes with a sentence or two about how, despite any problems with the four assumptions of validity, stability, representativeness and unconfoundedness, we can still proceed to next steps because the assumptions hold enough.
 
 The last step is to revisit the key sentences from the Wisdom section. Recall:
 
 > *Using data from a 2012 survey of Boston-area commuters, we seek to understand the relationship between income and political ideology in Chicago and similar cities in 2020. In particular, what percentage of individuals who make more than $100,000 per year are liberal?*
 
-Are these sentences still correct, or does a serious consideration of the assumptions of stability, representativeness and unconfoundedness require us to modify them? The answer, of course, is that the assumptions are never perfect! So, we have an obligation to add a sentence or two which highlights (no more than) one or two concerns. Examples:
+Are these sentences still correct, or does a serious consideration of the assumptions of validity, stability, representativeness and unconfoundedness require us to modify them? The answer, of course, is that the assumptions are never perfect! So, we have an obligation to add a sentence or two which highlights (no more than) one or two concerns. Examples:
 
 > *There is some concern that survey participants may not be perfectly representative of the underlying population.*
 
