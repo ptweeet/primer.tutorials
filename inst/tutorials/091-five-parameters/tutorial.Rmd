@@ -469,7 +469,7 @@ What is the outcome variable for this problem?
 
 ```{r wisdom-12}
 question_text(NULL,
-	message = "The outcome variable is `lived_after`, which measures how many years a governor lived after leaving office.",
+	message = "The outcome variable is `lived_after`, which measures how many years a governor lived after the election.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
