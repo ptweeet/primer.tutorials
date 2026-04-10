@@ -428,7 +428,7 @@ question_text(NULL,
 The Preceptor Table does not include all the covariates which you will eventually include in your model. It only includes covariates which you need to answer your question.
 
 ### Exercise 10
-
+<!-- AR: What if we replace "key components" with "rows and columns"? I feel like that more clearly connects to the heart of this exercise which is to describe the rows and columns in terms of units, covariates, treatments, and outcomes. Also include "treatments" in words to use? Change in template_tutorial.Rmd? -->
 Describe the key components of Preceptor Tables in general, without worrying about this specific problem. Use words like "units," "outcomes," and "covariates."
 
 ```{r wisdom-10}
