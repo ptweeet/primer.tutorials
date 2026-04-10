@@ -723,7 +723,7 @@ question_text(NULL,
 
 ### 
 
-The Population Table is almost always much bigger than the combination of the Preceptor Table and the data because, if we can really assume that both the Preceptor Table and the data are part of the same population, than that population must cover a broad universe of time and units since the Preceptor Table and the data are, themselves, often far apart from each other.
+The Population Table is almost always much bigger than the combination of the Preceptor Table and the data because, if we can really assume that both the Preceptor Table and the data are part of the same population, then that population must cover a broad universe of time and units since the Preceptor Table and the data are, themselves, often far apart from each other.
 
 ### Exercise 5
 
