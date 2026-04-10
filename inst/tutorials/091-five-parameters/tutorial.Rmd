@@ -306,7 +306,7 @@ For now, ignore the actual treatment variable `win_margin` which we will be usin
 
 ```{r wisdom-3}
 question_text(NULL,
-	message = "We will use `exercise` as a treatment variable. If given a value of 1, the candidate exercises regularly. If 0, they don't exercise.",
+	message = "Imagine a variable called `health_screening` which has a value of `1` if the candidate received annual preventive health screenings and `0` if they did not. In a policy experiment, an employer or insurer could randomly offer this benefit to some employees — in our case, politicians — and track longevity outcomes.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -319,11 +319,11 @@ Any data set can be used to construct a causal model as long as there is at leas
 
 ### Exercise 4
 
-Given our (imaginary) treatment variable `exercise`, how many potential outcomes are there for each candidate? Explain why.
+Given our (imaginary) treatment variable `health_screening`, how many potential outcomes are there for each candidate? Explain why.
 
 ```{r wisdom-4}
 question_text(NULL,
-	message = "There are two potential outcomes because the treatment variable `exercise` takes on two possible values: exercise or not exercising.",
+	message = "There are two potential outcomes because the treatment variable `health_screening` takes on two possible values: receiving annual preventive health screenings (1) or not receiving them (0).",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -336,11 +336,11 @@ The same data set can be used to create, separately, lots and lots of different 
 
 ### Exercise 5
 
-In a few sentences, specify the two different values for the imaginary treatment variable `exercise`, for a single unit, guess at the potential outcomes which would result, and then determine the causal effect for that unit given those guesses.
+In a few sentences, specify the two different values for the imaginary treatment variable `health_screening`, for a single unit, guess at the potential outcomes which would result, and then determine the causal effect for that unit given those guesses.
 
 ```{r wisdom-5}
 question_text(NULL,
-	message = "For a given candidate, assume that the value of the treatment variable might be 1, exercising regularly or 0, not exercising. If the candidate gets 1, then years lived after the election would be 25. If the candidate gets 0, then years lived would be 20. The causal effect on the outcome of a treatment of 1 versus 0 is 25 - 20 --- i.e., the difference between two potential outcomes --- which equals 5, which is the causal effect for this candidate.",
+	message = "For a given candidate, assume that the value of the treatment variable might be 1, meaning they received annual preventive health screenings, or 0, meaning they did not. If the candidate gets 1, then years lived after the election would be 27. If the candidate gets 0, then years lived would be 22. The causal effect on the outcome of a treatment of 1 versus 0 is 27 - 22 --- i.e., the difference between two potential outcomes --- which equals 5, which is the causal effect for this candidate.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
