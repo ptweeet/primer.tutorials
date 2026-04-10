@@ -19,10 +19,10 @@ library(gt)
 library(dplyr)
 library(knitr)
 
-# I think that we need the katex package because we use latex notation in 
+# I think that we need the katex package because we use latex notation in
 # gt tables. But katex sure causes lots of problems. So maybe I should just
 # remove that usage. Also, it sure seems to help various R CMD check and/or
-# renv issues if I explicitly load up the quarto library somewhere. So, I do 
+# renv issues if I explicitly load up the quarto library somewhere. So, I do
 # that here.
 
 library(katex)
@@ -32,7 +32,7 @@ knitr::opts_chunk$set(echo = FALSE)
 options(tutorial.exercise.timelimit = 60, 
         tutorial.storage = "local") 
 
-# Key Data 
+# Key Data
 
 gt_obj <- tibble(subject = c("Yao", "Emma", "Cassidy", "Tahmid", "Diego"),
        treatment = c("Treated", "Treated", "Control", "Control", "Treated"), 
