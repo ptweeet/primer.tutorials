@@ -481,8 +481,8 @@ question_text(NULL,
 The outcome variable that we really care about is often not the outcome variable which our data includes. This compromise --- working with what we *have* rather than what we really *want* --- is a part of most data science work in the real world.
 
 ### Exercise 13
-
-What is a covariate which you think might be useful for this problem, regardless of whether or not it might be included in the data?
+<!-- Differentiate from exercise 6? It asks "Let’s consider a predictive model. Which variable in governors do you think might have an important connection to lived_after?" Here I propose making the student imagine a covariate not in the data But, not sure if that's a great idea. Change in template_tutorial?? -->
+Imagine a covariate which you think might be useful for this problem that is not included in the data?
 
 ```{r wisdom-13}
 question_text(NULL,
