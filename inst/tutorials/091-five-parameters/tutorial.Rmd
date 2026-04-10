@@ -275,7 +275,7 @@ question_text(NULL,
 
 ### 
 
-We will use `lived_after` as our outcome variable.
+We will use `lived_after` as our outcome variable. Behind the scenes, we have also filtered the data to only include elections after 1945, removing earlier elections where data quality is less relevant.
 
 ```{r}
 ggplot(x, aes(x = lived_after)) +
@@ -774,7 +774,7 @@ question_text(NULL,
 
 ### 
 
-*The longer the time period covered by the Preceptor Table (and the data), the more suspect the assumption of stability becomes.* This is why removing the data from before 1945 might actually make our model better than it would have been if we had included it.
+*The longer the time period covered by the Preceptor Table (and the data), the more suspect the assumption of stability becomes.* This is why we have removed elections from before 1945 from our data — the further back in time we go, the less stable the relationship between our covariates and longevity becomes.
 
 ### Exercise 7
 
