@@ -1499,7 +1499,7 @@ Interpret 19.3, the estimate for the `(Intercept)`.
 
 ```{r temperance-2}
 question_text(NULL,
-	message = "For female candidates, the terms which include `sexMale` and  `election_age:sexMale` are zeroed out. 19.3 would be the expected years lived after the election for candidates who are age 0 at the election, which is, of course, nonsense.",
+	message = "For female candidates, the terms which include `sexMale` and  `election_age:sexMale` are zeroed out. 19.3 would be the expected years lived after the election for candidates who are female and age 0 at the election, which is, of course, nonsense.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -1565,6 +1565,8 @@ fit_years |>
 ```
 
 Interpret [-1.5, -0.07], the confidence interval for the estimate of the coefficient of `election_age:sexMale`.
+
+<!-- AR: Mismatch between covariate in the question versus answer message. Which to do? -->
 
 ```{r temperance-5}
 question_text(NULL,
