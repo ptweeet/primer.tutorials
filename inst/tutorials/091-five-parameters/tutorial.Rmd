@@ -155,7 +155,7 @@ question_text(NULL,
 
 ###
 
-We will be working with information about candidates for governor in the United States. The data was collected for “[Longevity Returns to Political Office](https://doi.org/10.1017/psrm.2019.63)” by Sebastian Barfort, Robert Klemmensen, and Erik Gahner Larsen ([pdf](https://github.com/PPBDS/primer.data/blob/master/inst/papers/governors.pdf)).
+The [tidyverse](https://www.tidyverse.org/) is a collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures.
 
 ### Exercise 5
 
@@ -275,7 +275,7 @@ question_text(NULL,
 
 ### 
 
-We will use `lived_after` as our outcome variable.
+We will use `lived_after` as our outcome variable. Behind the scenes, we have also filtered the data to only include elections after 1945, removing earlier elections where data quality is less relevant.
 
 ```{r}
 ggplot(x, aes(x = lived_after)) +
@@ -306,7 +306,7 @@ For now, ignore the actual treatment variable `win_margin` which we will be usin
 
 ```{r wisdom-3}
 question_text(NULL,
-	message = "We will use `exercise` as a treatment variable. If given a value of 1, the candidate exercises regularly. If 0, they don't exercise.",
+	message = "Imagine a variable called `health_screening` which has a value of `1` if the candidate received annual preventive health screenings and `0` if they did not. In a policy experiment, an employer or insurer could randomly offer this benefit to some employees — in our case, politicians — and track longevity outcomes.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -319,11 +319,11 @@ Any data set can be used to construct a causal model as long as there is at leas
 
 ### Exercise 4
 
-Given our (imaginary) treatment variable `exercise`, how many potential outcomes are there for each candidate? Explain why.
+Given our (imaginary) treatment variable `health_screening`, how many potential outcomes are there for each candidate? Explain why.
 
 ```{r wisdom-4}
 question_text(NULL,
-	message = "There are two potential outcomes because the treatment variable `exercise` takes on two possible values: exercise or not exercising.",
+	message = "There are two potential outcomes because the treatment variable `health_screening` takes on two possible values: receiving annual preventive health screenings (1) or not receiving them (0).",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -336,11 +336,11 @@ The same data set can be used to create, separately, lots and lots of different 
 
 ### Exercise 5
 
-In a few sentences, specify the two different values for the imaginary treatment variable `exercise`, for a single unit, guess at the potential outcomes which would result, and then determine the causal effect for that unit given those guesses.
+In a few sentences, specify the two different values for the imaginary treatment variable `health_screening`, for a single unit, guess at the potential outcomes which would result, and then determine the causal effect for that unit given those guesses.
 
 ```{r wisdom-5}
 question_text(NULL,
-	message = "For a given candidate, assume that the value of the treatment variable might be 1, exercising regularly or 0, not exercising. If the candidate gets 1, then years lived after the election would be 25. If the candidate gets 0, then years lived would be 20. The causal effect on the outcome of a treatment of 1 versus 0 is 25 - 20 --- i.e., the difference between two potential outcomes --- which equals 5, which is the causal effect for this candidate.",
+	message = "For a given candidate, assume that the value of the treatment variable might be 1, meaning they received annual preventive health screenings, or 0, meaning they did not. If the candidate gets 1, then years lived after the election would be 27. If the candidate gets 0, then years lived would be 22. The causal effect on the outcome of a treatment of 1 versus 0 is 27 - 22 --- i.e., the difference between two potential outcomes --- which equals 5, which is the causal effect for this candidate.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -428,7 +428,7 @@ question_text(NULL,
 The Preceptor Table does not include all the covariates which you will eventually include in your model. It only includes covariates which you need to answer your question.
 
 ### Exercise 10
-
+<!-- AR: What if we replace "key components" with "rows and columns"? I feel like that more clearly connects to the heart of this exercise which is to describe the rows and columns in terms of units, covariates, treatments, and outcomes. Also include "treatments" in words to use? Change in template_tutorial.Rmd? -->
 Describe the key components of Preceptor Tables in general, without worrying about this specific problem. Use words like "units," "outcomes," and "covariates."
 
 ```{r wisdom-10}
@@ -469,7 +469,7 @@ What is the outcome variable for this problem?
 
 ```{r wisdom-12}
 question_text(NULL,
-	message = "The outcome variable is `lived_after`, which measures how many years a governor lived after leaving office.",
+	message = "The outcome variable is `lived_after`, which measures how many years a governor lived after the election.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -481,8 +481,8 @@ question_text(NULL,
 The outcome variable that we really care about is often not the outcome variable which our data includes. This compromise --- working with what we *have* rather than what we really *want* --- is a part of most data science work in the real world.
 
 ### Exercise 13
-
-What is a covariate which you think might be useful for this problem, regardless of whether or not it might be included in the data?
+<!-- Differentiate from exercise 6? It asks "Let’s consider a predictive model. Which variable in governors do you think might have an important connection to lived_after?" Here I propose making the student imagine a covariate not in the data But, not sure if that's a great idea. Change in template_tutorial?? -->
+Imagine a covariate which you think might be useful for this problem that is not included in the data?
 
 ```{r wisdom-13}
 question_text(NULL,
@@ -595,7 +595,7 @@ What is the narrow, specific question we will try to answer?
 
 ```{r wisdom-17}
 question_text(NULL,
-	message = "How many years do gubernatorial candidates live after leaving office?",
+	message = "How many years do gubernatorial candidates live after thier election?",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -695,7 +695,7 @@ Despite these potential problems, we will assume that validity holds since it, m
 
 Provide one reason why the assumption of stability might not be true in this case.
 
-```{r justice-4-stability}
+```{r justice-4}
 question_text(NULL,
 	message = "Running for election as a woman was a very different proposition in 1950 than it is today, so the relationship between sex and years lived after the election may have changed.",
 	answer(NULL, correct = TRUE),
@@ -712,7 +712,7 @@ The longer the time period covered by the Preceptor Table and the data, the more
 
 In your own words, define a Population Table.
 
-```{r justice-4}
+```{r justice-5}
 question_text(NULL,
 	message = "The Population Table includes a row for each unit/time combination in the underlying population from which both the Preceptor Table and the data are drawn.",
 	answer(NULL, correct = TRUE),
@@ -723,13 +723,13 @@ question_text(NULL,
 
 ### 
 
-The Population Table is almost always much bigger than the combination of the Preceptor Table and the data because, if we can really assume that both the Preceptor Table and the data are part of the same population, than that population must cover a broad universe of time and units since the Preceptor Table and the data are, themselves, often far apart from each other.
+The Population Table is almost always much bigger than the combination of the Preceptor Table and the data because, if we can really assume that both the Preceptor Table and the data are part of the same population, then that population must cover a broad universe of time and units since the Preceptor Table and the data are, themselves, often far apart from each other.
 
-### Exercise 5
+### Exercise 6
 
 Specify the unit/time combinations which define each row in this Population Table.
 
-```{r justice-5}
+```{r justice-6}
 question_text(NULL,
 	message = "Each row in the Population Table represents one political candidate in one specific election year. This means the unit is a candidate, and the time is defined by the year they ran for office. If a candidate runs in multiple elections, they will appear in the table once for each year they ran.",
 	answer(NULL, correct = TRUE),
@@ -759,11 +759,11 @@ x |>
 ```
 
 
-### Exercise 6
+### Exercise 7
 
 In your own words, define the assumption of "stability" when employed in the context of data science.
 
-```{r justice-6}
+```{r justice-7}
 question_text(NULL,
 	message = "Stability means that the relationship between the columns in the Population Table is the same for three categories of rows: the data, the Preceptor Table, and the larger population from which both are drawn.",
 	answer(NULL, correct = TRUE),
@@ -774,13 +774,13 @@ question_text(NULL,
 
 ### 
 
-*The longer the time period covered by the Preceptor Table (and the data), the more suspect the assumption of stability becomes.* This is why removing the data from before 1945 might actually make our model better than it would have been if we had included it.
+*The longer the time period covered by the Preceptor Table (and the data), the more suspect the assumption of stability becomes.* This is why we have removed elections from before 1945 from our data — the further back in time we go, the less stable the relationship between our covariates and longevity becomes.
 
-### Exercise 7
+### Exercise 8
 
 Provide one reason why the assumption of stability might not be true in this case.
 
-```{r justice-7}
+```{r justice-8}
 question_text(NULL,
 	message = "Running for election as a woman was a very different proposition in 1950 than it is today, so the relationship between sex and years lived after the election may have changed.",
 	answer(NULL, correct = TRUE),
@@ -793,13 +793,14 @@ question_text(NULL,
 
 A change in time or the distribution of the data does not, in and of itself, demonstrate a violation of stability. Stability is about the parameters: $\beta_0$, $\beta_1$ and so on. Stability means these parameters are the same in the data as they are in the population as they are in the Preceptor Table.
 
-### Exercise 8
+### Exercise 9
 
 We use our data to make inferences about the overall population. We use information about the population to make inferences about the Preceptor Table: `Data -> Population -> Preceptor Table`. In your own words, define the assumption of "representativeness" when employed in the context of data science.
 
-```{r justice-8}
+<!--AR:  I propose some improved language (with Claude) below for this answer after looking at template tutorial. How does this look? Update template tutorial?-->
+```{r justice-9}
 question_text(NULL,
-	message = "Representativeness, or the lack thereof, concerns two relationships among the rows in the Population Table. The first is between the data and the other rows. The second is between the other rows and the Preceptor Table.",
+	message = "Representativeness concerns two relationships in the Population Table: between the data and the population, and between the population and the Preceptor Table. Both depend on the *selection mechanism* — how units end up in each. Representativeness holds when neither mechanism systematically excludes certain types of units.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -810,11 +811,11 @@ question_text(NULL,
 
 Ideally, we would like both the Preceptor Table *and* our data to be random samples from the population. Sadly, this is almost never the case.
 
-### Exercise 9
+### Exercise 10
 
 We do not use the data, directly, to estimate missing values in the Preceptor Table. Instead, we use the data to learn about the overall population. Provide one reason, involving the relationship between the data and the population, for why the assumption of representativeness might not be true in this case. 
 
-```{r justice-9}
+```{r justice-10}
 question_text(NULL,
 	message = "We are interested in all sorts of political offices: mayors, governors, senators and so on. Ideally, we would like our data to include people who have run for all these positions. But our data only includes candidates for governor. It is not representative of the larger population.",
 	answer(NULL, correct = TRUE),
@@ -827,11 +828,11 @@ question_text(NULL,
 
 The reason that representativeness is important is because, when it is violated, the estimates for the model parameters might be biased. 
 
-### Exercise 10
+### Exercise 11
 
 We use information about the population to make inferences about the Preceptor Table. Provide one reason, involving the relationship between the Population and the Preceptor Table, for why the assumption of representativeness might not be true in this case.
 
-```{r justice-10}
+```{r justice-11}
 question_text(NULL,
 	message = "Even if our data about governors is representative of the larger population of all political offices, our Preceptor Table is not a random draw from that population. We are only interested in mayors because the person who came to us is considering a mayoral campaign. Mayors are not a representative sample of all candidates.",
 	answer(NULL, correct = TRUE),
@@ -844,11 +845,11 @@ question_text(NULL,
 
 Stability looks across time periods. Representativeness looks within time periods, for the most part. 
 
-### Exercise 11
+### Exercise 12
 
 In your own words, define the assumption of "unconfoundedness" when employed in the context of data science.
 
-```{r justice-11}
+```{r justice-12}
 question_text(NULL,
 	message = "Unconfoundedness means that the treatment assignment is independent of the potential outcomes, when we condition on pre-treatment covariates.",
 	answer(NULL, correct = TRUE),
@@ -861,7 +862,7 @@ question_text(NULL,
 
 This assumption is only relevant for causal models. We describe a model as "confounded" if this is not true. The easiest way to ensure unconfoundedness is to assign treatment randomly.
 
-### Exercise 12
+### Exercise 13
 
 A statistical model consists of two parts: the *probability family* and the *link function*. The probability family is the probability distribution which generates the randomness in our data. The link function is the mathematical formula which links our data to the unknown parameters in the probability distribution. 
 
@@ -873,7 +874,7 @@ Note that this causes `library(tidymodels)` to be copied down to the Console and
 
 CP/CR.
 
-```{r justice-12}
+```{r justice-13}
 question_text(NULL,
 	answer(NULL, correct = TRUE),
 	allow_retry = TRUE,
@@ -890,7 +891,7 @@ Since $Y$ is a continuous variable, the probability family is Normal, also known
 
 $$Y \sim N(\mu, \sigma^2)$$
 
-### Exercise 13
+### Exercise 14
 
 Add `library(broom)` to the QMD file.
 
@@ -900,7 +901,7 @@ Note that this causes `library(broom)` to be copied down to the Console and then
 
 CP/CR.
 
-```{r justice-13}
+```{r justice-14}
 question_text(NULL,
 	answer(NULL, correct = TRUE),
 	allow_retry = TRUE,
@@ -917,11 +918,11 @@ For a continuous outcome variable, we use a linear model for the link function:
 
 $$\mu = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \ldots$$
 
-### Exercise 14
+### Exercise 15
 
 Use AI to come up with a $\LaTeX$ representation of the mathematical structure of the model, with $Y$ as the dependent variable and $X_1$, $X_2$ and so on as the independent variables. This version will not have the values of any parameters since we have not, yet, estimated them. Confirm that the $\LaTeX$ code works by placing it in your QMD and then rendering. Paste that $\LaTeX$ code below.
 
-```{r justice-14}
+```{r justice-15}
 question_text(NULL,
 	answer(NULL, correct = TRUE),
 	allow_retry = TRUE,
@@ -950,7 +951,7 @@ We use generic variables --- $Y$, $X_1$ and so on --- because our purpose is to 
 
 Having decided on the basic mathematical structure of the model, a choice mostly driven by the distribution of our outcome variable, we now turn toward estimating the model.
 
-### Exercise 15
+### Exercise 16
 
 Write one sentence which highlights a potential weakness in your model. This will almost always be derived from possible problems with the assumptions discussed above. We will add this sentence to our summary paragraph. So far, our version of the summary paragraph looks like this:
 
@@ -958,7 +959,7 @@ Write one sentence which highlights a potential weakness in your model. This wil
 
 Of course, your version will be somewhat different.
 
-```{r justice-15}
+```{r justice-16}
 question_text(NULL,
 	message = "Because our data includes only candidates for governor, our estimated model might not work well when applied to candidates for other positions, like mayor.",
 	answer(NULL, correct = TRUE),
@@ -1187,7 +1188,7 @@ In this case, the coefficient of `sexMale` is 50% lower than before, presumably 
 ### Exercise 8
 
 Behind the scenes of this tutorial, an object called `fit_years` has been created which is the result of the code above. Type `fit_years` and hit "Run Code." This generates the same results as using `print(fit_years)`.
-
+<!-- AR: fit years has age_lived = sex * age_election instead of age_lived = sex + age_election -->
 ```{r courage-8, exercise = TRUE}
 
 ```
@@ -1208,6 +1209,8 @@ In data science, **we deal with words, math, and code, but the most important of
 ### Exercise 9
 
 We need `fit_years` to exit in Console World. Copy/paste this code into the Console and execute it.
+
+<!-- AR: following code does not work in student's candidates.qmd since they do not yet have `x` -->
 
 ````
 fit_years <- linear_reg(engine = "lm") |> 
@@ -1283,6 +1286,8 @@ question_text(NULL,
 	incorrect = NULL,
 	rows = 3)
 ```
+
+<!--AR: LaTeX is incorrect for current state of fit_years-->
 
 ###
 
@@ -1493,7 +1498,7 @@ Interpret 19.3, the estimate for the `(Intercept)`.
 
 ```{r temperance-2}
 question_text(NULL,
-	message = "For female candidates, the terms which include `sexMale` and  `election_age:sexMale` are zeroed out. 19.3 would be the expected years lived after the election for candidates who are age 0 at the election, which is, of course, nonsense.",
+	message = "For female candidates, the terms which include `sexMale` and  `election_age:sexMale` are zeroed out. 19.3 would be the expected years lived after the election for candidates who are female and age 0 at the election, which is, of course, nonsense.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -1559,6 +1564,8 @@ fit_years |>
 ```
 
 Interpret [-1.5, -0.07], the confidence interval for the estimate of the coefficient of `election_age:sexMale`.
+
+<!-- AR: Mismatch between covariate in the question versus answer message. Which to do? -->
 
 ```{r temperance-5}
 question_text(NULL,
