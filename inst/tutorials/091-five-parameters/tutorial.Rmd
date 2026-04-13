@@ -799,7 +799,6 @@ We use our data to make inferences about the overall population. We use informat
 
 <!--AR:  I propose some improved language (with Claude) below for this answer after looking at template tutorial. How does this look? Update template tutorial?-->
 ```{r justice-9}
-```{r justice-8}
 question_text(NULL,
 	message = "Representativeness concerns two relationships in the Population Table: between the data and the population, and between the population and the Preceptor Table. Both depend on the *selection mechanism* — how units end up in each. Representativeness holds when neither mechanism systematically excludes certain types of units.",
 	answer(NULL, correct = TRUE),
