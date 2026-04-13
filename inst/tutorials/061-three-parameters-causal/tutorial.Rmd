@@ -339,7 +339,6 @@ With a predictive model, each individual unit has only one observed outcome. The
 Predictive models have no "treatments" --- only covariates.
 
 ### Exercise 14
-<!-- AR: Sex doesn't seem very intuitive to me as a key covariate towards immigration attitudes. Also, this exercise felt like just rephrasing the question. -->
 
 Specify two different groups of people who have different values for `sex` and which might have different average values for the `att_end`.  
 

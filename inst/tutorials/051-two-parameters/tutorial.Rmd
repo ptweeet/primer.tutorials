@@ -950,7 +950,6 @@ question_text(NULL,
 ```
 
 ### 
-<!-- AR: What should the relationship be? What are "the other rows"? -->
 
 Ideally, we would like both the Preceptor Table *and* our data to be random samples from the population. Sadly, this is almost never the case.
 
@@ -975,7 +974,6 @@ The reason that representativeness is important is because, when it is violated,
 
 ### Exercise 10
 
-<!-- AR: Getting a little confused about population vs. Population table. Should population be lower-cased or capitalized, does it depend on whether we're referring to the table? -->
 We use information about the population to make inferences about the Preceptor Table. Provide one reason, involving the relationship between the Population and the Preceptor Table, for why the assumption of representativeness might not be true in this case.
 
 ```{r justice-10}
@@ -1256,7 +1254,8 @@ We don't add **easystats** to the QMD because we are only using it for an intera
 
 ### Exercise 7
 
-<!-- AR: I didn't get a fit_height object at this point. This function does work when run with height_fit (created below) as arg.  -->
+<!-- DK: I didn't get a fit_height object at this point. This function does work when run with height_fit (created below) as arg. Please fix. -->
+
 In the Console, run `check_predictions(extract_fit_engine(fit_height))`. CP/CR.
 
 ```{r courage-7}
@@ -1596,7 +1595,6 @@ question_text(NULL,
 
 Data science projects begin with a decision which we face. To make that decision wisely, we would like to have good estimates of many unknown numbers. Yet, in order to make progress, we need to drill down to one specific question. This leads to the creation of a data generating mechanism, which can now be used to answer lots of questions, thus allowing us to explore the original decision more broadly.
 
-<!-- AR: Would be really nice to have example answers so we can check our work. -->
 ### Exercise 7
 
 In the Console, run `predictions()` on `height_fit`.

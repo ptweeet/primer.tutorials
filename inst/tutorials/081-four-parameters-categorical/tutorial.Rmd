@@ -1206,7 +1206,9 @@ Because `check_predictions()` does no work with multinomial models created with 
 
 
 ### Exercise 8
-<!-- AR: I found it quite difficult to know what formula to use or how to best prompt AI to get the LaTeX -->
+
+<!-- AR: I found it quite difficult to know what formula to use or how to best prompt AI to get the LaTeX. DK: Should we throw awat the LaTeX. -->
+
 Ask AI to create $\LaTeX$ code for this model, including our variable names and estimates for all the coefficients. Because this is a fitted model, the dependent variable will have a "hat" and the formula will not include an error term. 
 
 Add the code to your QMD. `Cmd/Ctrl + Shift + K`.

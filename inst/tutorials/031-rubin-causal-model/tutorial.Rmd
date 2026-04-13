@@ -1304,13 +1304,6 @@ question_text(NULL,
 
 What is Cassidy's outcome under treatment if we assume $\tau$ to be the $ATE$ we calculated above? Note that the answer will just be a number, without any symbol.
 
-<!-- SD: As stated above, make this less reliant on the last answer, as just one mistake can screw over the entire table. -->
-
-<!-- AC: I'm not sure if I can do math correctly, but shouldn't the answer be 7.6 (6 + 1.6)? -->
-<!-- AR: +1 AC's comment. Shouldn't it be 7.6 (6 + 1.6) instead of 9.4 (11 - 1.6), because Cassidy is a part of the control group. I was a little confused by this question because the treatment outcome is already listed in the table above. -->
-
-<!-- DK: Fix the above. AR: DONE-->
-
 ```{r simple-models-11}
 question_text(NULL,
     message = "Cassidy's estimated outcome under treatment is 7.6.\n\n\n This is calculated by adding $\\tau$ to Cassidy's $Y_c(t)$.\n\n $Y_c(t) + \\tau = 6 + 1.6 = 7.6$.",
