@@ -1,4 +1,4 @@
- ---
+---
 title: Rubin Causal Model
 author: David Kane and Ivy Spratt
 tutorial:
@@ -19,10 +19,10 @@ library(gt)
 library(dplyr)
 library(knitr)
 
-# I think that we need the katex package because we use latex notation in 
+# I think that we need the katex package because we use latex notation in
 # gt tables. But katex sure causes lots of problems. So maybe I should just
 # remove that usage. Also, it sure seems to help various R CMD check and/or
-# renv issues if I explicitly load up the quarto library somewhere. So, I do 
+# renv issues if I explicitly load up the quarto library somewhere. So, I do
 # that here.
 
 library(katex)
@@ -32,7 +32,7 @@ knitr::opts_chunk$set(echo = FALSE)
 options(tutorial.exercise.timelimit = 60, 
         tutorial.storage = "local") 
 
-# Key Data 
+# Key Data
 
 gt_obj <- tibble(subject = c("Yao", "Emma", "Cassidy", "Tahmid", "Diego"),
        treatment = c("Treated", "Treated", "Control", "Control", "Treated"), 
@@ -1240,7 +1240,7 @@ What is your new estimate for Diego's $Y_c(u)$?
 
 ```{r simple-models-7}
 question_text(NULL,
-    message = "7",
+    message = "Diego's $Y_c(u) = 7$.\n\n First, we calculate $\tau_M$ by subtracting the average observed male $Y_c(u)$ from the average observed $Y_c(u)$. Since Yao and Diego were treated and Tahmid was not, we get $\\tau_M = (13 + 3)/2 - 12 = 8 - 12 = -4$. Next, we calculate Diego's $Y_c(u) = Y_t(u) - \\tau_M = 3 - (-4) = 7$." ,
     answer(NULL, correct = TRUE),
     allow_retry = FALSE,
     incorrect = NULL,
@@ -1253,7 +1253,7 @@ Discuss for a sentence or two why an assumption that the causal effect varies by
 
 ```{r simple-models-8}
 question_text(NULL,
-    message = "Since Diego is male and Cassidy is female, the tau used to calculate the causal effect is different for each.",
+    message = "Since Diego is male and Cassidy is female, the $\tau$ used to calculate the causal effect is different for each.",
     # AJ: Add this into the primer
     answer(NULL, correct = TRUE),
     allow_retry = FALSE,
@@ -1284,7 +1284,7 @@ question_text(NULL,
 
 ### 
 
-The average treatment effect (ATE) is the average difference in potential outcomes between the treated group and the control group. Because averaging is a linear operator, the average difference is the same as the difference between the averages. It is particularly useful because we don’t have to assume anything about each individual’s `τ`, like `τyao`, but can still understand something about the average causal effect across the whole population.
+The average treatment effect ($ATE$) is the average difference in potential outcomes between the treated group and the control group. Because averaging is a linear operator, the average difference is the same as the difference between the averages. It is particularly useful because we don’t have to assume anything about each individual’s `τ`, like `τyao`, but can still understand something about the average causal effect across the whole population.
 
 ### Exercise 10
 
@@ -1292,7 +1292,7 @@ Calculate the $ATE$ based on the data given to you in the above Preceptor Table.
 
 ```{r simple-models-10}
 question_text(NULL,
-    message = "1.6",
+    message = "The $ATE$ 1.6.\n\n\n This can be calculated by taking the average of the `Estimand` column. $",
 # AJ: think of a way to make this a non decimal answer without screwing up the other questions
     answer(NULL, correct = TRUE),
     allow_retry = FALSE,
@@ -1309,11 +1309,11 @@ What is Cassidy's outcome under treatment if we assume $\tau$ to be the $ATE$ we
 <!-- AC: I'm not sure if I can do math correctly, but shouldn't the answer be 7.6 (6 + 1.6)? -->
 <!-- AR: +1 AC's comment. Shouldn't it be 7.6 (6 + 1.6) instead of 9.4 (11 - 1.6), because Cassidy is a part of the control group. I was a little confused by this question because the treatment outcome is already listed in the table above. -->
 
-<!-- DK: Fix the above. -->
+<!-- DK: Fix the above. AR: DONE-->
 
 ```{r simple-models-11}
 question_text(NULL,
-    message = "9.4",
+    message = "Cassidy's estimated outcome under treatment is 7.6.\n\n\n This is calculated by adding $\\tau$ to Cassidy's $Y_c(t)$.\n\n $Y_c(t) + \\tau = 6 + 1.6 = 7.6$.",
     answer(NULL, correct = TRUE),
     allow_retry = FALSE,
     incorrect = NULL,
