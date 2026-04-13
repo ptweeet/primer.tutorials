@@ -1189,7 +1189,7 @@ In this case, the coefficient of `sexMale` is 50% lower than before, presumably 
 ### Exercise 8
 
 Behind the scenes of this tutorial, an object called `fit_years` has been created which is the result of the code above. Type `fit_years` and hit "Run Code." This generates the same results as using `print(fit_years)`.
-
+<!-- AR: fit years has age_lived = sex * age_election instead of age_lived = sex + age_election -->
 ```{r courage-8, exercise = TRUE}
 
 ```
@@ -1210,6 +1210,8 @@ In data science, **we deal with words, math, and code, but the most important of
 ### Exercise 9
 
 We need `fit_years` to exit in Console World. Copy/paste this code into the Console and execute it.
+
+<!-- AR: following code does not work in student's candidates.qmd since they do not yet have `x` -->
 
 ````
 fit_years <- linear_reg(engine = "lm") |> 
@@ -1285,6 +1287,8 @@ question_text(NULL,
 	incorrect = NULL,
 	rows = 3)
 ```
+
+<!--AR: LaTeX is incorrect for current state of fit_years-->
 
 ###
 
