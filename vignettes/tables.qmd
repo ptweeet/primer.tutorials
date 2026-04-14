@@ -23,7 +23,7 @@ These tables are designed to support both **causal** and **predictive** modeling
 
 ## What Are Preceptor and Population Tables?
 
-**Preceptor Tables** and **Population Tables** help represent structured information about observational units, treatment status, potential or predicted outcomes, and covariates in a standardized format. They are especially useful in modeling workflows, particularly in education or social science contexts where modeling assumptions must be made transparent.
+**Preceptor Tables** and **Population Tables** help represent structured information about observational units, treatment status, potential or predicted outcomes, and covariates in a standardized format. They are especially useful in modeling workflows, particularly in education or social science contexts where modeling assumptions should be made transparent.
 
 This format draws inspiration from the [Cardinal Virtues](https://ppbds.github.io/primer.tutorials/articles/cardinal_virtues.html#preceptor-table) article, and aims to make tables interpretable in isolation by including both clear labeling and explanatory footnotes.
 
@@ -33,7 +33,7 @@ A **Preceptor Table** contains hypothetical or expected outcomes for units (such
 
 ### Population Table
 
-A **Population Table** contains a merged view of observed data (from the population) alongside preceptor-defined expectations. It includes an additional column `Source` that distinguishes between actual data (`"Data"`) and expectations (`"Preceptor"`). The table follows an 11-row structure with proper spacing between data and preceptor sections.
+A **Population Table** contains a combined view of observed data and the Preceptor Table. It includes an additional column `Source` that distinguishes between actual data (`"Data"`) and expectations (`"Preceptor"`). The table follows an 11-row structure with proper spacing between data and preceptor sections.
 
 ## Key Features
 
@@ -50,24 +50,14 @@ The output of `make_p_tables()` includes:
 
 Each table includes spanners for:
 
-* **Unit/Time** (for the unit columns)
+* **Unit/Time** 
 * **Potential Outcomes** (for causal models) or **Outcome** (for predictive models)
 * **Treatment** (included only in causal models)
-* **Covariates** (includes the covariate column and the "More" column)
+* **Covariates** (includes the covariate columns and the "More" column)
 
 > **Note:** All table entries must be surrounded by **double quotes**, even for numeric values (e.g., `"42"`).
 
 The goal is to visually communicate which variables play which roles in your modeling. Each spanner groups columns of a shared type. Footnotes help document the rationale and context for each set of variables.
-
-## Package Requirements
-
-It automatically constructs code using these libraries:
-
-```{r}
-#| message: FALSE
-library(tidyverse)
-library(primer.tutorials)
-```
 
 ## Running `make_p_tables()`
 
@@ -90,14 +80,13 @@ The `make_p_tables()` function takes a set of user-defined labels and options th
   * A **Treatment** column representing an intervention or assigned condition.
 * Set to `"predictive"` for a predictive model:
   * Includes outcome columns as specified in `outcome_label`.
-  * Treatment column is still included but represents the predictor variable.
 * This determines not only what variables appear in the tables, but also how they are **spanned** and **labeled** in the rendered `gt` tables.
 
 ---
 
 ### `unit_label` *(Character vector of length 2)*
 
-* Human-readable names for the **unit of analysis** — e.g., `c("Senator", "Session Year")` or `c("Student", "Grade Level")`.
+* Human-readable names for the **unit of analysis** — e.g., `c("Senator", "Session Year")` or `c("Student", "Grade Level")`. The first element is the unit, and the second element is the time period.
 * These will appear as the first two columns and are grouped under the `"Unit/Time"` spanner.
 * The labels should be capitalized and concise.
 
@@ -105,10 +94,11 @@ The `make_p_tables()` function takes a set of user-defined labels and options th
 
 ### `outcome_label` *(Character vector)*
 
-* Describes the **key outcomes** being predicted or causally modeled.
-* For causal models, typically includes multiple potential outcomes like `c("Support Bill", "Oppose Bill")`.
-* For predictive models, might be a single outcome like `c("Test Score")`.
-* Should be interpretable phrases that clearly describe the outcomes.
+* Describes the **key outcome(s)** being predicted or causally modeled.
+* For causal models, must include at least two potential outcomes. 
+* Causal labels often include both the outcome and the treatment value, e.g., `c("Score if Small Class", "Score if Large Class")
+* For predictive models, there is only one outcome, e.g., `c("Score")`.
+* Should be interpretable phrases that clearly describe the outcome(s).
 
 ---
 
