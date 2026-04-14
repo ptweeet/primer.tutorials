@@ -36,7 +36,7 @@ jobs:
         with:
           cache-version: 1
 
-      - name: Install quarto R package and rcmdcheck
-        run: Rscript -e 'install.packages(c("quarto", "rcmdcheck"))'
+      - name: Install rcmdcheck
+        run: Rscript -e 'install.packages(c("rcmdcheck"))'
 
       - uses: r-lib/actions/check-r-package@v2
