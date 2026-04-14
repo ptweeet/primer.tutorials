@@ -1644,11 +1644,9 @@ question_text(NULL,
 
 Because of the change in your `.gitignore` (assuming that you saved it), the cache directory should not appear in the Source Control panel because Git is ignoring it, as instructed. Commit and push. 
 
-### Exercise 21
+### Exercise 21 
 
-Create a new code chunk in your QMD. 
-
-Add `tidy()` on `fit_approval` with the argument `conf.int` set equal to `TRUE`. Run the code chunk. The returns 95% intervals for all the parameters in our model. This takes a minute or two to run.
+In your last code chunk, add `tidy()` on `fit_approval` with the argument `conf.int` set equal to `TRUE`. Save the result as `tidy_approval` Run the code chunk. The returns 95% intervals for all the parameters in our model. This takes a minute or two to run. This is why we cache the result.
 
 
 At the Console, run:
@@ -1675,7 +1673,7 @@ question_text(NULL,
 
 ### Exercise 22
 
-Create a new code chunk in your QMD. Ask AI to help you make a nice looking table from the tibble which is returned by `tidy()`. You don't have to include all the variables which `tidy()` produces. We often just show the estimate and the confidence intervals.
+Create a new code chunk in your QMD. Ask AI to help you make a nice looking table from the `tidy_approval`. You don't have to include all the variables which `tidy()` produces. We often just show the estimate and the confidence intervals.
 
 Insert that code into the QMD. 
 
