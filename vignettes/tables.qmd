@@ -33,7 +33,7 @@ A **Preceptor Table** contains hypothetical or expected outcomes for units (such
 
 ### Population Table
 
-A **Population Table** contains a combined view of observed data and the Preceptor Table. It includes an additional column `Source` that distinguishes between actual data (`"Data"`) and expectations (`"Preceptor"`). The table follows an 11-row structure with proper spacing between data and preceptor sections.
+A **Population Table** contains a combined view of observed data and the Preceptor Table. It includes an additional column `Source` that distinguishes between actual data (`"Data"`) and data required to answer the question (`"Preceptor"`). The table follows an 11-row structure with proper spacing between data and preceptor sections.
 
 ## Key Features
 
@@ -61,7 +61,7 @@ The goal is to visually communicate which variables play which roles in your mod
 
 ## Running `make_p_tables()`
 
-Preceptor and Population Tables are inserted together. The Population Table includes a `"Source"` column as its first column (controlled by the `source_col` argument), which takes values `"Data"` or `"Preceptor"` depending on origin. This structure encourages comparison between expected and observed values.
+Preceptor and Population Tables are inserted together. The Population Table includes a `"Source"` column as its first column (controlled by the `source_col` argument), which takes values `"Data"` or `"Preceptor"` depending on origin. 
 
 Behind the scenes, these tables are generated using `tibble::tribble()` for easier manual editing by row. The tribble code is formatted with aligned columns to help authors maintain visual structure while editing.
 
@@ -124,7 +124,7 @@ The `make_p_tables()` function takes a set of user-defined labels and options th
 * When `TRUE`, adds a column distinguishing between `"Data"` and `"Preceptor"` rows.
 * When `FALSE`, the Population Table omits the source column.
 
-Each of these labels should be understood as **descriptive display names**, not as variable names from an existing dataset. The goal is clarity and interpretability for readers of the resulting Quarto document.
+Each of these labels should be understood as **descriptive display names**, not as variable names from an existing dataset. 
 
 ---
 
@@ -315,7 +315,7 @@ population_tibble$More <- "..."
 
 gt::gt(population_tibble) |>
   gt::tab_header(title = "Population Table") |>
-  gt::tab_spanner(label = "Unit/Time", id = "unit_span", columns = c(`Source`, `Senator`, `Session Year`)) |>
+  gt::tab_spanner(label = "Unit/Time", id = "unit_span", columns = c(`Senator`, `Session Year`)) |>
   gt::tab_spanner(label = "Potential Outcomes", id = "outcome_span", columns = c(`Support Bill`, `Oppose Bill`)) |>
   gt::tab_spanner(label = "Treatment", id = "treatment_span", columns = c(`Lobbying Contact`)) |>
   gt::tab_spanner(label = "Covariates", id = "covariates_span", columns = c(`Senator Age`, "More")) |>
@@ -581,4 +581,4 @@ This workflow supports better modeling documentation and instructional design, w
 
 For more on how and why to use these tables, see:
 
-* [The Cardinal Virtues](https://ppbds.github.io/primer.tutorials/articles/cardinal_virtues.html#preceptor-table) article from *primer.tutorials*
+* [The Cardinal Virtues](https://ppbds.github.io/primer.tutorials/articles/cardinal_virtues.html) article from *primer.tutorials*

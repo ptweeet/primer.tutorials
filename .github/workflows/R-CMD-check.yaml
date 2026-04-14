@@ -1,7 +1,3 @@
-# This is a bit of a mish-mash, heavily influenced by the YAML in r4ds.tutorials.
-
-# Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
-# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
 on:
   push:
     branches: [main, master]
@@ -13,18 +9,18 @@ name: R-CMD-check
 jobs:
   R-CMD-check:
     runs-on: ubuntu-latest
-
     name: ubuntu-latest (release)
-          
+
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes
-      
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
     steps:
       - uses: actions/checkout@v4
-      
+
       - uses: r-lib/actions/setup-pandoc@v2
-      
+
       - uses: quarto-dev/quarto-actions/setup@v2
 
       - uses: r-lib/actions/setup-r@v2
@@ -39,7 +35,8 @@ jobs:
       - uses: r-lib/actions/setup-renv@v2
         with:
           cache-version: 1
-  
-      - run: Rscript -e 'install.packages("rcmdcheck")'
+
+      - name: Install quarto R package and rcmdcheck
+        run: Rscript -e 'install.packages(c("quarto", "rcmdcheck"))'
 
       - uses: r-lib/actions/check-r-package@v2
