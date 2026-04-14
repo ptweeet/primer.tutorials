@@ -17,13 +17,12 @@ library(tutorial.helpers)
 library(gt)
 
 library(MASS)
+library(easystats)
 library(tidyverse)
 library(broom)
 library(primer.data)
 library(marginaleffects)
-# MASS must go first so that tidyverse is loaded after it and its version of select() stays active.
-
-library(easystats)
+# MASS and easystats must go first so that tidyverse is loaded after them and its version of select() stays active.
 
 knitr::opts_chunk$set(echo = FALSE)
 options(tutorial.exercise.timelimit = 600, 
@@ -33,9 +32,9 @@ options(tutorial.exercise.timelimit = 600,
 
 x <- ces |>
   filter(year == 2020) |>
-  select(approval, ideology, education) |>
-  drop_na() |> 
-  filter(! ideology %in% "Not Sure") |> 
+  dplyr::select(approval, ideology, education) |>
+  drop_na() |>
+  filter(! ideology %in% "Not Sure") |>
   mutate(ideology = fct_drop(ideology))
 
 # This model used to include faminc as well. There was nothing wrong with that,
@@ -693,12 +692,12 @@ Copy previous code
 ```
 
 ```{r wisdom-17-test, include = FALSE}
-ces |> 
-  filter(year == 2020) |> 
-  select(approval, education, ideology)
+ces |>
+  filter(year == 2020) |>
+  dplyr::select(approval, education, ideology)
 ```
 
-### 
+###
 
 We are selecting only the rows we will use in the future. Of course, we could choose any of the other variables, but we will be focusing on only these four for this tutorial.
 
@@ -722,7 +721,7 @@ Copy previous code
 ```
 
 ```{r wisdom-18-test, include = FALSE}
-ces |> filter(year == 2020) |> select(approval, education, ideology) |>
+ces |> filter(year == 2020) |> dplyr::select(approval, education, ideology) |>
   drop_na() |>
   slice_sample(n = 2000)
 ```
@@ -1729,9 +1728,9 @@ question_text(NULL,
 This is ours:
 
 ```{r}
-tidy_approval |> 
-  select(term, estimate, conf.low, conf.high) |> 
-  gt() |> 
+tidy_approval |>
+  dplyr::select(term, estimate, conf.low, conf.high) |>
+  gt() |>
   cols_label(
     term = "Variable",
     estimate = "Estimate",
@@ -1808,8 +1807,8 @@ Before using the DGM, we should make sure that we can interpret it.
 Recall the values for the parameters in our data generating mechanism:
 
 ```{r}
-tidy_approval |> 
-  select(term, estimate, conf.low, conf.high)
+tidy_approval |>
+  dplyr::select(term, estimate, conf.low, conf.high)
 ```
 
 What does the "Very Conservative" coefficient tell us?
