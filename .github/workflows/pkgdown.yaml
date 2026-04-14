@@ -21,7 +21,7 @@ jobs:
       group: pkgdown-${{ github.event_name != 'pull_request' || github.run_id }}
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      RENV_PATHS_ROOT: ${{ runner.temp }}/renv
+      RENV_PATHS_ROOT: /tmp/renv
     permissions:
       contents: write
     steps:
