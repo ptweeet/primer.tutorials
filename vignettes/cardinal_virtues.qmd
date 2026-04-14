@@ -234,7 +234,7 @@ By thinking hard about the original question and the data, we have come up with 
 
 ## Justice
 
- > Justice concerns four topics: the Population Table, stability, representativeness, and unconfoundedness.
+ > Justice concerns two topics: the Population Table and the mathematical formula for the data generating mechanism. The key assumptions underlying the Population Table are validity, stability, representativeness, and unconfoundedness. The primary determinate of the formula is the distribution of the outcome.
  
  **Justice** is the second [Cardinal Virtue](https://en.wikipedia.org/wiki/Cardinal_virtues) in data science. Justice starts with the Population Table – the data we want to have, the data which we actually have, and all the other data from that same population. Each row of the Population Table is defined by a unique unit/time combination. We explore three key issues. First, does the relationship among the variables demonstrate *stability*, meaning is the model stable across different time periods? Second, are the rows associated with the data and, separately, the rows associated with the Preceptor Table, *representative* of all the units from the population? Third, for causal models only, we consider *unconfoundedness*. 
 

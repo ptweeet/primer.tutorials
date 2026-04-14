@@ -413,9 +413,9 @@ d_tibble <- tibble::tribble(
 )
 
 pre_title_footnote <- NULL
-pre_units_footnote <- "Each row represents a candidate in a close gubernatorial election (1950-2000, margin ≤5%). Missing rows represent the broader population (stability, representativeness)."
+pre_units_footnote <- "Each row represents a candidate in a close gubernatorial election (1950-2000, margin ≤5%)."
 pre_outcome_footnote <- "Potential lifespans under winning vs. losing. Question marks show unobserved counterfactuals (validity)."
-pre_treatment_footnote <- "Election outcome determined by vote margin. Close races approximate random assignment (unconfoundedness)."
+pre_treatment_footnote <- "Election outcome determined by vote margin. Close races approximate random assignment."
 pre_covariates_footnote <- NULL
 
 pop_title_footnote <- NULL
