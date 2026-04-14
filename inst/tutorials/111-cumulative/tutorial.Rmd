@@ -479,6 +479,7 @@ A Preceptor Table can never really refer to an exact instant in time since nothi
 
 In almost all practical problems, the data was gathered at a time other than that to which the Preceptor Table refers.
 
+<!-- AR: This code chunk produces 2 errors -->
 ```{r}
 results <- plot_predictions(fit_approval,
                             condition = c("ideology"),
@@ -674,7 +675,7 @@ We will be focusing on the year 2020 so that we have fewer number of rows to wor
 
 ### Exercise 17
 
-Continue the pipe to `select()` and have `approval`, `education`, and `ideology` inside.
+Continue the pipe to `dplyr::select()` and have `approval`, `education`, and `ideology` inside.
 
 ```{r wisdom-17, exercise = TRUE}
 
@@ -789,7 +790,7 @@ summary(x)
 
 ### 
 
-We can see some information about our data. Most people have a family income between 20k and 30k. Most people are moderate in terms of political ideology. Most people strongly disapprove the president, the second biggest group for that variable is strongly approve. Most people only have a high school as their highest education.
+We can see some information about our data. Most people are moderate in terms of political ideology. Most people strongly disapprove the president, the second biggest group for that variable is strongly approve. Most people only have a high school as their highest education.
 
 ### Exercise 22
 
@@ -876,7 +877,7 @@ In `analysis.qmd`, add the code the previous exercise to add the graph in the fi
 Render the file. In the Console, run:
 
 ```         
-show_file("analysis.qmd", start = -5)
+show_file("analysis.qmd", chunk = "Last")
 ```
 
 CP/CR.
@@ -994,7 +995,7 @@ question_text(NULL,
 
 The Population Table is almost always much bigger than the combination of the Preceptor Table and the data because, if we can really assume that both the Preceptor Table and the data are part of the same population, than that population must cover a broad universe of time and units since the Preceptor Table and the data are, themselves, often far apart from each other.
  
-
+<!-- AR: include a source column? -->
  ```{r}
  population_table <- tibble::tibble(
   unit = c("Person A", "Person B", "Person C", "Person D", "Person E"),
@@ -1033,7 +1034,7 @@ Provide one reason why the assumption of stability might not be true in this cas
 
 ```{r justice-6}
 question_text(NULL,
-	message = "We are concerned about the year 2020 and the data we have has information for 2020, so their is no danger to stability. The time the data was gathered is the same as the time refered to in the Preceptor Table.",
+	message = "We are concerned about the year 2024, and the data we have has information for 2020. The dawn of the COVID-19 pandemic was in 2020 and it completely upended American life in such a way that political ideology may have been less important to presidential approval than in 2024 when the Pandemic had subsided and many societal restrictions had been lifted.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -1050,7 +1051,7 @@ We use our data to make inferences about the overall population. We use informat
 
 ```{r justice-7}
 question_text(NULL,
-	message = "Representativeness, or the lack thereof, concerns two relationships among the rows in the Population Table. The first is between the data and the other rows. The second is between the other rows and the Preceptor Table.",
+	message = "Representativeness concerns two relationships in the Population Table: between the data and the population, and between the population and the Preceptor Table. Both depend on the *selection mechanism* — how units end up in each. Representativeness holds when neither mechanism systematically excludes certain types of units.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -1082,9 +1083,10 @@ The reason that representativeness is important is because, when it is violated,
 
 We use information about the population to make inferences about the Preceptor Table. Provide one reason, involving the relationship between the population and the Preceptor Table, for why the assumption of representativeness might not be true in this case.
 
+<!-- AR: I'm skeptical of the previous answer message. Instructions ask to propose a reason might not hold, seems a little like a trick question to then say there are no representativeness concerns. -->
 ```{r justice-9}
 question_text(NULL,
-	message = "Because the Preceptor Table includes the entire population, there is no problem with representativeness in using the population to draw inferences about the Precetor Table. They are one and the same.",
+	message = "In the Preceptor Table, we. are concerned with approval ratings of prospective voters, while our population is the general US population. These two groups are likely differ in composition.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -1155,13 +1157,13 @@ question_text(NULL,
 
 The probability family is determined by the outcome variable $Y$. 
 
-Since \$Y\$ is an ordinal variable (with 2+ ordered values), the probability family is Cumulative Logistic.
+Since $Y$ is an ordinal variable (with 2+ ordered values), the probability family is Cumulative Logistic.
 
 $$
 \text{approval} \sim \text{CumulativeLogit}(\theta_1, \theta_2, \ldots, \theta_{K-1})
 $$
 
-where each \$\theta\_k\$ defines a threshold between approval levels, and the model estimates the probability of being at or below each category using a series of cumulative log-odds.
+where each $\theta_k$ defines a threshold between approval levels, and the model estimates the probability of being at or below each category using a series of cumulative log-odds.
 
 ### Exercise 2
 
@@ -1288,7 +1290,7 @@ question_text(NULL,
 
 
 ###
-
+<!--AR:  I see the dplyr version -->
 You’ll see `select` from `MASS` in the top left corner—this shows which package’s version is currently active.
 
 ### Exercise 7
@@ -1367,9 +1369,7 @@ Now you’ll see `select` from `dplyr` in the top left corner, showing that the 
 
 ### Exercise 11
 
-Because our outcome variable is **cumulative**, start to create the model by entering `multinom_reg(engine = "glmnet")`.
-
-Your arguments to `polr()` should be `formula = approval ~ ideology + education` and `data = x`.
+Because our outcome variable is **cumulative**, start to create the model by using `polr()`. Arguments should be `formula = approval ~ ideology + education` and `data = x`.
 
 ```{r courage-11, exercise = TRUE}
 
@@ -1391,7 +1391,7 @@ We can’t use `tidymodels` here because it doesn’t currently support **ordina
 
 ### Exercise 12
 
-Replace the `x` code with thw following in your QMD. Run the code chunk. `Cmd/Ctrl + Shift + K`.
+Replace the `x` code with the following in your QMD. Run the code chunk. `Cmd/Ctrl + Shift + K`.
 
 ```
 x <- ces |>
@@ -1516,6 +1516,8 @@ We don't add **easystats** to the QMD because we are only using it for an intera
 
 In the Console, run `check_predictions(fit_approval)`. CP/CR.
 
+<!-- AR: Use of "console" is unclear here. Does it mean to run just in the tutorial in analysis.qmd? If in analysis.qmd, see comment below. -->
+<!-- AR: output of this call in analysis.qmd results in a graph, not a table as shown in the rendered tutorial. Have to pipe into as.data.frame() the str(max.level = 1)to see table output there.-->
 ```{r courage-17, exercise = TRUE}
 
 ```
@@ -1587,6 +1589,8 @@ A data generating mechanism is just a formula, something which we can write down
 
 ### Exercise 19
 
+<!--AR: What are we caching in the code chunk? Currently, we don't add anything to it.-->
+
 In the `setup` code chunk, add `library(easystats)`. Place your cursor over the library and `Cmd/Ctrl + Enter` to run in the Console. 
 
 Create a new code chunk in your QMD. Add a code chunk option: `#| cache: true`. 
@@ -1642,6 +1646,8 @@ Because of the change in your `.gitignore` (assuming that you saved it), the cac
 
 ### Exercise 21
 
+<!--AR: students do not have the .rds file! -->
+
 In the `setup` code chunk, add the following code for `tidy_approval`:
 
 ```
@@ -1649,12 +1655,6 @@ tidy_approval <- read_rds("data/tidy_approval.rds")
 ```
 
 Run the code chunk.
-
-At the Console, run:
-
-```         
-tutorial.helpers::show_file("analysis.qmd", chunk = "First")
-```
 
 CP/CR.
 
