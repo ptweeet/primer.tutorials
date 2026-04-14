@@ -1646,29 +1646,6 @@ Because of the change in your `.gitignore` (assuming that you saved it), the cac
 
 ### Exercise 21
 
-<!--AR: students do not have the .rds file! -->
-
-In the `setup` code chunk, add the following code for `tidy_approval`:
-
-```
-tidy_approval <- read_rds("data/tidy_approval.rds")
-```
-
-Run the code chunk.
-
-CP/CR.
-
-```{r courage-21}
-question_text(NULL,
-	answer(NULL, correct = TRUE),
-	allow_retry = TRUE,
-	try_again_button = "Edit Answer",
-	incorrect = NULL,
-	rows = 3)
-```
-
-### Exercise 22
-
 Create a new code chunk in your QMD. 
 
 Add `tidy()` on `fit_approval` with the argument `conf.int` set equal to `TRUE`. Run the code chunk. The returns 95% intervals for all the parameters in our model. This takes a minute or two to run.
@@ -1682,7 +1659,7 @@ tutorial.helpers::show_file("analysis.qmd", chunk = "Last")
 
 CP/CR.
 
-```{r courage-22}
+```{r courage-21}
 question_text(NULL,
 	answer(NULL, correct = TRUE),
 	allow_retry = TRUE,
@@ -1696,7 +1673,7 @@ question_text(NULL,
 `tidy()` is part of the [**broom**](https://broom.tidymodels.org/) package, used to summarize information from a wide variety of models.
 
 
-### Exercise 23
+### Exercise 22
 
 Create a new code chunk in your QMD. Ask AI to help you make a nice looking table from the tibble which is returned by `tidy()`. You don't have to include all the variables which `tidy()` produces. We often just show the estimate and the confidence intervals.
 
@@ -1714,7 +1691,7 @@ tutorial.helpers::show_file("analysis.qmd", chunk = "Last")
 
 CP/CR.
 
-```{r courage-23}
+```{r courage-22}
 question_text(NULL,
 	answer(NULL, correct = TRUE),
 	allow_retry = TRUE,
@@ -1755,7 +1732,7 @@ tidy_approval |>
 
 At the very least, your table should include a title and a caption with the data source. The more you use AI, the better you will get at doing so.
 
-### Exercise 24
+### Exercise 23
 
 Add a sentence to your project summary.
 
@@ -1765,7 +1742,7 @@ Recall the beginning of our version of the summary:
 
 > Public opinion about political leaders often depends on where people fall on the ideological spectrum. Using data from the 2020 Cooperative Election Study, one of the largest political surveys in the U.S., we explore how presidential approval varies across different ideological groups. One concern is that survey respondents might be systematically different from other Americans.
 
-```{r courage-24}
+```{r courage-23}
 question_text(NULL,
 	message = "Public opinion about political leaders often depends on where people fall on the ideological spectrum. Using data from the 2020 Cooperative Election Study, one of the largest political surveys in the U.S., we explore how presidential approval varies across different ideological groups. One concern is that survey respondents might be systematically different from other Americans. We are using a cumulative model for ordinal regression.",
 	answer(NULL, correct = TRUE),
