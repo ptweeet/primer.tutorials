@@ -1,6 +1,6 @@
 Package: primer.tutorials
 Title: Tutorials for Preceptor's Primer for Bayesian Data Science
-Version: 1.4.9003
+Version: 1.4.9004
 Authors@R: 
     c(
     person(given = "David",
@@ -15,7 +15,7 @@ Depends: R (>= 3.5.0)
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 Imports:
     primer.data,
     tutorial.helpers,
