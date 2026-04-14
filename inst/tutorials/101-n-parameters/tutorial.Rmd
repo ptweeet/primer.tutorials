@@ -465,11 +465,11 @@ question_text(NULL,
 
 The Preceptor Table does not include all the covariates which you will eventually include in your model. It only includes covariates which you need to answer your question.
 
-### Exercise 12
+### Exercise 10
 
 Describe the key components of Preceptor Tables in general, without worrying about this specific problem. Use words like "units," "outcomes," and "covariates."
 
-```{r wisdom-12}
+```{r wisdom-10}
 question_text(NULL,
 	message = "The rows of the Preceptor Table are the units. The outcome is at least one of the columns. If the problem is causal, there will be at least two (potential) outcome columns. The other columns are covariates. If the problem is causal, at least one of the covariates will be considered a treatment.",
 	answer(NULL, correct = TRUE),
@@ -482,11 +482,11 @@ question_text(NULL,
 
 This problem is causal so one of the covariates is a treatment. In our problem, the treatment is whether a person received a particular postcard (the `treatment` variable). There is a potential outcome for each of the possible values of the treatment --—receiving each type of postcard or receiving no postcard.
 
-### Exercise 13
+### Exercise 11
 
 What are the units for this problem?
 
-```{r wisdom-13}
+```{r wisdom-11}
 question_text(NULL,
 	message = "The units for this problem are individual registered voters included in the `shaming` data set.",
 	answer(NULL, correct = TRUE),
@@ -501,11 +501,11 @@ Specifying the Preceptor Table forces us to think clearly about the units and ou
 
 We model units, but we only really care about aggregates.
 
-### Exercise 14
+### Exercise 12
 
 What is the outcome variable for this problem?
 
-```{r wisdom-14}
+```{r wisdom-12}
 question_text(NULL,
 	message = "The outcome variable in our Preceptor Table is whether someone voted in the 2006 Michigan primary election. In our data, this is the variable `primary_06`.",
 	answer(NULL, correct = TRUE),
@@ -518,11 +518,11 @@ question_text(NULL,
 
 The outcome variable that we really care about is often not the outcome variable which our data includes. This compromise --- working with what we *have* rather than what we really *want* --- is a part of most data science work in the real world.
 
-### Exercise 15
+### Exercise 13
 
 What is a covariate which you think might be useful for this problem, regardless of whether or not it might be included in the data?
 
-```{r wisdom-15}
+```{r wisdom-13}
 question_text(NULL,
 	message = "Age might be useful, because older people may be more likely to vote. Other possible covariates could include previous voting history or household size.",
 	answer(NULL, correct = TRUE),
@@ -535,11 +535,11 @@ question_text(NULL,
 
 The term "covariates" is used in at least three ways in data science. First, it is all the variables which might be useful, regardless of whether or not we have the data. Second, it is all the variables for which we have data. Third, it is the set of variables in the data which we end up using in the model.
 
-### Exercise 16
+### Exercise 14
 
 What are the treatments, if any, for this problem?
 
-```{r wisdom-16}
+```{r wisdom-14}
 question_text(NULL,
 	message = "The treatments are the different types of postcards sent to voters: 'Civic Duty', 'Hawthorne', 'Neighbors', and 'No Postcard' (which is the control group).",
 	answer(NULL, correct = TRUE),
@@ -552,11 +552,11 @@ question_text(NULL,
 
 Remember that a treatment is just another covariate which, for the purposes of this specific problem, we are assuming can be manipulated, thereby, creating two or more different potential outcomes for each unit.
 
-### Exercise 17
+### Exercise 15
 <!--AR: How does the scenario, that we are a gubenatorial candidate in Texas, fit in? Should the Preceptor Table not refer to a question that occurs now and relates to that scenario? -->
 What moment in time does the Preceptor Table refer to?
 
-```{r wisdom-17}
+```{r wisdom-15}
 question_text(NULL,
 	message = "The Preceptor Table refers to the period just after the 2006 Michigan primary election, since it shows voting outcomes after the intervention (postcards) was delivered.",
 	answer(NULL, correct = TRUE),
@@ -586,7 +586,7 @@ shaming |>
 
 > *You can never look at the data too much. -- Mark Engerman*
 
-### Exercise 18
+### Exercise 16
 
 Describe in words the Preceptor Table for this problem.
 
@@ -594,7 +594,7 @@ Describe in words the Preceptor Table for this problem.
 
 <!--AR: how do we choose key covariates at this stage? I would think that they would have to relate to the question being asked? Why is age included now and here when we're not yet sure, empirically, its valuable and the question of postcard messaging with respect to voting turnout doesn't explicitly include age?  -->
 
-```{r wisdom-18}
+```{r wisdom-16}
 question_text(NULL,
 	message = "The Preceptor Table for this problem has one row for each individual voter (the units) in the study. Each row includes the outcome variable (whether or not the person voted in the 2006 Michigan primary), one or more covariates (such as age, past voting history, or household size), and a treatment variable (what type of postcard, if any, the person received). The table is small and focused: just enough columns to answer our causal question.",
 	answer(NULL, correct = TRUE),
@@ -637,11 +637,11 @@ tibble(
 
 Like all aspects of a data science problem, the Preceptor Table evolves as we continue our work. 
 
-### Exercise 19
+### Exercise 17
 
 What is the narrow, specific question we will try to answer?
 
-```{r wisdom-19}
+```{r wisdom-17}
 question_text(NULL,
 	message = "What is the causal effect of receiving a postcard on the probability that a registered voter participates in the 2006 Michigan primary election?",
 	answer(NULL, correct = TRUE),
@@ -656,7 +656,7 @@ The answer to this question is your "Quantity of Interest." It is OK if your que
 
 Our Quantity of Interest might appear too specific, too narrow to capture the full complexity of the topic. There are many, many numbers in which we are interested, many numbers that we want to know. But we don't need to list them all here! We just need to choose one of them since our goal is just to have a specific question which helped to guide us in the creation of the Preceptor Table and, soon, the model. 
 
-### Exercise 20
+### Exercise 18
 
 Over the course of this tutorial, we will be creating a summary paragraph. The purpose of this exercise is to write the first two sentences of that paragraph.
 
@@ -666,7 +666,7 @@ The second sentence does two things. First, it introduces the data source. Secon
 
 Type your two sentences below.
 
-```{r wisdom-20}
+```{r wisdom-18}
 question_text(NULL,
 	message = "Sending postcards to registered voters is a traditional element of US campaigns. Using data from a 2006 field experiment in Michigan, we seek to estimate the causal effect of postcard mailings on voter turnout.",
 	answer(NULL, correct = TRUE),
