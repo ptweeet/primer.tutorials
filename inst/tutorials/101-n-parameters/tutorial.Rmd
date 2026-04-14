@@ -99,7 +99,7 @@ Create a Github repo called `postcards`. Make sure to click the "Add a README fi
 
 Connect the repo to a project on your computer using `File -> New Folder from Git ...`. Make sure to select the "Open in a new window" box. 
 
-You need two Positon windows: this one for running the tutorial and the one you just created for writing your code and interacting with the Console.
+You need two Positron windows: this one for running the tutorial and the one you just created for writing your code and interacting with the Console.
 
 Select `File -> New File -> Quarto Document ...`. Provide a title -- `"Voting and Postcards"` -- and an author (you). Render the document and save it as `postcards.qmd`.
 
@@ -361,7 +361,7 @@ Given our (imaginary) treatment variable `phone_call`, how many potential outcom
 
 ```{r wisdom-4}
 question_text(NULL,
-	message = "There are two potential outcomes because the treatment variable `phone_call` takes on two possible values: receiving a phone call or not receiving a phone call (0/1)",
+	message = "There are two potential outcomes because the treatment variable `phone_call` takes on two possible values: receiving a phone call or not receiving a phone call (0/1).",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -389,7 +389,7 @@ question_text(NULL,
 
 A causal effect is defined as the *difference* between two potential outcomes. Keep two things in mind.
 
-First, *difference* does not necessarily mean *subtraction*. Many potential outcome are not numbers. For example, it makes no sense to subtract a potential outcome, like who you would vote for if you saw a Facebook ad, from another potential outcome, like who you vote for if you did not see the ad.
+First, *difference* does not necessarily mean *subtraction*. Many potential outcomes are not numbers. For example, it makes no sense to subtract a potential outcome, like who you would vote for if you saw a Facebook ad, from another potential outcome, like who you vote for if you did not see the ad.
 
 Second, even in the case of numeric outcomes, you can’t simply say the effect is 10 without specifying the order of subtraction, although there is, perhaps, a default sense in which the causal effect is defined as potential outcome under treatment minus potential outcome under control.
 
@@ -410,11 +410,11 @@ question_text(NULL,
 
 With a predictive model, each individual unit has only one observed outcome. There are not two potential outcomes because none of the covariates are treated as treatment variables. Instead, all covariates are assumed to be "fixed."
 
-Predictive models have no "treatments" -—- only covariates.
+Predictive models have no "treatments" --- only covariates.
 
 ### Exercise 7
 
-Specify two different groups of potential voters which have different values for age and which might have different average values for primary_06.  
+Specify two different groups of potential voters which have different values for age and which might have different average values for primary_06.
 
 ```{r wisdom-7}
 question_text(NULL,
@@ -480,7 +480,7 @@ question_text(NULL,
 
 ### 
 
-This problem is causal so one of the covariates is a treatment. In our problem, the treatment is whether a person received a particular postcard (the `treatment` variable). There is a potential outcome for each of the possible values of the treatment --—receiving each type of postcard or receiving no postcard.
+This problem is causal so one of the covariates is a treatment. In our problem, the treatment is whether a person received a particular postcard (the `treatment` variable). There is a potential outcome for each of the possible values of the treatment --- receiving each type of postcard or receiving no postcard.
 
 ### Exercise 11
 
@@ -553,7 +553,7 @@ question_text(NULL,
 Remember that a treatment is just another covariate which, for the purposes of this specific problem, we are assuming can be manipulated, thereby, creating two or more different potential outcomes for each unit.
 
 ### Exercise 15
-<!--AR: How does the scenario, that we are a gubenatorial candidate in Texas, fit in? Should the Preceptor Table not refer to a question that occurs now and relates to that scenario? -->
+<!--AR: How does the scenario, that we are a gubernatorial candidate in Texas, fit in? Should the Preceptor Table not refer to a question that occurs now and relates to that scenario? -->
 What moment in time does the Preceptor Table refer to?
 
 ```{r wisdom-15}
@@ -756,7 +756,7 @@ question_text(NULL,
 
 ### 
 
-The Population Table is almost always much bigger than the combination of the Preceptor Table and the data because, if we can really assume that both the Preceptor Table and the data are part of the same population, than that population must cover a broad universe of time and units since the Preceptor Table and the data are, themselves, often far apart from each other.
+The Population Table is almost always much bigger than the combination of the Preceptor Table and the data because, if we can really assume that both the Preceptor Table and the data are part of the same population, then that population must cover a broad universe of time and units since the Preceptor Table and the data are, themselves, often far apart from each other.
 
 ### Exercise 5
 
@@ -773,7 +773,7 @@ question_text(NULL,
 
 ### 
 
-The exact time period used --- whether hour, day, month, year, or whatever --- is relatively arbitrary. The important thing to note is that the Population Table, unlike the Preceptor Table, covers a period of time over which things m
+The exact time period used --- whether hour, day, month, year, or whatever --- is relatively arbitrary. The important thing to note is that the Population Table, unlike the Preceptor Table, covers a period of time over which things may change.
 
 <!-- AR: Where are the rows from the Preceptor Table? -->
 
@@ -871,7 +871,7 @@ The reason that representativeness is important is because, when it is violated,
 
 We use information about the population to make inferences about the Preceptor Table. Provide one reason, involving the relationship between the Population and the Preceptor Table, for why the assumption of representativeness might not be true in this case.
 
-<!--AR: Should the answer relate to the Precptor Table units from Texas instead of data units from Michigan? -->
+<!--AR: Should the answer relate to the Preceptor Table units from Texas instead of data units from Michigan? -->
 ```{r justice-10}
 question_text(NULL,
 	message = "All the data is from Michigan, which is, by definition, not necessarily representative of all the other states in the country.",
@@ -1256,6 +1256,7 @@ tidy(..., conf.int = ...)
 
 In the Console, load the **[easystats](https://easystats.github.io/easystats/)** package. CP/CR.
 
+```{r courage-10}
 question_text(NULL,
 	answer(NULL, correct = TRUE),
 	allow_retry = TRUE,
@@ -1492,7 +1493,7 @@ question_text(NULL,
 
 ###
 
-Whenever we consider non-treatment variables, we must never use terms like "cause," "impact," and so on. We can only compare across rows—--for example, a 40-year-old and a 41-year-old—not within a row. Always use phrases like "when comparing X and Y."
+Whenever we consider non-treatment variables, we must never use terms like "cause," "impact," and so on. We can only compare across rows --- for example, a 40-year-old and a 41-year-old --- not within a row. Always use phrases like "when comparing X and Y."
 
 ### Exercise 3
 
@@ -1644,7 +1645,7 @@ question_text(NULL,
 
 ###
 
-`avg_predictions(fit_vote, type = "prob", by = c("treatment", "voter_class"))` shows how the predicted probability of voting changes for each postcard type and voter class. For example, among "Rarely Vote" individuals, the average predicted probability of voting is 87.8% with no postcard and 83.4% with a "Neighbors" postcard. By comparing across these groups, you can see which treatments are estimated to have the greatest effect for different types of voters.
+`avg_predictions(fit_vote, type = "prob", by = c("treatment", "voter_class"))` shows how the predicted probability of voting changes for each postcard type and voter class. For example, among "Rarely Vote" individuals, the average predicted probability of voting is 83.4% with no postcard and 87.8% with a "Neighbors" postcard. By comparing across these groups, you can see which treatments are estimated to have the greatest effect for different types of voters.
 
 ### Exercise 10
 
@@ -1982,7 +1983,7 @@ plot_df |>
 ```
 
 Our summary paragraph:
-> *Sending postcards and other mailings to registered voters is a common strategy in US political campaigns. Using data from a 2006 experiment in Michigan, we estimate the likely causal effects of postcard mailings on voter turnout for the current gubernatorial campaign in Texas. We note, however, that Michigan data may not fully represent the US as a whole. Our logistic regression model predicts the probability of voting based on postcard treatment, voter engagement, sex, and age, with interaction terms for treatment and engagement. Notably, the “Neighbors” postcard had the largest effect, increasing the probability of voting among rarely voting individuals by up to 68 percentage points—--a substantial impact compared to other interventions in the study.*
+> *Sending postcards and other mailings to registered voters is a common strategy in US political campaigns. Using data from a 2006 experiment in Michigan, we estimate the likely causal effects of postcard mailings on voter turnout for the current gubernatorial campaign in Texas. We note, however, that Michigan data may not fully represent the US as a whole. Our logistic regression model predicts the probability of voting based on postcard treatment, voter engagement, sex, and age, with interaction terms for treatment and engagement. Notably, the “Neighbors” postcard had the largest effect, increasing the probability of voting among rarely voting individuals by up to 68 percentage points --- a substantial impact compared to other interventions in the study.*
 
 Concerns and limitations:
 > *Our estimates depend on assumptions about the data, model, and confounding. If these are not met, the true effect and uncertainty could differ from what our model reports.*
