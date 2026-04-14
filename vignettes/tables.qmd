@@ -12,7 +12,10 @@ vignette: >
 ---
 
 ```{r}
+#| message: false
+library(tidyverse)
 library(primer.tutorials)
+library(gt)
 ```
 
 ## Overview
