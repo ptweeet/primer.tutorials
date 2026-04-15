@@ -807,39 +807,58 @@ Having decided on the basic mathematical structure of the model at the end of *J
 
 ### Exercise 2
 
-Because our outcome variable is continuous, start to create the model by using `linear_reg(engine = "lm")`.
+In the setup code chunk in your QMD, put `library(tidymodels)`. Run this line in the console.
 
-```{r courage-2, exercise = TRUE}
+CP/CR.
 
+```{r courage-2}
+question_text(NULL,
+	answer(NULL, correct = TRUE),
+	allow_retry = TRUE,
+	try_again_button = "Edit Answer",
+	incorrect = NULL,
+	rows = 6)
 ```
 
-```{r courage-2-hint-1, eval = FALSE}
-linear_reg(engine = "lm")
-```
-
-```{r courage-2-test, include = FALSE}
-linear_reg(engine = "lm")
-```
+### 
 
 The *[tidymodels](https://www.tidymodels.org/)* framework is the most popular one in the R world for estimating models. *[Tidy Modeling with R](https://www.tmwr.org/)* by Max Kuhn and Julia Silge is a great introduction.
 
+
 ### Exercise 3
 
-Continue the pipe to `fit(grad_rate ~ tuition + region, data = colleges)`.
+Because our outcome variable is continuous, start to create the model by using `linear_reg(engine = "lm")`.
 
 ```{r courage-3, exercise = TRUE}
 
 ```
 
+```{r courage-3-hint-1, eval = FALSE}
+linear_reg(engine = "lm")
+```
+
+```{r courage-3-test, include = FALSE}
+linear_reg(engine = "lm")
+```
+
+
+### Exercise 4
+
+Continue the pipe to `fit(grad_rate ~ tuition + region, data = colleges)`.
+
+```{r courage-4, exercise = TRUE}
+
+```
+
 <button onclick = "transfer_code(this)">Copy previous code</button>
 
-```{r courage-3-hint-1, eval = FALSE}
+```{r courage-4-hint-1, eval = FALSE}
 ... |> 
   fit(..., 
       data = ...)
 ```
 
-```{r courage-3-test, include = FALSE}
+```{r courage-4-test, include = FALSE}
 linear_reg() |>
     set_engine("lm") |>
     fit(grad_rate ~ tuition + region, 
@@ -850,22 +869,22 @@ linear_reg() |>
 
 Recall that a categorical variable (whether character or factor) like region is turned into a set of $0/1$ "dummy" variables, each representing a region such as $region_{South}$ or $region_{Midwest}$. This is necessary because we can’t include words—like "South" or "Midwest"—directly in a mathematical formula, so dummy variables convert these categories into numerical indicators.
 
-### Exercise 4
+### Exercise 5
 
 Continue the pipe with `tidy(conf.int = TRUE)`.
 
-```{r courage-4, exercise = TRUE}
+```{r courage-5, exercise = TRUE}
 
 ```
 
 <button onclick = "transfer_code(this)">Copy previous code</button>
 
-```{r courage-4-hint-1, eval = FALSE}
+```{r courage-5-hint-1, eval = FALSE}
 ...
   tidy(... = TRUE)
 ```
 
-```{r courage-4-test, include = FALSE}
+```{r courage-5-test, include = FALSE}
 linear_reg() |>
     set_engine("lm") |>
     fit(grad_rate ~ tuition + region, 
@@ -877,38 +896,9 @@ linear_reg() |>
 
 The intercept is the predicted graduation rate for the baseline category of region ("Midwest") when tuition is zero. The tuition coefficient ($\beta_1$) shows how graduation rate changes with each additional $10,000 of tuition. If $\beta_1 = 0.07$, then a $10,000 increase in tuition is associated with a 0.7-point increase in predicted graduation rate.
 
-### Exercise 5
-
-Change the call to `fit()` to `fit(grad_rate ~ tuition + public, data = colleges)`.
-
-```{r courage-5, exercise = TRUE}
-
-```
-
-<button onclick = "transfer_code(this)">Copy previous code</button>
-
-```{r courage-5-hint-1, eval = FALSE}
-... |> 
-  fit(..., data = ...)
-  ...
-```
-
-```{r courage-5-test, include = FALSE}
-linear_reg() |>
-  set_engine("lm") |>
-  fit(grad_rate ~ tuition + public, data = colleges) |>
-  tidy(conf.int = TRUE)
-```
-
-### 
-
-The same dummy variable approach applies to a categorical covariate with $N$ values. Since public is a binary variable (TRUE or FALSE), the model creates one dummy variable (e.g., $public_{TRUE}$). Because most models include an intercept, the "missing" category (public = FALSE, i.e., private colleges) is incorporated into the intercept. The coefficient for public represents the difference in predicted graduation rate between public and private colleges, relative to this baseline.
-
 ### Exercise 6
 
-<!-- XX: Fit the model one last time. -->
-
-Change the call to `fit()` to `fit(grad_rate ~ tuition + selectivity, data = x)`.
+Change the call to `fit()` to `fit(grad_rate ~ tuition + public, data = colleges)`.
 
 ```{r courage-6, exercise = TRUE}
 
@@ -925,6 +915,35 @@ Change the call to `fit()` to `fit(grad_rate ~ tuition + selectivity, data = x)`
 ```{r courage-6-test, include = FALSE}
 linear_reg() |>
   set_engine("lm") |>
+  fit(grad_rate ~ tuition + public, data = colleges) |>
+  tidy(conf.int = TRUE)
+```
+
+### 
+
+The same dummy variable approach applies to a categorical covariate with $N$ values. Since public is a binary variable (TRUE or FALSE), the model creates one dummy variable (e.g., $public_{TRUE}$). Because most models include an intercept, the "missing" category (public = FALSE, i.e., private colleges) is incorporated into the intercept. The coefficient for public represents the difference in predicted graduation rate between public and private colleges, relative to this baseline.
+
+### Exercise 7
+
+<!-- XX: Fit the model one last time. -->
+
+Change the call to `fit()` to `fit(grad_rate ~ tuition + selectivity, data = x)`.
+
+```{r courage-7, exercise = TRUE}
+
+```
+
+<button onclick = "transfer_code(this)">Copy previous code</button>
+
+```{r courage-7-hint-1, eval = FALSE}
+... |> 
+  fit(..., data = ...)
+  ...
+```
+
+```{r courage-7-test, include = FALSE}
+linear_reg() |>
+  set_engine("lm") |>
   fit(grad_rate ~ tuition + selectivity, data = colleges) |>
   tidy(conf.int = TRUE)
 ```
@@ -933,19 +952,19 @@ linear_reg() |>
 
 The more variables we add, the more difficult it is to interpret the meaning of any particular coefficient. But interpretation also becomes less important. We don't really care about coefficients. We care about using our model to estimate quantities of interest.
 
-### Exercise 7
+### Exercise 8
 
 Behind the scenes of this tutorial, an object called `fit_colleges` has been created which is the result of the code above, after filtering for colleges with tuition greater than $20k. Type `fit_colleges` and hit "Run Code." This generates the same results as using `print(fit_colleges)`.
 
-```{r courage-7, exercise = TRUE}
+```{r courage-8, exercise = TRUE}
 
 ```
 
-```{r courage-7-hint-1, eval = FALSE}
+```{r courage-8-hint-1, eval = FALSE}
 fit_colleges
 ```
 
-```{r courage-7-test, include = FALSE}
+```{r courage-8-test, include = FALSE}
 fit_colleges
 ```
 
@@ -953,7 +972,7 @@ fit_colleges
 
 In data science, we deal with words, math, and code, but the most important of these is code. We created the mathematical structure of the model and then wrote a model formula in order to estimate the unknown parameters. 
 
-### Exercise 8
+### Exercise 9
 
 We need `fit_colleges` to exit in Console World. Copy/paste this code into the Console and execute it.
 
@@ -961,8 +980,6 @@ We need `fit_colleges` to exit in Console World. Copy/paste this code into the C
 x <- colleges |>
 select(grad_rate, tuition, selectivity) |>
 filter(tuition > 2)
-
-library(tidymodels)
 
 linear_reg() |>
     set_engine("lm") |>
@@ -972,7 +989,7 @@ linear_reg() |>
 
 CP/CR.
 
-```{r courage-8}
+```{r courage-9}
 question_text(NULL,
 	answer(NULL, correct = TRUE),
 	allow_retry = TRUE,
@@ -985,7 +1002,7 @@ question_text(NULL,
 
 Just because something exists in the tutorial (or in the QMD) does not mean that it is in the Console. You should be aware of what exists in Console World, which is generally called your "workspace."
 
-### Exercise 9
+### Exercise 10
 
 In your final code chunk in your QMD. Add the option: `#| cache: true`. Assign the final model result to `fit_colleges`.
 
@@ -1001,7 +1018,7 @@ tutorial.helpers::show_file("ordered.qmd", chunk = "Last")
 
 CP/CR.
 
-```{r courage-9}
+```{r courage-10}
 question_text(NULL,
 	answer(NULL, correct = TRUE),
 	allow_retry = TRUE,
@@ -1014,7 +1031,7 @@ question_text(NULL,
 
 To confirm, `Cmd/Ctrl + Shift + K` again. It should be quick.
 
-### Exercise 10
+### Exercise 11
 
 Add `*_cache` to `.gitignore` file. Cached objects are often large. They don't belong on Github.
 
@@ -1026,7 +1043,7 @@ tutorial.helpers::show_file(".gitignore")
 
 CP/CR.
 
-```{r courage-10}
+```{r courage-11}
 question_text(NULL,
 	answer(NULL, correct = TRUE),
 	allow_retry = TRUE,
@@ -1040,26 +1057,9 @@ question_text(NULL,
 Because of the change in your `.gitignore` (assuming that you saved it), the cache directory should not appear in the Source Control panel because Git is ignoring it, as instructed. Commit and push. 
 
 
-### Exercise 11
-
-In the Console, load the **[easystats](https://easystats.github.io/easystats/)** package. CP/CR.
-
-```{r courage-11}
-question_text(NULL,
-	answer(NULL, correct = TRUE),
-	allow_retry = TRUE,
-	try_again_button = "Edit Answer",
-	incorrect = NULL,
-	rows = 5)
-```
-
-###
-
-We don't add **easystats** to the QMD because we are only using it for an interactive check of our fitted model. However, the [easystats ecosystem](https://easystats.github.io/easystats/) has a variety of interesting functions and packages which you might want to explore.
-
 ### Exercise 12
 
-In the Console, run `check_predictions(extract_fit_engine(fit_colleges))`. CP/CR.
+In the Console, load the **[easystats](https://easystats.github.io/easystats/)** package. CP/CR.
 
 ```{r courage-12}
 question_text(NULL,
@@ -1072,9 +1072,26 @@ question_text(NULL,
 
 ###
 
-The purpose of `check_predictions()` is to compare your actual data (in green) with data that has been simulated from your fitted model, i.e., from your data generating mechanism. If your DGM is reasonable, then data simulated from it should not look too dissimilar from your actual data. Of course, it won't look exactly the same because of randomness, both in the world and in your simulation. But the actual data should be within the range of outcomes that your DGM simulates with `check_predictions()`.
+We don't add **easystats** to the QMD because we are only using it for an interactive check of our fitted model. However, the [easystats ecosystem](https://easystats.github.io/easystats/) has a variety of interesting functions and packages which you might want to explore.
 
 ### Exercise 13
+
+In the Console, run `check_predictions(extract_fit_engine(fit_colleges))`. CP/CR.
+
+```{r courage-13}
+question_text(NULL,
+	answer(NULL, correct = TRUE),
+	allow_retry = TRUE,
+	try_again_button = "Edit Answer",
+	incorrect = NULL,
+	rows = 5)
+```
+
+###
+
+The purpose of `check_predictions()` is to compare your actual data (in green) with data that has been simulated from your fitted model, i.e., from your data generating mechanism. If your DGM is reasonable, then data simulated from it should not look too dissimilar from your actual data. Of course, it won't look exactly the same because of randomness, both in the world and in your simulation. But the actual data should be within the range of outcomes that your DGM simulates with `check_predictions()`.
+
+### Exercise 14
 
 Ask AI to create $\LaTeX$ code for this model, including our variable names and estimates for all the coefficients. Because this is a fitted model, the dependent variable will have a "hat" and the formula will not include an error term. 
 
@@ -1084,7 +1101,7 @@ Make sure the resulting display looks good. For example, you don't want an absur
 
 Once the $\LaTeX$ code looks good, paste it below.
 
-```{r courage-13}
+```{r courage-14}
 question_text(NULL,
 	answer(NULL, correct = TRUE),
 	allow_retry = TRUE,
@@ -1117,19 +1134,19 @@ Of course, there is randomness built into the DGM, but we won't worry about that
 
 A data generating mechanism is just a formula, something which we can write down and implement with computer code.
 
-### Exercise 14
+### Exercise 15
 
 In the Console, run `tidy()` on `fit_colleges` with the argument `conf.int` set equal to `TRUE`. This returns 95% intervals for all the parameters in our model.
 
-```{r courage-14, exercise = TRUE}
+```{r courage-15, exercise = TRUE}
 
 ```
 
-```{r courage-14-hint-1, eval = FALSE}
+```{r courage-15-hint-1, eval = FALSE}
 tidy(..., conf.int = ...)
 ```
 
-```{r courage-14-test, include = FALSE}
+```{r courage-15-test, include = FALSE}
 tidy(fit_colleges, conf.int = TRUE)
 ```
 
@@ -1137,7 +1154,7 @@ tidy(fit_colleges, conf.int = TRUE)
 
 `tidy()` is part of the [**broom**](https://broom.tidymodels.org/) package, used to summarize information from a wide variety of models.
 
-### Exercise 15
+### Exercise 16
 
 Create a new code chunk in your QMD. Ask AI to help you make a nice looking table from the tibble which is returned by `tidy()`. You don't have to include all the variables which `tidy()` produces. We often just show the estimate and the confidence intervals.
 
@@ -1155,7 +1172,7 @@ tutorial.helpers::show_file("ordered.qmd", chunk = "Last")
 
 CP/CR.
 
-```{r courage-15}
+```{r courage-16}
 question_text(NULL,
 	answer(NULL, correct = TRUE),
 	allow_retry = TRUE,
@@ -1210,7 +1227,7 @@ tidy(fit_colleges, conf.int = TRUE) |>
 
 At the very least, your table should include a title and a caption with the data source. The more you use AI, the better you will get at doing so.
 
-### Exercise 16
+### Exercise 17
 
 Add a sentence to your project summary.
 
@@ -1220,7 +1237,7 @@ Recall the beginning of our version of the summary:
 
 > Tuition fee and educational quality are one of the main concerns for many students and their families when going to college. Using data from a IPEDS, a system of interrelated surveys on postsecondary eduation in 2013, we seek to understand the relationship between graduation rates tuition for colleges/universities in the United States. Graduation rates could've changed tremendously since 2013 thus potentially weaken our model.
 
-```{r courage-16}
+```{r courage-17}
 question_text(NULL,
 	message = "Tuition fee and educational quality are one of the main concerns for many students and their families when going to college. Using data from a IPEDS, a system of interrelated surveys on postsecondary eduation in 2013, we seek to understand the relationship between graduation rates tuition for colleges/universities in the United States. Graduation rates could've changed tremendously since 2013 thus potentially weaken our model. We modeled graduation rate, a continuous variable, as a linear function of both tuition and selectivity. Graduation rates seem to rise as tuition increases.",
 	answer(NULL, correct = TRUE),
