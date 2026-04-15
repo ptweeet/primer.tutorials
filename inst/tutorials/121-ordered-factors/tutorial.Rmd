@@ -958,6 +958,12 @@ In data science, we deal with words, math, and code, but the most important of t
 We need `fit_colleges` to exit in Console World. Copy/paste this code into the Console and execute it.
 
 ````
+x <- colleges |>
+select(grad_rate, tuition, selectivity) |>
+filter(tuition > 2)
+
+library(tidymodels)
+
 linear_reg() |>
     set_engine("lm") |>
     fit(grad_rate ~ tuition + selectivity, 
