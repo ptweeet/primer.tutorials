@@ -1286,6 +1286,8 @@ Recall the values for the parameters in our data generating mechanism:
 	select(term, estimate, conf.low, conf.high)
 ```
 
+<!-- AR: I find the selectivity variable names to be difficult to interpret. Consider renaming in the code. -->
+
 ```{r temperance-2}
 question_text(NULL,
 	message = "The estimate for selectivityHighlySelective is 0.16, with a 95% confidence interval from 0.13 to 0.19. This means that, when comparing colleges that are highly selective to the baseline category, we predict a 16 percentage point higher graduation rate, adjusting for tuition. Since the confidence interval does not include zero, we can be reasonably confident that this positive association is not due to random chance.",
