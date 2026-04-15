@@ -1313,7 +1313,7 @@ What does the estimate for tuition suggest about the relationship between tuitio
 
 ```{r temperance-3}
 question_text(NULL,
-	message = "The estimate for tuition is -0.0003, meaning that for each additional dollar of tuition, graduation rate is predicted to decrease by 0.03 percentage points, adjusting for selectivity. The confidence interval (from -0.0005 to -0.0001) does not include zero, so the effect is statistically significant.",
+	message = "The estimate for tuition is 0.09, meaning that for each additional $10k of tuition, graduation rate is predicted to increase by 0.9 percentage points, adjusting for selectivity. The confidence interval (0.074, 0.106) does not include zero, so the effect is statistically significant.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
