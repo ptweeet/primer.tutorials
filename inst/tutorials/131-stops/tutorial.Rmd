@@ -800,6 +800,8 @@ The reason that representativeness is important is because, when it is violated,
 
 We use information about the population to make inferences about the Preceptor Table. Provide one reason, involving the relationship between the Population and the Preceptor Table, for why the assumption of representativeness might not be true in this case.
 
+<!-- AR: This answer refers to the data and not so much the Preceptor Table in my opinion. Edit? -->
+
 ```{r justice-10}
 question_text(NULL,
 	message = "Our data may not be collected fairly, in that some of the data could have just been collected from corrupt officers who would be more likely to arrest drivers than other officers in the zone. The opposite could be inferred as well. This, again, would mess up our final predictions because it would be providing values that are unrealistic to the area, causing our entire model to be unreastic.",
