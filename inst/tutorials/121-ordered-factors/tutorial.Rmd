@@ -935,8 +935,7 @@ The more variables we add, the more difficult it is to interpret the meaning of 
 
 ### Exercise 7
 
-Behind the scenes of this tutorial, an object called `fit_colleges` has been created which is the result of the code above. Type `fit_colleges` and hit "Run Code." This generates the same results as using `print(fit_colleges)`.
-
+Behind the scenes of this tutorial, an object called `fit_colleges` has been created which is the result of the code above, after filtering for colleges with tuition greater than $20k. Type `fit_colleges` and hit "Run Code." This generates the same results as using `print(fit_colleges)`.
 
 ```{r courage-7, exercise = TRUE}
 
