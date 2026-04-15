@@ -875,7 +875,7 @@ linear_reg() |>
 
 ### 
 
-The intercept is the predicted graduation rate for the baseline category of region (e.g., "East") when tuition is zero. The tuition coefficient ($\beta_1$) shows how graduation rate changes with each additional dollar of tuition. If $\beta_1 = -0.0031$, then a $1,000 increase in tuition is associated with a 3.1-point drop in predicted graduation rate.
+The intercept is the predicted graduation rate for the baseline category of region ("Midwest") when tuition is zero. The tuition coefficient ($\beta_1$) shows how graduation rate changes with each additional $10,000 of tuition. If $\beta_1 = 0.07$, then a $10,000 increase in tuition is associated with a 0.7-point increase in predicted graduation rate.
 
 ### Exercise 5
 
