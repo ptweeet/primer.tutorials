@@ -40,8 +40,11 @@ jobs:
 
       - uses: r-lib/actions/setup-renv@v2
 
-      - name: Install pkgdown
+      - name: Install site build tools
         run: Rscript -e 'install.packages("pkgdown", "rsconnect")'
+
+      - name: Install local package
+        run: Rscript -e 'install.packages(".", repos = NULL, type = "source")'
 
       - name: Build site
         run: pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)
