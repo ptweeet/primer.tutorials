@@ -41,7 +41,7 @@ jobs:
       - uses: r-lib/actions/setup-renv@v2
 
       - name: Install pkgdown
-        run: Rscript -e 'install.packages("pkgdown")'
+        run: Rscript -e 'install.packages("pkgdown", "rsconnect")'
 
       - name: Build site
         run: pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)
