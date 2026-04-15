@@ -987,9 +987,64 @@ Just because something exists in the tutorial (or in the QMD) does not mean that
 
 ### Exercise 9
 
-In the Console, load the **[easystats](https://easystats.github.io/easystats/)** package. CP/CR.
+In your final code chunk in your QMD. Add the option: `#| cache: true`. Assign the final model result to `fit_colleges`.
+
+Place your cursor in the QMD file on the `fit_colleges` line. Use `Cmd/Ctrl + Enter` to execute that line. Strictly speaking, this step is unnecessary because we already added `fit_colleges` to our workspace above. But ensuring that everything in the QMD is also in the Console is a good habit.
+
+`Cmd/Ctrl + Shift + K`. It may take some time to render your QMD, depending on how complex your model is. But, by including `#| cache: true` you cause Quarto to cache the results of the chunk. The next time you render your QMD, as long as you have not changed the code, Quarto will just load up the saved fitted object.
+
+At the Console, run:
+
+```
+tutorial.helpers::show_file("ordered.qmd", chunk = "Last")
+```
+
+CP/CR.
 
 ```{r courage-9}
+question_text(NULL,
+	answer(NULL, correct = TRUE),
+	allow_retry = TRUE,
+	try_again_button = "Edit Answer",
+	incorrect = NULL,
+	rows = 8)
+```
+
+### 
+
+To confirm, `Cmd/Ctrl + Shift + K` again. It should be quick.
+
+### Exercise 10
+
+Add `*_cache` to `.gitignore` file. Cached objects are often large. They don't belong on Github.
+
+At the Console, run:
+
+```
+tutorial.helpers::show_file(".gitignore")
+```
+
+CP/CR.
+
+```{r courage-10}
+question_text(NULL,
+	answer(NULL, correct = TRUE),
+	allow_retry = TRUE,
+	try_again_button = "Edit Answer",
+	incorrect = NULL,
+	rows = 6)
+```
+
+###
+
+Because of the change in your `.gitignore` (assuming that you saved it), the cache directory should not appear in the Source Control panel because Git is ignoring it, as instructed. Commit and push. 
+
+
+### Exercise 11
+
+In the Console, load the **[easystats](https://easystats.github.io/easystats/)** package. CP/CR.
+
+```{r courage-11}
 question_text(NULL,
 	answer(NULL, correct = TRUE),
 	allow_retry = TRUE,
@@ -1002,11 +1057,11 @@ question_text(NULL,
 
 We don't add **easystats** to the QMD because we are only using it for an interactive check of our fitted model. However, the [easystats ecosystem](https://easystats.github.io/easystats/) has a variety of interesting functions and packages which you might want to explore.
 
-### Exercise 10
+### Exercise 12
 
-In your last code chunk in ordered.qmd, save the model to the variable `fit_colleges`. Then, in the Console, run `check_predictions(extract_fit_engine(fit_colleges))`. CP/CR.
+In the Console, run `check_predictions(extract_fit_engine(fit_colleges))`. CP/CR.
 
-```{r courage-10}
+```{r courage-12}
 question_text(NULL,
 	answer(NULL, correct = TRUE),
 	allow_retry = TRUE,
@@ -1019,7 +1074,7 @@ question_text(NULL,
 
 The purpose of `check_predictions()` is to compare your actual data (in green) with data that has been simulated from your fitted model, i.e., from your data generating mechanism. If your DGM is reasonable, then data simulated from it should not look too dissimilar from your actual data. Of course, it won't look exactly the same because of randomness, both in the world and in your simulation. But the actual data should be within the range of outcomes that your DGM simulates with `check_predictions()`.
 
-### Exercise 11
+### Exercise 13
 
 Ask AI to create $\LaTeX$ code for this model, including our variable names and estimates for all the coefficients. Because this is a fitted model, the dependent variable will have a "hat" and the formula will not include an error term. 
 
@@ -1029,7 +1084,7 @@ Make sure the resulting display looks good. For example, you don't want an absur
 
 Once the $\LaTeX$ code looks good, paste it below.
 
-```{r courage-11}
+```{r courage-13}
 question_text(NULL,
 	answer(NULL, correct = TRUE),
 	allow_retry = TRUE,
@@ -1061,60 +1116,6 @@ First, we have replaced the parameters with our best estimates. Second, the left
 Of course, there is randomness built into the DGM, but we won't worry about that detail for now.
 
 A data generating mechanism is just a formula, something which we can write down and implement with computer code.
-
-### Exercise 12
-
-Create a new code chunk in your QMD. Add a code chunk option: `#| cache: true`. Copy/paste the R code for the final model into the code chunk, assigning the result to `fit_colleges`. (This will include the call to `fit()` but not the call to `tidy()` because we want the entire fitted model, not just a table of the estimated parameter values.)
-
-Place your cursor in the QMD file on the `fit_colleges` line. Use `Cmd/Ctrl + Enter` to execute that line. Strictly speaking, this step is unnecessary because we already added `fit_colleges` to our workspace above. But ensuring that everything in the QMD is also in the Console is a good habit.
-
-`Cmd/Ctrl + Shift + K`. It may take some time to render your QMD, depending on how complex your model is. But, by including `#| cache: true` you cause Quarto to cache the results of the chunk. The next time you render your QMD, as long as you have not changed the code, Quarto will just load up the saved fitted object.
-
-At the Console, run:
-
-```
-tutorial.helpers::show_file("ordered.qmd", chunk = "Last")
-```
-
-CP/CR.
-
-```{r courage-12}
-question_text(NULL,
-	answer(NULL, correct = TRUE),
-	allow_retry = TRUE,
-	try_again_button = "Edit Answer",
-	incorrect = NULL,
-	rows = 8)
-```
-
-### 
-
-To confirm, `Cmd/Ctrl + Shift + K` again. It should be quick.
-
-### Exercise 13
-
-Add `*_cache` to `.gitignore` file. Cached objects are often large. They don't belong on Github.
-
-At the Console, run:
-
-```
-tutorial.helpers::show_file(".gitignore")
-```
-
-CP/CR.
-
-```{r courage-13}
-question_text(NULL,
-	answer(NULL, correct = TRUE),
-	allow_retry = TRUE,
-	try_again_button = "Edit Answer",
-	incorrect = NULL,
-	rows = 6)
-```
-
-###
-
-Because of the change in your `.gitignore` (assuming that you saved it), the cache directory should not appear in the Source Control panel because Git is ignoring it, as instructed. Commit and push. 
 
 ### Exercise 14
 
