@@ -913,7 +913,8 @@ $$
 P(Y = 1) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_n X_n)}}
 $$
 
-with \( Y \sim \text{Bernoulli}(\rho) \) where \( \rho = \frac{1}{1 + e^{-(\beta_0 + \beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_n X_n)}} \)
+with $( Y \sim \text{Bernoulli}(\rho) )$ where $( \rho = \frac{1}{1 + e^{-(\beta_0 + \beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_n X_n)}} )$
+
 
 
 Which we created with $\LaTeX$ code that looks like this:
