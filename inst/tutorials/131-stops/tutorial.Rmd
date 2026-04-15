@@ -667,7 +667,7 @@ Provide one reason why the assumption of validity might not hold for the outcome
 
 ```{r justice-3}
 question_text(NULL,
-	message = "The `arrested` column in our data records whether a person was formally arrested during a stop under the NYC stop-and-frisk program. But the `arrested` column in the Preceptor Table might capture a broader category of police actions — including detainments or summonses that fall short of a formal arrest. If the two columns are using different definitions of what counts as an arrest, they are not measuring the same thing.",
+	message = "The `arrested` column in our data records whether a person was formally arrested. But the `arrested` column in the Preceptor Table might capture a broader category of police actions — including detainments or summonses that fall short of a formal arrest. If the two columns are using different definitions of what counts as an arrest, they are not measuring the same thing.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
