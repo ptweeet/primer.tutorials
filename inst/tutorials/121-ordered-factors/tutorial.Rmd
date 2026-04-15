@@ -679,7 +679,7 @@ Provide one reason why the assumption of stability might not be true in this cas
 
 ```{r justice-6}
 question_text(NULL,
-	message = "The average graduation rate could have changed from 2013.",
+	message = "College graduation requirements may have changed over time. This may result in different rates resulting from factors unaccounted for in our data.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
