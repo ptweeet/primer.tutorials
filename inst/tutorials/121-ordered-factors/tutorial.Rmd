@@ -1418,6 +1418,8 @@ predictions(fit_colleges)
 
 At the Console, run `plot_predictions()` on `fit_colleges` with `condition` set to `"selectivity"`. 
 
+CP/CR.
+
 ```{r temperance-8}
 question_text(NULL,
 	answer(NULL, correct = TRUE),
@@ -1575,6 +1577,8 @@ question_text(NULL,
 Add a final sentence to your summary paragraph in your QMD as you see fit, but do not copy/paste our answer exactly. `Cmd/Ctrl + Shift + K`.
 
 ### Exercise 13
+
+<!-- AR: I found this exercise difficult to answer and the answer message pretty uninformative. Maybe cut? -->
 
 Write a few sentences which explain why the estimates for the quantities of interest, and the uncertainty thereof, might be wrong. Suggest an alternative estimate and confidence interval, if you think either might be warranted.
 
