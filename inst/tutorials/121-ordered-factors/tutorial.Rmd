@@ -1286,7 +1286,7 @@ Recall the values for the parameters in our data generating mechanism:
 	select(term, estimate, conf.low, conf.high)
 ```
 
-<!-- AR: I find the selectivity variable names to be difficult to interpret. Consider renaming in the code. -->
+<!-- I find the selectivity variable names to be difficult to interpret. Consider renaming in the code. -->
 
 ```{r temperance-2}
 question_text(NULL,
@@ -1576,26 +1576,8 @@ question_text(NULL,
 
 Add a final sentence to your summary paragraph in your QMD as you see fit, but do not copy/paste our answer exactly. `Cmd/Ctrl + Shift + K`.
 
+
 ### Exercise 13
-
-<!-- AR: I found this exercise difficult to answer and the answer message pretty uninformative. Maybe cut? -->
-
-Write a few sentences which explain why the estimates for the quantities of interest, and the uncertainty thereof, might be wrong. Suggest an alternative estimate and confidence interval, if you think either might be warranted.
-
-```{r temperance-13}
-question_text(NULL,
-	message = "Perhaps our data did not match the `tuition` coefficient as we hoped. This is because a lot of the assumptions we make during the process of building a model, the processes in Wisdom, are subject to error. Perhaps our data did not match the future as well as we had hoped. In such cases, increase the confidence interval since the assumptions of your model are always false.",
-	answer(NULL, correct = TRUE),
-	allow_retry = FALSE,
-	incorrect = NULL,
-	rows = 6)
-```
-
-### 
-
-Always go back to your Preceptor Table, the information which, if you had it, would make answering your question easy. In almost all real world cases, the Preceptor Table and the data are fairly different, not least because validity never holds perfectly. So, even a perfectly estimated statistical model is rarely as useful as we might like.
-
-### Exercise 14
 
 Rearrange the material in your QMD so that the order is graphic, followed by the paragraph. Doing so, of course, requires sensible judgment. For example, the code chunk which creates the fitted model must occur before the chunk which creates the graphic. You can keep or discard the math and any other material at your own discretion.
 
@@ -1609,7 +1591,7 @@ tutorial.helpers::show_file("ordered.qmd")
 
 CP/CR.
 
-```{r temperance-14}
+```{r temperance-13}
 question_text(NULL,
 	answer(NULL, correct = TRUE),
 	allow_retry = TRUE,
@@ -1622,7 +1604,7 @@ question_text(NULL,
 
 This is the version of your QMD file at which your teacher is most likely to look closely.
 
-### Exercise 15
+### Exercise 14
 
 Publish your rendered QMD to GitHub Pages. In the Terminal --- not the Console! --- run:
 
@@ -1632,7 +1614,7 @@ quarto publish gh-pages ordered.qmd
 
 Copy/paste the resulting URL below.
 
-```{r temperance-15}
+```{r temperance-14}
 question_text(NULL,
 	answer(NULL, correct = TRUE),
 	allow_retry = TRUE,
@@ -1645,11 +1627,11 @@ question_text(NULL,
 
 Commit/push everything.
 
-### Exercise 16
+### Exercise 15
 
 Copy/paste the URL to your Github repo.
 
-```{r temperance-16}
+```{r temperance-15}
 question_text(NULL,
 	answer(NULL, correct = TRUE),
 	allow_retry = TRUE,

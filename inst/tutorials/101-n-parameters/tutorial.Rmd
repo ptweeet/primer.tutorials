@@ -553,7 +553,9 @@ question_text(NULL,
 Remember that a treatment is just another covariate which, for the purposes of this specific problem, we are assuming can be manipulated, thereby, creating two or more different potential outcomes for each unit.
 
 ### Exercise 15
-<!--AR: How does the scenario, that we are a gubernatorial candidate in Texas, fit in? Should the Preceptor Table not refer to a question that occurs now and relates to that scenario? -->
+
+<!-- DK: This answer is wrong! How does the scenario, that we are a gubernatorial candidate in Texas, fit in? Should the Preceptor Table not refer to a question that occurs now and relates to that scenario? -->
+
 What moment in time does the Preceptor Table refer to?
 
 ```{r wisdom-15}
@@ -590,9 +592,7 @@ shaming |>
 
 Describe in words the Preceptor Table for this problem.
 
-<!--AR: Shouldn't the Preceptor Table relate to the original scenario, not the data? Units would be registered Texas voters in our campaigns database, outcomes would be whether an individual votes in the upcoming election -->
-
-<!--AR: how do we choose key covariates at this stage? I would think that they would have to relate to the question being asked? Why is age included now and here when we're not yet sure, empirically, its valuable and the question of postcard messaging with respect to voting turnout doesn't explicitly include age?  -->
+<!-- DK: Shouldn't the Preceptor Table relate to the original scenario, not the data? Units would be registered Texas voters in our campaigns database, outcomes would be whether an individual votes in the upcoming election This answer is wrong! How do we choose key covariates at this stage? I would think that they would have to relate to the question being asked? Why is age included now and here when we're not yet sure, empirically, its valuable and the question of postcard messaging with respect to voting turnout doesn't explicitly include age? This is also wrong!!  -->
 
 ```{r wisdom-16}
 question_text(NULL,
@@ -722,7 +722,7 @@ Validity is always about the *columns* in the Preceptor Table and the data. Just
 
 Provide one reason why the assumption of validity might not hold for the outcome variable `primary_06` or for one of the covariates. Use the words "column" or "columns" in your answer.
 
-<!--AR: Here, the answer message refers to a Preceptor Table that refers to a future campaign. This is inconsistent with the Preceptor Table described above.-->
+<!-- Here, the answer message refers to a Preceptor Table that refers to a future campaign. This is inconsistent with the Preceptor Table described above.-->
 
 ```{r justice-3}
 question_text(NULL,
@@ -775,7 +775,7 @@ question_text(NULL,
 
 The exact time period used --- whether hour, day, month, year, or whatever --- is relatively arbitrary. The important thing to note is that the Population Table, unlike the Preceptor Table, covers a period of time over which things may change.
 
-<!-- AR: Where are the rows from the Preceptor Table? -->
+<!-- Where are the rows from the Preceptor Table? Below is a bad table! -->
 
 ```{r}
 tibble(
@@ -871,7 +871,8 @@ The reason that representativeness is important is because, when it is violated,
 
 We use information about the population to make inferences about the Preceptor Table. Provide one reason, involving the relationship between the Population and the Preceptor Table, for why the assumption of representativeness might not be true in this case.
 
-<!--AR: Should the answer relate to the Preceptor Table units from Texas instead of data units from Michigan? -->
+<!-- The answer SHOULD relate to the Preceptor Table units from Texas instead of data units from Michigan! -->
+
 ```{r justice-10}
 question_text(NULL,
 	message = "All the data is from Michigan, which is, by definition, not necessarily representative of all the other states in the country.",
