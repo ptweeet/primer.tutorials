@@ -1004,7 +1004,7 @@ We don't add **easystats** to the QMD because we are only using it for an intera
 
 ### Exercise 10
 
-In the Console, run `check_predictions(extract_fit_engine(fit_colleges))`. CP/CR.
+In your last code chunk in ordered.qmd, save the model to the variable `fit_colleges`. Then, in the Console, run `check_predictions(extract_fit_engine(fit_colleges))`. CP/CR.
 
 ```{r courage-10}
 question_text(NULL,
