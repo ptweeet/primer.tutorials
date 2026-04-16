@@ -21,7 +21,6 @@ jobs:
       group: pkgdown-${{ github.event_name != 'pull_request' || github.run_id }}
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      RENV_PATHS_ROOT: /tmp/renv
     permissions:
       contents: write
     steps:
@@ -29,22 +28,16 @@ jobs:
 
       - uses: r-lib/actions/setup-pandoc@v2
 
-      # Currently need to set up quarto by hand.
-      
       - uses: quarto-dev/quarto-actions/setup@v2
 
       - uses: r-lib/actions/setup-r@v2
         with:
-          r-version: renv
           use-public-rspm: true
 
-      - uses: r-lib/actions/setup-renv@v2
-
-      - name: Install site build tools
-        run: Rscript -e 'install.packages("pkgdown", "rsconnect")'
-
-      - name: Install local package
-        run: Rscript -e 'install.packages(".", repos = NULL, type = "source")'
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: any::pkgdown, local::.
+          needs: website
 
       - name: Build site
         run: pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)
