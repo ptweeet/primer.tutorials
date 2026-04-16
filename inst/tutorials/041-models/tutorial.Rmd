@@ -53,6 +53,104 @@ The world confronts us. Make decisions we must.
 
 Imagine you are the chair of the Democratic National Committee in early 2024. To which political contests should you devote your time and money? You could spend most of your money on the presidential campaign or, instead, devote those resources toward Congressional races. It would be good to know the voter support for different candidates. There are many decisions to make.
 
+```{r}
+# Edit the following tibbles and footnotes, look at the vignette for more details
+  
+p_tibble <- tibble::tribble(
+  ~`Patient ID`, ~`Visit Number`, ~`Recovery Score`, ~`Drug Dosage Group`, ~`Baseline Health Score`,
+  "..."        , "..."          , "..."            , "..."               , "..."                   ,
+  "..."        , "..."          , "..."            , "..."               , "..."                   ,
+  "..."        , "..."          , "..."            , "..."               , "..."                   
+)
+
+d_tibble <- tibble::tribble(
+  ~`Patient ID`, ~`Visit Number`, ~`Recovery Score`, ~`Drug Dosage Group`, ~`Baseline Health Score`,
+  "..."        , "..."          , "..."            , "..."               , "..."                   ,
+  "..."        , "..."          , "..."            , "..."               , "..."                   ,
+  "..."        , "..."          , "..."            , "..."               , "..."                   
+)
+  
+pre_title_footnote <- "..."
+pre_units_footnote <- "..."
+pre_outcome_footnote <- "..."
+pre_treatment_footnote <- "..."
+pre_covariates_footnote <- "..."
+
+pop_title_footnote <- "..."
+pop_units_footnote <- "..."
+pop_outcome_footnote <- "..."
+pop_treatment_footnote <- "..."
+pop_covariates_footnote <- "..."
+```
+
+```{r}
+# This code chunk will generate the Preceptor Table
+  
+p_tibble_full <- expand_input_tibble(list(p_tibble), "preceptor")
+
+gt::gt(p_tibble_full) |>
+  gt::tab_header(title = "Preceptor Table") |>
+  gt::tab_spanner(label = "Unit/Time", id = "unit_span", columns = c(`Patient ID`, `Visit Number`)) |>
+  gt::tab_spanner(label = "Potential Outcomes", id = "outcome_span", columns = c(`Recovery Score`)) |>
+  gt::tab_spanner(label = "Treatment", id = "treatment_span", columns = c(`Drug Dosage Group`)) |>
+  gt::tab_spanner(label = "Covariates", id = "covariates_span", columns = c(`Baseline Health Score`, "More")) |>
+  gt::cols_align(align = "center", columns = gt::everything()) |>
+  gt::cols_align(align = "left", columns = c(`Patient ID`)) |>
+  gt::cols_width("Patient ID" ~ gt::px(80), "Visit Number" ~ gt::px(100), "Recovery Score" ~ gt::px(120), "Drug Dosage Group" ~ gt::px(120), "Baseline Health Score" ~ gt::px(136), "More" ~ gt::px(168), "Patient ID" ~ gt::px(60)) |>
+  gt::cols_label(More = "...") |>
+  gt::fmt_markdown(columns = gt::everything()) |>
+  gt::tab_footnote(footnote = pre_title_footnote, locations = gt::cells_title()) |>
+  gt::tab_footnote(footnote = pre_units_footnote, locations = gt::cells_column_spanners(spanners = "unit_span")) |>
+  gt::tab_footnote(footnote = pre_outcome_footnote, locations = gt::cells_column_spanners(spanners = "outcome_span")) |>
+  gt::tab_footnote(footnote = pre_treatment_footnote, locations = gt::cells_column_spanners(spanners = "treatment_span")) |>
+  gt::tab_footnote(footnote = pre_covariates_footnote, locations = gt::cells_column_spanners(spanners = "covariates_span"))
+```
+
+```{r}
+# This code chunk will generate the Population Table
+    
+data_tibble <- dplyr::bind_rows(
+  d_tibble[1:2, , drop = FALSE],  
+  d_tibble[1, , drop = FALSE] |> dplyr::mutate(dplyr::across(dplyr::everything(), ~ "...")),  
+  d_tibble[3, , drop = FALSE]     
+) |>
+  dplyr::mutate(Source = "Data", .before = 1)
+
+preceptor_tibble <- p_tibble_full |>
+  dplyr::select(-More) |>
+  dplyr::mutate(Source = "Preceptor", .before = 1)
+
+empty_row <- data_tibble[1, , drop = FALSE]
+empty_row[,] <- "..."
+
+population_tibble <- dplyr::bind_rows(
+  empty_row,              # Row 1: blank
+  data_tibble,            # Rows 2-5: 4 data rows (3rd is blank)
+  empty_row,              # Row 6: blank  
+  preceptor_tibble,       # Rows 7-10: 4 preceptor rows (3rd is blank)
+  empty_row               # Row 11: blank
+)
+
+population_tibble$More <- "..."
+
+gt::gt(population_tibble) |>
+  gt::tab_header(title = "Population Table") |>
+  gt::tab_spanner(label = "Unit/Time", id = "unit_span", columns = c(`Patient ID`, `Visit Number`)) |>
+  gt::tab_spanner(label = "Potential Outcomes", id = "outcome_span", columns = c(`Recovery Score`)) |>
+  gt::tab_spanner(label = "Treatment", id = "treatment_span", columns = c(`Drug Dosage Group`)) |>
+  gt::tab_spanner(label = "Covariates", id = "covariates_span", columns = c(`Baseline Health Score`, "More")) |>
+  gt::cols_align(align = "center", columns = gt::everything()) |>
+  gt::cols_align(align = "left", columns = c(`Patient ID`)) |>
+  gt::cols_width("Source" ~ gt::px(80), "Patient ID" ~ gt::px(100), "Visit Number" ~ gt::px(120), "Recovery Score" ~ gt::px(120), "Drug Dosage Group" ~ gt::px(136), "Baseline Health Score" ~ gt::px(168), "More" ~ gt::px(60)) |>
+  gt::cols_label(More = "...") |>
+  gt::fmt_markdown(columns = gt::everything()) |>
+  gt::tab_footnote(footnote = pop_title_footnote, locations = gt::cells_title()) |>
+  gt::tab_footnote(footnote = pop_units_footnote, locations = gt::cells_column_spanners(spanners = "unit_span")) |>
+  gt::tab_footnote(footnote = pop_outcome_footnote, locations = gt::cells_column_spanners(spanners = "outcome_span")) |>
+  gt::tab_footnote(footnote = pop_treatment_footnote, locations = gt::cells_column_spanners(spanners = "treatment_span")) |>
+  gt::tab_footnote(footnote = pop_covariates_footnote, locations = gt::cells_column_spanners(spanners = "covariates_span"))
+```
+
 ### Exercise 1
 
 What are the four [Cardinal Virtues](https://en.wikipedia.org/wiki/Cardinal_virtues), in order, which we use to guide our data science work?

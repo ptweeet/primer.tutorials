@@ -15,3 +15,4 @@ tutorials/[^/]*/(?!(data|images|.*Rmd))
 ^primer\.tutorials\.Rproj$
 ^\.Rproj\.user$
 ^Claude.md$
+^tables.md$
