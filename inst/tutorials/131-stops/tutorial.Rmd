@@ -1464,7 +1464,7 @@ Recall the beginning of our version of the summary:
 > Using data from a study of New Orleans drivers, we seek to understand the relationship between driver race and the probabilty of getting arrested during a traffic stop. However, our data from both our Preceptor Table and our dataset may not fully represent the population as both may not be from the same time frame and some of our data may come from biased officers, who may target certain groups of individuals.
 
 <!-- DK: Below summary is very awkward. -->
-
+<!-- AR: Summary should not yet discuss findings? Isn't that supposed to happen after temperance? -->
 ```{r courage-18}
 question_text(NULL,
 	message = "Using data from a study of New Orleans drivers, we seek to understand the relationship between driver race and the probabilty of getting arrested during a traffic stop. However, our data from both our Preceptor Table and our dataset may not fully represent the population as both may not be from the same time frame and some of our data may come from biased officers, who may target certain groups of individuals. However, these concerns don't appear to be valid in a substantial manner in either dataset, allowing us to continue in our process. We modeled `arrested` as a linear function of both `sex` and the product of `race` and `zone`. From this, we examined that Males are more likely to get arrested than Females.",
