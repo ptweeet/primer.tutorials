@@ -1686,6 +1686,8 @@ plot_predictions(fit_stops, condition = "sex")
 
 ###
 
+<!-- AR: I wish that we could look at the plots here and better examine the differences that result from the "condition", versus "by" calls -->
+
 Using plot_predictions(fit_stops, condition = "sex"), this plot predicts arrest rates for males and females while holding other variables constant or balanced. It isolates the effect of sex by ensuring all else is equal. This shows what the model predicts if everyone had the same background variables.
 
 ###
@@ -1837,6 +1839,8 @@ Add a final sentence to your summary paragraph in your QMD as you see fit, but d
 ### Exercise 14
 
 Write a few sentences which explain why the estimates for the quantities of interest, and the uncertainty thereof, might be wrong. Suggest an alternative estimate and confidence interval, if you think either might be warranted.
+
+<!-- AR: I find this question to be broad and not that helpful. Also, this answer is suspect. I especially don't think we should suggest decreasing the floor of confidence intervals based on hunches. -->
 
 ```{r temperance-14}
 question_text(NULL,
