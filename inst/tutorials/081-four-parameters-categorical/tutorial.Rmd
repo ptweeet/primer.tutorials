@@ -1207,8 +1207,6 @@ Because `check_predictions()` does no work with multinomial models created with 
 
 ### Exercise 8
 
-<!-- AR: I found it quite difficult to know what formula to use or how to best prompt AI to get the LaTeX. DK: Should we throw awat the LaTeX. -->
-
 Ask AI to create $\LaTeX$ code for this model, including our variable names and estimates for all the coefficients. Because this is a fitted model, the dependent variable will have a "hat" and the formula will not include an error term. 
 
 Add the code to your QMD. `Cmd/Ctrl + Shift + K`.
@@ -1544,7 +1542,7 @@ predictions(fit_nes, type = "prob")
 `predictions()` returns a data frame with one row for each observation in the data set used to fit the model. In this case, predictions() returns 4,974 rows, because the input data has 4,974 observations. Each row contains the predicted probability for a specific outcome category (e.g., Bush, Perot) for a given observation.
 
 ### Exercise 8
-<!-- AR: Plot should be labelled or colored to indicate how points correspond to candidates. -->
+
 Run `plot_predictions` on `fit_nes` with `type` set to `"prob"`, and `condition` set to `c("sex")`.    
 
 ```{r temperance-8, exercise = TRUE}

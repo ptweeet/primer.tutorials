@@ -428,7 +428,7 @@ question_text(NULL,
 The Preceptor Table does not include all the covariates which you will eventually include in your model. It only includes covariates which you need to answer your question.
 
 ### Exercise 10
-<!-- AR: What if we replace "key components" with "rows and columns"? I feel like that more clearly connects to the heart of this exercise which is to describe the rows and columns in terms of units, covariates, treatments, and outcomes. Also include "treatments" in words to use? Change in template_tutorial.Rmd? -->
+
 Describe the key components of Preceptor Tables in general, without worrying about this specific problem. Use words like "units," "outcomes," and "covariates."
 
 ```{r wisdom-10}
@@ -797,7 +797,6 @@ A change in time or the distribution of the data does not, in and of itself, dem
 
 We use our data to make inferences about the overall population. We use information about the population to make inferences about the Preceptor Table: `Data -> Population -> Preceptor Table`. In your own words, define the assumption of "representativeness" when employed in the context of data science.
 
-<!--AR:  I propose some improved language (with Claude) below for this answer after looking at template tutorial. How does this look? Update template tutorial?-->
 ```{r justice-9}
 question_text(NULL,
 	message = "Representativeness concerns two relationships in the Population Table: between the data and the population, and between the population and the Preceptor Table. Both depend on the *selection mechanism* — how units end up in each. Representativeness holds when neither mechanism systematically excludes certain types of units.",
@@ -1188,7 +1187,9 @@ In this case, the coefficient of `sexMale` is 50% lower than before, presumably 
 ### Exercise 8
 
 Behind the scenes of this tutorial, an object called `fit_years` has been created which is the result of the code above. Type `fit_years` and hit "Run Code." This generates the same results as using `print(fit_years)`.
-<!-- AR: fit years has age_lived = sex * age_election instead of age_lived = sex + age_election -->
+
+<!-- DK: AR: please fix. fit years has age_lived = sex * age_election instead of age_lived = sex + age_election -->
+
 ```{r courage-8, exercise = TRUE}
 
 ```
@@ -1210,7 +1211,7 @@ In data science, **we deal with words, math, and code, but the most important of
 
 We need `fit_years` to exit in Console World. Copy/paste this code into the Console and execute it.
 
-<!-- AR: following code does not work in student's candidates.qmd since they do not yet have `x` -->
+<!-- DK: Fix. AR: following code does not work in student's candidates.qmd since they do not yet have `x` -->
 
 ````
 fit_years <- linear_reg(engine = "lm") |> 
@@ -1287,7 +1288,7 @@ question_text(NULL,
 	rows = 3)
 ```
 
-<!--AR: LaTeX is incorrect for current state of fit_years-->
+<!--DK: Fix. AR: LaTeX is incorrect for current state of fit_years-->
 
 ###
 
@@ -1565,7 +1566,7 @@ fit_years |>
 
 Interpret [-1.5, -0.07], the confidence interval for the estimate of the coefficient of `election_age:sexMale`.
 
-<!-- AR: Mismatch between covariate in the question versus answer message. Which to do? -->
+<!-- DK: Fix. AR: Mismatch between covariate in the question versus answer message. Which to do? -->
 
 ```{r temperance-5}
 question_text(NULL,

@@ -6,6 +6,7 @@ Our purpose is to teach students how to be data scientists. A data scientists is
 
 We try to help students remember the steps by organizing them around the theme of the [Cardinal Virtues](https://en.wikipedia.org/wiki/Cardinal_virtues). Indeed, the more references and allusions we can make to the Cardinal Virtues, the better.
 
+For more background, please read template_tutorial.Rmd in this directory and https://ppbds.github.io/tutorial.helpers/articles/ai.html.
 
 
 # Chapters and Tutorials
@@ -24,8 +25,46 @@ Example chapters are much longer than tutorials. For example, every example chap
 
 ## Spaced repetition
 
-We believe that spaced repetition works. We also believe that some definitions/concepts are more important than others. Our goal is that, after completing all 
+We believe that spaced repetition works. We also believe that some definitions/concepts are more important than others. Our goal is that, after completing, three months after completing the tutorials, a student can still answer questions about the definitions/concepts we cover. 
 
+In the exercise chapters, we always repeat all the definitions and concepts. Each exercise chapter is self-contained in that way.
+
+In the exercise tutorials, we do not ask about every definition/concept each and every time. Doing so would make the tutorials too long! Instead, we use spaced repetition. We might ask for the definition of a causal effect in the first three exercise tutorials, then skip a tutorial, then ask it again, then skip two tutorials, then ask it again, and then skip two tutorials, and so on.
+
+
+## template_tutorial.Rmd
+
+The most important document for you to read is the template_tutorial.Rmd. It was the template which I used to create exercise tutorials in the past. It is good, for four main reasons.
+
+First, it contains many excellent questions which should be used in multiple exercise tutorials. The only way to ensure that students remember the definition of a causal effect is to ask them the definition many times, using spaced repetition.
+
+Second, it contains many excellent answers to those questions. We should always provide the exact same answer to questions about definitions. The template tutorial is the ground truth of those definitions, at least until we move them into this document.
+
+Third, it contains good knowledge drops. That is, 
+
+
+## Question flow
+
+Each exercise should have a flow which requires that students hit the “Continue” button at least once.
+
+Begin with a Start which is a sentence or two of knowledge and/or the question itself. If the length of the Start text is longer than one or two lines, then do not place the question code chunk in the same part. Instead, the Start includes a triple hash, thereby creating the Continue button. If the length of the text is short enough that students are willing to read it (at most two sentences), you can include the question code chunk in the same part.
+
+Most of the time there is no need for a triple hash before the exercise code chunk.
+
+Do not expect students to read more than two sentences of text at a time. After two sentences, you almost always want to use a triple hash in order to create a Continue button so that students have a break. They won’t read more than two sentences without a break.
+
+There is a danger that students will just click the Continue button until they see a question and, only then, start reading. There is little we can do about that. However, we can take advantage of students’ tendency to read the sentence or two which proceeds the question fairly closely. This is a great place for teaching since students can’t skip it since they don’t know if it provides necessary context for answering the question.
+
+After the Start, come the exercise code chunks. Recall that, as the tutorial.helpers package explains, 
+
+The exercise code chunk is the location in which students will place their answers.
+The hint code chunk includes any hints for the students. Hint code chunks are only available for code exercises. The code chunk name in the hint code chunk is always exactly the same as the one for the exercise code chunk, except with -hint-n attached at the end. The n is replaced by the number of the hint. Almost always, there is only one hint, so the suffix is -hint-1. We always set eval = FALSE in the hint code chunk since, often, the hint will not be legal R code.
+The test code chunk has exactly the label as the one for the exercise code chunk, except with -test attached at the end. Test code chunks, like hint code chunks, are only used for code exercises. It always includes the include = FALSE code chunk option because we never want to show the code or the results to students. Instead, the purpose of the test code chunk is to ensure that the correct answer — that is, the code we want students to enter into the exercise code chunk — works.
+The three code chunks are always followed by a triple hash. We want a student to pause after she has submitted her answer so that she is more likely to consider the output from her submission before moving on.
+
+The last part of an exercise is the end, our main opportunity to drop some knowledge.
+
+The last part of the topic is another knowledge drop. It is not another exercise. It is just a knowledge drop after the last exercise which tries to take a broader overview. It is often separated from that last exercise by a simple ###. Again, this can’t be more than a sentence or two. But it should be more substantive than a simple “Good job.” For example, if the topic has involved creating a scatter plot, then the last exercise will be putting the final touches on that scatter plot. The last knowledge drop should be something about scatter plots in general, not a minor point about the particular scatter plot which the student has just created.
 
 # Definitions
 
