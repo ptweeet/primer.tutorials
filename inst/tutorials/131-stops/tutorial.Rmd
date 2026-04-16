@@ -1053,7 +1053,7 @@ The meaning of the magnitude of the coefficient values is much harder to interpr
 
 ### Exercise 5
 
-Change the call to `fit()` to `fit(arrested ~ race, data = x)`.
+Change the call to `fit()` to `fit(arrested ~ race, data = x)` and remove the call to `tidy()`. Note that behind the scenes, we've filtered stops to only include the race values "Black" and "White" behind the scenes.
 
 ```{r courage-5, exercise = TRUE}
 
@@ -1075,7 +1075,7 @@ linear_reg() |>
 
 ### 
 
-The same dummy variable approach applies to a categorical covariate with $N$ values. Such cases produce $N-1$ dummy $0/1$ variables. The presence of an intercept in most models means that we can't have $N$ categories. The "missing" category is incorporated into the intercept. If `race` has three values --- "black", "hispanic", and "white" --- the model creates two $0/1$ dummy variables, giving them names like $race_{hispanic}$ and $race_{white}$. The results for the *first* category are included in the intercept, which becomes the reference case, relative to which the other coefficients are applied.
+A categorical variable with $N$ levels is represented using $N−1$ dummy $(0/1)$ variables. Because models typically include an intercept, one category is omitted and becomes the reference group, absorbed into the intercept. For example, if race has values “Black” and “White,” the model includes one dummy variable (e.g., $race_white$), and the intercept represents the reference category (“Black”).
 
 ### Exercise 6
 
