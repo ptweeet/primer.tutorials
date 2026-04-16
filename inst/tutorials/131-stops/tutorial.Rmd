@@ -667,7 +667,7 @@ Provide one reason why the assumption of validity might not hold for the outcome
 
 ```{r justice-3}
 question_text(NULL,
-	message = "The `arrested` column in our data records whether a person was formally arrested during a stop under the NYC stop-and-frisk program. But the `arrested` column in the Preceptor Table might capture a broader category of police actions — including detainments or summonses that fall short of a formal arrest. If the two columns are using different definitions of what counts as an arrest, they are not measuring the same thing.",
+	message = "The `arrested` column in our data records whether a person was formally arrested. But the `arrested` column in the Preceptor Table might capture a broader category of police actions — including detainments or summonses that fall short of a formal arrest. If the two columns are using different definitions of what counts as an arrest, they are not measuring the same thing.",
 	answer(NULL, correct = TRUE),
 	allow_retry = FALSE,
 	incorrect = NULL,
@@ -800,6 +800,8 @@ The reason that representativeness is important is because, when it is violated,
 
 We use information about the population to make inferences about the Preceptor Table. Provide one reason, involving the relationship between the Population and the Preceptor Table, for why the assumption of representativeness might not be true in this case.
 
+<!-- AR: This answer refers to the data and not so much the Preceptor Table in my opinion. Edit? -->
+
 ```{r justice-10}
 question_text(NULL,
 	message = "Our data may not be collected fairly, in that some of the data could have just been collected from corrupt officers who would be more likely to arrest drivers than other officers in the zone. The opposite could be inferred as well. This, again, would mess up our final predictions because it would be providing values that are unrealistic to the area, causing our entire model to be unreastic.",
@@ -884,6 +886,8 @@ question_text(NULL,
 
 The link function, the basic mathematical structure of the model, is (mostly) determined by the type of outcome variable. 
 
+<!-- AR: In the courage section we say we use a linear model for a binary outcome variable. Need to make consistent. -->
+
 For a binary outcome variable, we use a log-odds model:
 
 $$
@@ -911,7 +915,8 @@ $$
 P(Y = 1) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_n X_n)}}
 $$
 
-with \( Y \sim \text{Bernoulli}(\rho) \) where \( \rho = \frac{1}{1 + e^{-(\beta_0 + \beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_n X_n)}} \)
+with $( Y \sim \text{Bernoulli}(\rho) )$ where $( \rho = \frac{1}{1 + e^{-(\beta_0 + \beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_n X_n)}} )$
+
 
 
 Which we created with $\LaTeX$ code that looks like this:
@@ -974,6 +979,8 @@ question_text(NULL,
 Having decided on the basic mathematical structure of the model at the end of *Justice*, a choice mostly driven by the distribution of our outcome variable, we now turn toward estimating the model.
 
 ### Exercise 2
+
+<!--AR: in justice-13 knowledge drop we say that we use a log-odds model for a binary outcome variable! -->
 
 Because our outcome variable is binary, start to create the model by using `linear_reg(engine = "lm")`.
 
@@ -1050,7 +1057,7 @@ The meaning of the magnitude of the coefficient values is much harder to interpr
 
 ### Exercise 5
 
-Change the call to `fit()` to `fit(arrested ~ race, data = x)`.
+Change the call to `fit()` to `fit(arrested ~ race, data = x)` and remove the call to `tidy()`. Note that behind the scenes, we've filtered stops to only include the race values "Black" and "White" behind the scenes.
 
 ```{r courage-5, exercise = TRUE}
 
@@ -1072,7 +1079,7 @@ linear_reg() |>
 
 ### 
 
-The same dummy variable approach applies to a categorical covariate with $N$ values. Such cases produce $N-1$ dummy $0/1$ variables. The presence of an intercept in most models means that we can't have $N$ categories. The "missing" category is incorporated into the intercept. If `race` has three values --- "black", "hispanic", and "white" --- the model creates two $0/1$ dummy variables, giving them names like $race_{hispanic}$ and $race_{white}$. The results for the *first* category are included in the intercept, which becomes the reference case, relative to which the other coefficients are applied.
+A categorical variable with $N$ levels is represented using $N−1$ dummy $(0/1)$ variables. Because models typically include an intercept, one category is omitted and becomes the reference group, absorbed into the intercept. For example, if race has values “Black” and “White,” the model includes one dummy variable (e.g., $race_white$), and the intercept represents the reference category (“Black”).
 
 ### Exercise 6
 
@@ -1141,6 +1148,8 @@ The more variables we add, the more difficult it is to interpret the meaning of 
 In this case, the coefficient for `raceWhite` is slightly more negative than before, presumably because we’ve now included `sex`, and men are somewhat more likely to be arrested. By adjusting for `sex`, we’re isolating the effect of race more precisely — and the effect of being white remains statistically significant and negative.
 
 ### Exercise 8
+
+<!--AR: Haven't really seen interactions or had them explained in tutorials yet, so from my perspective I don't really understand what this means or that race*zone is an interaction term -->
 
 Change the formula in the call to `fit()` to `arrested ~ sex + race*zone`.
 
@@ -1459,7 +1468,7 @@ Recall the beginning of our version of the summary:
 > Using data from a study of New Orleans drivers, we seek to understand the relationship between driver race and the probabilty of getting arrested during a traffic stop. However, our data from both our Preceptor Table and our dataset may not fully represent the population as both may not be from the same time frame and some of our data may come from biased officers, who may target certain groups of individuals.
 
 <!-- DK: Below summary is very awkward. -->
-
+<!-- AR: Summary should not yet discuss findings? Isn't that supposed to happen after temperance? -->
 ```{r courage-18}
 question_text(NULL,
 	message = "Using data from a study of New Orleans drivers, we seek to understand the relationship between driver race and the probabilty of getting arrested during a traffic stop. However, our data from both our Preceptor Table and our dataset may not fully represent the population as both may not be from the same time frame and some of our data may come from biased officers, who may target certain groups of individuals. However, these concerns don't appear to be valid in a substantial manner in either dataset, allowing us to continue in our process. We modeled `arrested` as a linear function of both `sex` and the product of `race` and `zone`. From this, we examined that Males are more likely to get arrested than Females.",
@@ -1677,6 +1686,8 @@ plot_predictions(fit_stops, condition = "sex")
 
 ###
 
+<!-- AR: I wish that we could look at the plots here and better examine the differences that result from the "condition", versus "by" calls -->
+
 Using plot_predictions(fit_stops, condition = "sex"), this plot predicts arrest rates for males and females while holding other variables constant or balanced. It isolates the effect of sex by ensuring all else is equal. This shows what the model predicts if everyone had the same background variables.
 
 ###
@@ -1828,6 +1839,8 @@ Add a final sentence to your summary paragraph in your QMD as you see fit, but d
 ### Exercise 14
 
 Write a few sentences which explain why the estimates for the quantities of interest, and the uncertainty thereof, might be wrong. Suggest an alternative estimate and confidence interval, if you think either might be warranted.
+
+<!-- AR: I find this question to be broad and not that helpful. Also, this answer is suspect. I especially don't think we should suggest decreasing the floor of confidence intervals based on hunches. -->
 
 ```{r temperance-14}
 question_text(NULL,
