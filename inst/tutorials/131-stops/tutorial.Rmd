@@ -886,6 +886,8 @@ question_text(NULL,
 
 The link function, the basic mathematical structure of the model, is (mostly) determined by the type of outcome variable. 
 
+<!-- AR: In the courage section we say we use a linear model for a binary outcome variable. Need to make consistent. -->
+
 For a binary outcome variable, we use a log-odds model:
 
 $$
@@ -977,6 +979,8 @@ question_text(NULL,
 Having decided on the basic mathematical structure of the model at the end of *Justice*, a choice mostly driven by the distribution of our outcome variable, we now turn toward estimating the model.
 
 ### Exercise 2
+
+<!--AR: in justice-13 knowledge drop we say that we use a log-odds model for a binary outcome variable! -->
 
 Because our outcome variable is binary, start to create the model by using `linear_reg(engine = "lm")`.
 
