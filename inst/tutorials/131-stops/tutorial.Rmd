@@ -1145,6 +1145,8 @@ In this case, the coefficient for `raceWhite` is slightly more negative than bef
 
 ### Exercise 8
 
+<!--AR: Haven't really seen interactions or had them explained in tutorials yet, so from my perspective I don't really understand what this means or that race*zone is an interaction term -->
+
 Change the formula in the call to `fit()` to `arrested ~ sex + race*zone`.
 
 ```{r courage-8, exercise = TRUE}
