@@ -64,8 +64,8 @@ For new chapters, produce a single `.qmd` file. For new tutorials, produce a sin
 Every example chapter has six top-level sections under `#`:
 
 1. **Introduction** — `##`-level. Names the four Cardinal Virtues. Gives one "Imagine that you are…" paragraph motivating the problem. Names the dataset. Typically 2–6 paragraphs.
-2. **Wisdom** — question, Preceptor Table (predictive), EDA, Preceptor Table (causal), the validity decision.
-3. **Justice** — Population Table, stability, representativeness, unconfoundedness (for the causal model).
+2. **Wisdom** — question, Preceptor Table (predictive), EDA, Preceptor Table (causal).
+3. **Justice** — Population Table, validity, stability, representativeness, unconfoundedness (unconfoundedness applies only to causal models).
 4. **Courage** — mathematical structure, candidate models, tests, the selected Data Generating Mechanism. In later chapters, a posterior predictive check.
 5. **Temperance** — interpretation, questions and answers, humility.
 6. **Summary** — one final graphic, one concluding paragraph, and the sentence "The world is always more uncertain than our models would have us believe."
