@@ -2,7 +2,7 @@
 
 This file is the working reference for writing chapters of the textbook *Preceptor's Primer for Bayesian Data Science: Using the Cardinal Virtues for Inference* and the matching learnr tutorials in the `primer.tutorials` package. It is addressed to Claude. David Kane is the author; Claude is the co-author he collaborates with to produce new material.
 
-The goal is that this file is the only reference either of us needs when starting work on a new chapter/tutorial pair. Every piece of authoring guidance previously spread across `cardinal_virtues.qmd`, `tables.qmd`, `template_tutorial.Rmd`, and `make_p_tables.R` lives here. When those source documents conflict with this one, this file wins.
+The goal is that this file is the only reference either of us needs when starting work on a new chapter/tutorial pair. If any other document in the project conflicts with what's written here, this file wins.
 
 ---
 
@@ -297,46 +297,186 @@ This affects the shape of Wisdom and Courage sections in particular. Wisdom has 
 
 ---
 
-## 10. Preceptor Table and Population Table format
+## 10. Preceptor and Population Tables
 
-Every Preceptor Table and Population Table in the book and the tutorials follows the same format. You can generate them directly as `gt` code; you do not need to call `primer.tutorials::make_p_tables()` (that function exists for humans authoring by hand).
+Every Preceptor Table and Population Table in the book and the tutorials follows the same format. Write them directly as `gt` code using the templates in §10.3 and §10.4: copy the template, change the column labels, fill in the example rows, and write the footnotes.
 
-### 10.1 Preceptor Table
+### 10.1 Purpose
 
-Four rows. Columns grouped under spanners:
+- The **Preceptor Table** is the smallest possible table with rows and columns such that, if there is no missing data, the quantity of interest is easy to calculate. In causal tables, some cells show `"?"` — the unobserved potential outcome that the fundamental problem of causal inference forbids us from seeing.
+- The **Population Table** combines observed data (from our dataset) and researcher expectations (from the Preceptor Table), with separator rows representing the broader population from which both are drawn. Each row is a unique unit/time combination.
 
-- **Unit/Time** — two columns: a unit label (e.g., `Senator`, `Candidate`, `Student`) and a time label (e.g., `Session Year`, `Election Year`).
-- **Potential Outcomes** (causal) or **Outcome** (predictive) — two or more columns for causal, one column for predictive. Causal column names name the counterfactual, e.g. `Lifespan if Win`, `Lifespan if Lose`.
+### 10.2 Shared conventions
+
+These apply to both tables.
+
+- **All cell values are in double quotes, including numbers.** `"42"`, not `42`.
+- **Labels are display phrases, not variable names.** `"Lifespan if Win"`, not `lifespan_win`. Capitalized, space-separated, human-readable.
+- **Placeholder cells use `"..."`** — for blank rows, for the `More` column, and anywhere else we're gesturing at content we're not showing.
+- **Unobserved potential outcomes use `"?"`** — only in causal tables, only in potential-outcome columns, only on data rows where the counterfactual is unavailable. Never `"..."` for this.
+- **Column alignment:** center all columns, then left-align the first column (the unit label). The time column stays centered.
+- **Column widths are flexible.** Set them with `gt::cols_width()` if the default looks cramped or sprawling; otherwise omit. A reasonable ballpark when you do set them: 80px for `Source`, 100–120px for unit/time/outcome/treatment/covariate columns, 60px for `More`.
+- **`gt::fmt_markdown(columns = gt::everything())`** — so cell contents can contain emphasis, links, etc.
+- **`gt::cols_label(More = "...")`** — so the `More` column header displays as `...` rather than the literal word.
+- **Spanner IDs are fixed:** `"unit_span"`, `"outcome_span"`, `"treatment_span"`, `"covariates_span"`. Footnotes attach to these IDs, so don't rename them.
+
+### 10.3 Preceptor Table
+
+**Structure.** Four rows. Columns grouped under spanners:
+
+- **Unit/Time** — two columns: a unit label (e.g., `Candidate`, `Senator`, `Student`) and a time label (e.g., `Election Year`, `Session Year`).
+- **Potential Outcomes** (causal) or **Outcome** (predictive) — two or more columns for causal, one for predictive. Causal column names name the counterfactual: `Lifespan if Win`, `Lifespan if Lose`.
 - **Treatment** (causal only) — one column.
-- **Covariates** — one or more columns plus a final `More` column that is always `"..."`.
+- **Covariates** — one or more columns, plus a final `More` column that is always `"..."`.
 
-Row 3 is blank (all `"..."`). Rows 1, 2, and 4 are concrete examples. All cell values are in double quotes, including numbers (e.g. `"42"`). Where a potential outcome is not observed, use `"?"`.
+Row 3 is blank (all `"..."`). Rows 1, 2, and 4 are concrete example entries.
 
-### 10.2 Population Table
+**Footnotes.** Five, attached to the title and the four spanners via `gt::tab_footnote()`:
 
-Eleven rows. Same column structure as the Preceptor Table, plus a leading `Source` column with values `"Data"`, `"Preceptor"`, or `"..."`.
+- *Title footnote* — states the question the table helps answer.
+- *Unit footnote* — defines what each row represents. Connects to stability and representativeness.
+- *Outcome footnote* — for causal, connects to validity and explains what the potential outcomes mean; for predictive, describes the outcome variable and its measurement.
+- *Treatment footnote* — defines the treatment and connects to unconfoundedness. Omit for predictive.
+- *Covariates footnote* — explains the covariate set and what the `More` column represents.
 
-Row layout:
+**Causal template.** Copy this and edit the labels, example rows, and footnote strings. (Example uses the `governors` / lifespan-and-elections problem.)
 
-1. blank (all `"..."`, including `Source`)
-2–5. four data rows (row 4, the middle, is blank; `Source` is still `"Data"` where content applies and `"..."` on the blank row)
-6. blank
-7–10. four Preceptor rows (row 9, the middle, is blank; same Source convention)
-11. blank
+```r
+p_tibble <- tibble::tribble(
+  ~`Candidate`   , ~`Election Year`, ~`Lifespan if Win`, ~`Lifespan if Lose`, ~`Election Outcome`, ~`Election Age`, ~More ,
+  "John Smith"   , "1975"          , "78"              , "75"               , "Won"              , "52"           , "...",
+  "Mary Johnson" , "1982"          , "82"              , "79"               , "Lost"             , "48"           , "...",
+  "..."          , "..."           , "..."             , "..."              , "..."              , "..."          , "...",
+  "Robert Wilson", "1990"          , "75"              , "81"               , "Won"              , "45"           , "..."
+)
 
-Five footnotes per table, attached via `gt::tab_footnote()`:
+pre_title_footnote      <- "The question we are trying to answer goes here."
+pre_units_footnote      <- "Each row represents [unit] in [time period]. Missing rows represent the broader population."
+pre_outcome_footnote    <- "Potential lifespans under winning vs. losing. Question marks show unobserved counterfactuals (validity)."
+pre_treatment_footnote  <- "Election outcome from vote margin. Close races approximate random assignment (unconfoundedness)."
+pre_covariates_footnote <- "Election age is the observed covariate. The 'More' column represents other variables we might consider."
 
-- Title footnote — states the question.
-- Unit footnote — defines what each row represents. Connects to stability and representativeness.
-- Outcome footnote — for causal, connects to validity and explains what the potential outcomes mean; for predictive, describes the outcome variable and its measurement.
-- Treatment footnote — defines the treatment and connects to unconfoundedness. (Omit for predictive.)
-- Covariates footnote — explains the covariate set and what the `More` column represents.
+gt::gt(p_tibble) |>
+  gt::tab_header(title = "Preceptor Table") |>
+  gt::tab_spanner(label = "Unit/Time"         , id = "unit_span",
+                  columns = c(`Candidate`, `Election Year`)) |>
+  gt::tab_spanner(label = "Potential Outcomes", id = "outcome_span",
+                  columns = c(`Lifespan if Win`, `Lifespan if Lose`)) |>
+  gt::tab_spanner(label = "Treatment"         , id = "treatment_span",
+                  columns = c(`Election Outcome`)) |>
+  gt::tab_spanner(label = "Covariates"        , id = "covariates_span",
+                  columns = c(`Election Age`, More)) |>
+  gt::cols_align(align = "center", columns = gt::everything()) |>
+  gt::cols_align(align = "left"  , columns = c(`Candidate`)) |>
+  gt::cols_label(More = "...") |>
+  gt::fmt_markdown(columns = gt::everything()) |>
+  gt::tab_footnote(footnote = pre_title_footnote,
+                   locations = gt::cells_title()) |>
+  gt::tab_footnote(footnote = pre_units_footnote,
+                   locations = gt::cells_column_spanners(spanners = "unit_span")) |>
+  gt::tab_footnote(footnote = pre_outcome_footnote,
+                   locations = gt::cells_column_spanners(spanners = "outcome_span")) |>
+  gt::tab_footnote(footnote = pre_treatment_footnote,
+                   locations = gt::cells_column_spanners(spanners = "treatment_span")) |>
+  gt::tab_footnote(footnote = pre_covariates_footnote,
+                   locations = gt::cells_column_spanners(spanners = "covariates_span"))
+```
 
-### 10.3 gt template
+**Predictive variant.** Three changes from the causal template:
 
-Use `gt::tab_spanner()` for the column groups, `gt::cols_align("center", everything())` with `cols_align("left", ...)` for the unit column, and explicit `cols_width()` in `px` for legibility. Render `More` as `...` via `gt::cols_label(More = "...")`. Apply `gt::fmt_markdown(everything())` so cell contents can include emphasis.
+1. The outcome spanner holds a single column and is re-labeled `"Outcome"`:
+   ```r
+   gt::tab_spanner(label = "Outcome", id = "outcome_span", columns = c(`<OutcomeColumn>`)) |>
+   ```
+2. Drop the `Treatment` spanner and the `tab_footnote` call for `pre_treatment_footnote`.
+3. The outcome footnote describes the outcome variable and its measurement — no validity framing about counterfactuals needed.
 
-A worked causal example for reference is in §5 of the `tables.qmd` vignette (gubernatorial elections and longevity). When in doubt, match that layout.
+### 10.4 Population Table
+
+**Structure.** Eleven rows. Same column structure as the Preceptor Table, plus a leading `Source` column (not under any spanner) with values `"Data"`, `"Preceptor"`, or `"..."`.
+
+Two kinds of blank row — this is subtle but matters:
+
+- **Separator blanks** — rows 1, 6, and 11. *Every* cell is `"..."`, *including* `Source`. These represent the rest of the population.
+- **Middle-of-group blanks** — rows 4 (middle of the data block) and 9 (middle of the preceptor block). Content cells are `"..."`, but `Source` keeps its value (`"Data"` in row 4, `"Preceptor"` in row 9). These represent "more of the same kind of row."
+
+Full layout:
+
+| Row | Source      | Content              |
+|-----|-------------|----------------------|
+| 1   | `"..."`     | separator, all `"..."` |
+| 2   | `"Data"`    | observed data row    |
+| 3   | `"Data"`    | observed data row    |
+| 4   | `"Data"`    | middle blank, content cells `"..."` |
+| 5   | `"Data"`    | observed data row    |
+| 6   | `"..."`     | separator, all `"..."` |
+| 7   | `"Preceptor"` | Preceptor Table row |
+| 8   | `"Preceptor"` | Preceptor Table row |
+| 9   | `"Preceptor"` | middle blank, content cells `"..."` |
+| 10  | `"Preceptor"` | Preceptor Table row |
+| 11  | `"..."`     | separator, all `"..."` |
+
+The `More` column is present and is always `"..."` in every row.
+
+**Footnotes.** Same five-footnote structure as the Preceptor Table, but the content leans toward data provenance:
+
+- *Title footnote* — describes how this table combines observed data with Preceptor Table expectations.
+- *Unit footnote* — distinguishes Data rows from Preceptor rows; connects to stability and representativeness.
+- *Outcome footnote* — documents data sources and measurement procedures. For causal, connects to validity by explaining how observed outcomes relate to potential outcomes.
+- *Treatment footnote* — explains how treatment was assigned or observed (unconfoundedness). Omit for predictive.
+- *Covariates footnote* — describes covariate data sources and any measurement differences between the data and the Preceptor Table.
+
+**Causal template.** Writing the full 11-row tibble with a `tribble()` is clearer than assembling it from `bind_rows()`, because the visual layout of the tibble matches the rendered table row for row. (Note the `"Data"` on the middle-blank row 4 and `"Preceptor"` on row 9.)
+
+```r
+population_tibble <- tibble::tribble(
+  ~Source    , ~`Candidate`   , ~`Election Year`, ~`Lifespan if Win`, ~`Lifespan if Lose`, ~`Election Outcome`, ~`Election Age`, ~More ,
+  "..."      , "..."          , "..."           , "..."             , "..."              , "..."              , "..."          , "...",
+  "Data"     , "Frank Miller" , "1978"          , "73"              , "?"                , "Won"              , "55"           , "...",
+  "Data"     , "Susan Davis"  , "1984"          , "?"               , "76"               , "Lost"             , "49"           , "...",
+  "Data"     , "..."          , "..."           , "..."             , "..."              , "..."              , "..."          , "...",
+  "Data"     , "David Brown"  , "1992"          , "68"              , "?"                , "Won"              , "58"           , "...",
+  "..."      , "..."          , "..."           , "..."             , "..."              , "..."              , "..."          , "...",
+  "Preceptor", "John Smith"   , "1975"          , "78"              , "75"               , "Won"              , "52"           , "...",
+  "Preceptor", "Mary Johnson" , "1982"          , "82"              , "79"               , "Lost"             , "48"           , "...",
+  "Preceptor", "..."          , "..."           , "..."             , "..."              , "..."              , "..."          , "...",
+  "Preceptor", "Robert Wilson", "1990"          , "75"              , "81"               , "Won"              , "45"           , "...",
+  "..."      , "..."          , "..."           , "..."             , "..."              , "..."              , "..."          , "..."
+)
+
+pop_title_footnote      <- "This table combines observed data (top block) with Preceptor Table expectations (bottom block)."
+pop_units_footnote      <- "Data rows: [observed units]; Preceptor rows: [units we want to predict]. Missing rows represent the broader population (stability, representativeness)."
+pop_outcome_footnote    <- "Observed lifespans for data rows. Question marks are unobserved counterfactuals (validity)."
+pop_treatment_footnote  <- "Election outcomes from vote tallies. Close margins approximate random assignment (unconfoundedness)."
+pop_covariates_footnote <- "Election age from campaign records for data rows; expected values for Preceptor rows."
+
+gt::gt(population_tibble) |>
+  gt::tab_header(title = "Population Table") |>
+  gt::tab_spanner(label = "Unit/Time"         , id = "unit_span",
+                  columns = c(`Candidate`, `Election Year`)) |>
+  gt::tab_spanner(label = "Potential Outcomes", id = "outcome_span",
+                  columns = c(`Lifespan if Win`, `Lifespan if Lose`)) |>
+  gt::tab_spanner(label = "Treatment"         , id = "treatment_span",
+                  columns = c(`Election Outcome`)) |>
+  gt::tab_spanner(label = "Covariates"        , id = "covariates_span",
+                  columns = c(`Election Age`, More)) |>
+  gt::cols_align(align = "center", columns = gt::everything()) |>
+  gt::cols_align(align = "left"  , columns = c(`Candidate`)) |>
+  gt::cols_label(More = "...") |>
+  gt::fmt_markdown(columns = gt::everything()) |>
+  gt::tab_footnote(footnote = pop_title_footnote,
+                   locations = gt::cells_title()) |>
+  gt::tab_footnote(footnote = pop_units_footnote,
+                   locations = gt::cells_column_spanners(spanners = "unit_span")) |>
+  gt::tab_footnote(footnote = pop_outcome_footnote,
+                   locations = gt::cells_column_spanners(spanners = "outcome_span")) |>
+  gt::tab_footnote(footnote = pop_treatment_footnote,
+                   locations = gt::cells_column_spanners(spanners = "treatment_span")) |>
+  gt::tab_footnote(footnote = pop_covariates_footnote,
+                   locations = gt::cells_column_spanners(spanners = "covariates_span"))
+```
+
+**Predictive variant.** Same three changes as for the Preceptor Table: rename the outcome spanner to `"Outcome"`, drop the `Treatment` spanner and its footnote, and reword the outcome footnote without the validity-via-counterfactuals framing.
 
 ---
 
